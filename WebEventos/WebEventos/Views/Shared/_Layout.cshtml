@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewBag.Title - Client .Net Rest</title>
+    @Styles.Render("~/assets/template/css")
+
+
+</head>
+<body class="fixed-navbar">
+    <div class="page-wrapper">
+        <!-- START HEADER-->
+        @Html.Partial("~/Views/Shared/Partials/_Header.cshtml")
+        <!-- END HEADER-->
+        <!-- START SIDEBAR -->
+        @Html.Partial("~/Views/Shared/Partials/_LeftSidebar.cshtml")
+        <!-- END SIDEBAR -->
+
+        <div class="content-wrapper">
+            <!-- START PAGE CONTENT-->
+            <div class="page-content fade-in-up">
+                @RenderBody()
+            </div>
+            <!-- END PAGE CONTENT-->
+            @Html.Partial("~/Views/Shared/Partials/_Footer.cshtml")
+        </div>
+    </div>
+    <!-- BEGIN PAGA BACKDROPS-->
+    <div class="sidenav-backdrop backdrop"></div>
+    <div class="preloader-backdrop">
+        <div class="page-preloader">Cargando... SISVCI</div>
+    </div>
+    <!-- END PAGA BACKDROPS-->
+
+
+
+    @Scripts.Render("~/assets/template/js")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+D:\Desarrollo\Net\EventosWCF\Sise.Entities\bin\Debug\Sise.Entities.dll
+D:\Desarrollo\Net\EventosWCF\Sise.Entities\bin\Debug\Sise.Entities.pdb
+D:\Desarrollo\Net\EventosWCF\Sise.Entities\obj\Debug\Sise.Entities.csprojResolveAssemblyReference.cache
+D:\Desarrollo\Net\EventosWCF\Sise.Entities\obj\Debug\Sise.Entities.dll
+D:\Desarrollo\Net\EventosWCF\Sise.Entities\obj\Debug\Sise.Entities.pdb
+C:\Users\Abel\Desktop\EventosWCF\Sise.Entities\bin\Debug\Sise.Entities.dll
+C:\Users\Abel\Desktop\EventosWCF\Sise.Entities\bin\Debug\Sise.Entities.pdb
+C:\Users\Abel\Desktop\EventosWCF\Sise.Entities\obj\Debug\Sise.Entities.csprojResolveAssemblyReference.cache
+C:\Users\Abel\Desktop\EventosWCF\Sise.Entities\obj\Debug\Sise.Entities.dll
+C:\Users\Abel\Desktop\EventosWCF\Sise.Entities\obj\Debug\Sise.Entities.pdb
