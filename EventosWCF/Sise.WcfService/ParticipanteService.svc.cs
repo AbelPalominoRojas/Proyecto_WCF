@@ -7,7 +7,7 @@ using System.Text;
 using Sise.Entities;
 using Sise.WcfService.Entity;
 using Sise.Business;
-using Sise.Entities;
+
 
 namespace Sise.WcfService
 {
