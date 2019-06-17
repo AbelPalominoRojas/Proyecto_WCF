@@ -28,16 +28,56 @@ namespace Sise.WcfService
             }
             if (evento.NombreEvento.Trim().Length == 0)
             {
-                result.Message = "El campo Apellidos es requerido.";
+                result.Message = "El campo NombreEvento es requerido.";
                 return result;
             }
-          
-            
+            if (evento.DescripcionEvento.Trim().Length == 0)
+            {
+                result.Message = "El campo DescripcionEvento es requerido.";
+                return result;
+            }
+            if (evento.FechaEvento == null)
+            {
+                result.Message = "El campo FechaEvento es requerido.";
+                return result;
+            }
+            if (evento.Expositor.Trim().Length == 0)
+            {
+                result.Message = "El campo Expositor es requerido.";
+                return result;
+            }
+
+
+            if (evento.LugarEvento.Trim().Length == 0)
+            {
+                result.Message = "El campo LugarEvento es requerido.";
+                return result;
+            }
+
+            if (evento.LimiteParticipantes == 0)
+            {
+                result.Message = "El campo LimiteParticipantes es requerido.";
+                return result;
+            }
+
+            if (evento.LugaresDisponibles == 0)
+            {
+                result.Message = "El campo LugaresDisponibles es requerido.";
+                return result;
+            }
+
+            if (evento.CodUsuario == 0)
+            {
+                result.Message = "El campo CodUsuario es requerido.";
+                return result;
+            }
+
+
 
             //proceso
             try
             {
-                if (new EventoBll().create(evento))
+                if (new EventoBll().registrar(evento))
                 {
                     result.IsSuccess = true;
                     result.Message = " Evento registrado correctamente";
@@ -68,14 +108,63 @@ namespace Sise.WcfService
                 result.Message = "El codigo de  evento no es correcto.";
                 return result;
             }
+            if (evento.CodAreaTematica == 0)
+            {
+                result.Message = "El campo CodAreaTematica es requerido.";
+                return result;
+            }
+            if (evento.NombreEvento.Trim().Length == 0)
+            {
+                result.Message = "El campo NombreEvento es requerido.";
+                return result;
+            }
+            if (evento.DescripcionEvento.Trim().Length == 0)
+            {
+                result.Message = "El campo DescripcionEvento es requerido.";
+                return result;
+            }
+            if (evento.FechaEvento == null)
+            {
+                result.Message = "El campo FechaEvento es requerido.";
+                return result;
+            }
+            if (evento.Expositor.Trim().Length == 0)
+            {
+                result.Message = "El campo Expositor es requerido.";
+                return result;
+            }
 
-            
 
-            
+            if (evento.LugarEvento.Trim().Length == 0)
+            {
+                result.Message = "El campo LugarEvento es requerido.";
+                return result;
+            }
+
+            if (evento.LimiteParticipantes == 0)
+            {
+                result.Message = "El campo LimiteParticipantes es requerido.";
+                return result;
+            }
+
+            if (evento.LugaresDisponibles == 0)
+            {
+                result.Message = "El campo LugaresDisponibles es requerido.";
+                return result;
+            }
+
+            if (evento.CodUsuario == 0)
+            {
+                result.Message = "El campo CodUsuario es requerido.";
+                return result;
+            }
+
+
+
             //proceso
             try
             {
-                if (new EventoBll().edit(evento))
+                if (new EventoBll().actualizar(evento))
                 {
                     result.IsSuccess = true;
                     result.Message = " Evento actualizado correctamente";
@@ -104,7 +193,7 @@ namespace Sise.WcfService
             //proceso
             try
             {
-                var Evento = new EventoBll().find(new Evento() { CodEvento = CodEvento });
+                var Evento = new EventoBll().buscar(new Evento() { CodEvento = CodEvento });
 
                 if (Evento != null)
                 {
@@ -145,7 +234,7 @@ namespace Sise.WcfService
             //proceso
             try
             {
-                if (new ParticipanteBll().remove(new Participante() { CodParticipante = CodParticipante }))
+                if (new EventoBll().eliminar(new Evento() { CodEvento = CodEvento } )) 
                 {
                     result.IsSuccess = true;
                     result.Message = " Evento eliminado correctamente";
@@ -165,7 +254,7 @@ namespace Sise.WcfService
 
             try
             {
-                result.Items = new EventoBll().findAll();
+                result.Items = new EventoBll().listar();
                 result.IsSuccess = true;
                 result.Message = "Listado de Eventos";
             }

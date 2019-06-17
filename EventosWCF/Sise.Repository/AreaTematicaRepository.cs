@@ -10,13 +10,13 @@ namespace Sise.Repository
 {
     public class AreaTematicaRepository : AbstractCrud<AreaTematica>
     {
-        public override bool create(AreaTematica areaTematica)
+        public override bool registrar(AreaTematica areaTematica)
         {
             bool result = false;
 
             sqlQuery = "dbo.USP_AreaTematicas_Insert";
 
-            using (sqlConnection = new SqlConnection(getConnectionStrings()))
+            using (sqlConnection = new SqlConnection(nombreConexcion()))
             {
                 using (sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
                 {
@@ -34,13 +34,13 @@ namespace Sise.Repository
             return result;
         }
 
-        public override bool edit(AreaTematica areaTematica)
+        public override bool actualizar(AreaTematica areaTematica)
         {
             bool result = false;
 
             sqlQuery = "dbo.USP_AreaTematicas_Update";
 
-            using (sqlConnection = new SqlConnection(getConnectionStrings()))
+            using (sqlConnection = new SqlConnection(nombreConexcion()))
             {
                 using (sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
                 {
@@ -58,13 +58,13 @@ namespace Sise.Repository
             return result;
         }
 
-        public override bool remove(AreaTematica areaTematica)
+        public override bool eliminar(AreaTematica areaTematica)
         {
             bool result = false;
 
             sqlQuery = "dbo.USP_AreaTematicas_Delete";
 
-            using (sqlConnection = new SqlConnection(getConnectionStrings()))
+            using (sqlConnection = new SqlConnection(nombreConexcion()))
             {
                 using (sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
                 {
@@ -80,13 +80,13 @@ namespace Sise.Repository
             return result;
         }
 
-        public override List<AreaTematica> findAll()
+        public override List<AreaTematica> listar()
         {
             List<AreaTematica> listAreaTematicas = new List<AreaTematica>();
 
             sqlQuery = "dbo.USP_AreaTematicas_SelectAll";
 
-            using (sqlConnection = new SqlConnection(getConnectionStrings()))
+            using (sqlConnection = new SqlConnection(nombreConexcion()))
             {
                 using (sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
                 {
@@ -122,13 +122,13 @@ namespace Sise.Repository
             return listAreaTematicas;
         }
 
-        public override AreaTematica find(AreaTematica areaTematica)
+        public override AreaTematica buscar(AreaTematica areaTematica)
         {
             AreaTematica resultAreaTematicas = null;
 
             sqlQuery = "dbo.USP_AreaTematicas_SelectById";
 
-            using (sqlConnection = new SqlConnection(getConnectionStrings()))
+            using (sqlConnection = new SqlConnection(nombreConexcion()))
             {
                 using (sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
                 {

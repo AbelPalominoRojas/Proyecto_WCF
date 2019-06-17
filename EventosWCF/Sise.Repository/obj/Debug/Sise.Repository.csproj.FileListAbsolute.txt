@@ -12,3 +12,17 @@ C:\Users\Abel\Desktop\EventosWCF\Sise.Repository\bin\Debug\Sise.Entities.pdb
 C:\Users\Abel\Desktop\EventosWCF\Sise.Repository\obj\Debug\Sise.Repository.csprojResolveAssemblyReference.cache
 C:\Users\Abel\Desktop\EventosWCF\Sise.Repository\obj\Debug\Sise.Repository.dll
 C:\Users\Abel\Desktop\EventosWCF\Sise.Repository\obj\Debug\Sise.Repository.pdb
+D:\Desarrollo\yanet\Net\Proyecto_WCF\EventosWCF\Sise.Repository\bin\Debug\Sise.Repository.dll
+D:\Desarrollo\yanet\Net\Proyecto_WCF\EventosWCF\Sise.Repository\bin\Debug\Sise.Repository.pdb
+D:\Desarrollo\yanet\Net\Proyecto_WCF\EventosWCF\Sise.Repository\bin\Debug\Sise.Entities.dll
+D:\Desarrollo\yanet\Net\Proyecto_WCF\EventosWCF\Sise.Repository\bin\Debug\Sise.Entities.pdb
+D:\Desarrollo\yanet\Net\Proyecto_WCF\EventosWCF\Sise.Repository\obj\Debug\Sise.Repository.csprojResolveAssemblyReference.cache
+D:\Desarrollo\yanet\Net\Proyecto_WCF\EventosWCF\Sise.Repository\obj\Debug\Sise.Repository.dll
+D:\Desarrollo\yanet\Net\Proyecto_WCF\EventosWCF\Sise.Repository\obj\Debug\Sise.Repository.pdb
+D:\Desarrollo\Net\Proyecto_WCF\EventosWCF\Sise.Repository\bin\Debug\Sise.Repository.dll
+D:\Desarrollo\Net\Proyecto_WCF\EventosWCF\Sise.Repository\bin\Debug\Sise.Repository.pdb
+D:\Desarrollo\Net\Proyecto_WCF\EventosWCF\Sise.Repository\bin\Debug\Sise.Entities.dll
+D:\Desarrollo\Net\Proyecto_WCF\EventosWCF\Sise.Repository\bin\Debug\Sise.Entities.pdb
+D:\Desarrollo\Net\Proyecto_WCF\EventosWCF\Sise.Repository\obj\Debug\Sise.Repository.csprojResolveAssemblyReference.cache
+D:\Desarrollo\Net\Proyecto_WCF\EventosWCF\Sise.Repository\obj\Debug\Sise.Repository.dll
+D:\Desarrollo\Net\Proyecto_WCF\EventosWCF\Sise.Repository\obj\Debug\Sise.Repository.pdb

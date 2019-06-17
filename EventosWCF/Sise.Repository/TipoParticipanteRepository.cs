@@ -10,13 +10,13 @@ namespace Sise.Repository
 {
     public class TipoParticipanteRepository : AbstractCrud<TipoParticipante>
     {
-        public override bool create(TipoParticipante tipoParticipante)
+        public override bool registrar(TipoParticipante tipoParticipante)
         {
             bool result = false;
 
             sqlQuery = "dbo.USP_TipoParticipantes_Insert";
 
-            using (sqlConnection = new SqlConnection(getConnectionStrings()))
+            using (sqlConnection = new SqlConnection(nombreConexcion()))
             {
                 using (sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
                 {
@@ -34,13 +34,13 @@ namespace Sise.Repository
             return result;
         }
 
-        public override bool edit(TipoParticipante tipoParticipante)
+        public override bool actualizar(TipoParticipante tipoParticipante)
         {
             bool result = false;
 
             sqlQuery = "dbo.USP_TipoParticipantes_Update";
 
-            using (sqlConnection = new SqlConnection(getConnectionStrings()))
+            using (sqlConnection = new SqlConnection(nombreConexcion()))
             {
                 using (sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
                 {
@@ -58,13 +58,13 @@ namespace Sise.Repository
             return result;
         }
 
-        public override bool remove(TipoParticipante tipoParticipante)
+        public override bool eliminar(TipoParticipante tipoParticipante)
         {
             bool result = false;
 
             sqlQuery = "dbo.USP_TipoParticipantes_Delete";
 
-            using (sqlConnection = new SqlConnection(getConnectionStrings()))
+            using (sqlConnection = new SqlConnection(nombreConexcion()))
             {
                 using (sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
                 {
@@ -80,13 +80,13 @@ namespace Sise.Repository
             return result;
         }
 
-        public override List<TipoParticipante> findAll()
+        public override List<TipoParticipante> listar()
         {
             List<TipoParticipante> listTipoParticipantes = new List<TipoParticipante>();
 
             sqlQuery = "dbo.USP_TipoParticipantes_SelectAll";
 
-            using (sqlConnection = new SqlConnection(getConnectionStrings()))
+            using (sqlConnection = new SqlConnection(nombreConexcion()))
             {
                 using (sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
                 {
@@ -123,13 +123,13 @@ namespace Sise.Repository
             return listTipoParticipantes;
         }
 
-        public override TipoParticipante find(TipoParticipante tipoParticipante)
+        public override TipoParticipante buscar(TipoParticipante tipoParticipante)
         {
             TipoParticipante resultTipoParticipantes = null;
 
             sqlQuery = "dbo.USP_TipoParticipantes_SelectById";
 
-            using (sqlConnection = new SqlConnection(getConnectionStrings()))
+            using (sqlConnection = new SqlConnection(nombreConexcion()))
             {
                 using (sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
                 {

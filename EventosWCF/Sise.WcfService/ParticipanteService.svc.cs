@@ -51,7 +51,7 @@ namespace Sise.WcfService
             //proceso
             try
             {
-                if (new ParticipanteBll().create(participante))
+                if (new ParticipanteBll().registrar(participante))
                 {
                     result.IsSuccess = true;
                     result.Message = "Participante registrado correctamente";
@@ -112,7 +112,7 @@ namespace Sise.WcfService
             //proceso
             try
             {
-                if (new ParticipanteBll().edit(participante))
+                if (new ParticipanteBll().actualizar(participante))
                 {
                     result.IsSuccess = true;
                     result.Message = " Participante actualizado correctamente";
@@ -141,7 +141,7 @@ namespace Sise.WcfService
             //proceso
             try
             {
-                var Participante = new ParticipanteBll().find(new Participante() { CodParticipante = CodParticipante });
+                var Participante = new ParticipanteBll().buscar(new Participante() { CodParticipante = CodParticipante });
 
                 if (Participante != null)
                 {
@@ -182,7 +182,7 @@ namespace Sise.WcfService
             //proceso
             try
             {
-                if (new ParticipanteBll().remove(new Participante() { CodParticipante = CodParticipante }))
+                if (new ParticipanteBll().eliminar(new Participante() { CodParticipante = CodParticipante }))
                 {
                     result.IsSuccess = true;
                     result.Message = " Participante eliminado correctamente";
@@ -202,7 +202,7 @@ namespace Sise.WcfService
 
             try
             {
-                result.Items = new ParticipanteBll().findAll();
+                result.Items = new ParticipanteBll().listar();
                 result.IsSuccess = true;
                 result.Message = "Listado de Participante";
             }

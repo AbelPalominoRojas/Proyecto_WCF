@@ -9,29 +9,29 @@ namespace Sise.Business
     public class ParticipanteBll
     {
 
-        public bool create(Participante participante)
+        public bool registrar(Participante participante)
         {
-            return new ParticipanteRepository().create(participante);
+            return new ParticipanteRepository().registrar(participante);
         }
 
-        public bool edit(Participante participante)
+        public bool actualizar(Participante participante)
         {
-            return new ParticipanteRepository().edit(participante);
+            return new ParticipanteRepository().actualizar(participante);
         }
 
-        public bool remove(Participante participante)
+        public bool eliminar(Participante participante)
         {
-            return new ParticipanteRepository().remove(participante);
+            return new ParticipanteRepository().eliminar(participante);
         }
 
-        public List<Participante> findAll()
+        public List<Participante> listar()
         {
-            return new ParticipanteRepository().findAll();
+            return new ParticipanteRepository().listar();
         }
 
-        public Participante find(Participante participante)
+        public Participante buscar(Participante participante)
         {
-            return new ParticipanteRepository().find(participante);
+            return new ParticipanteRepository().buscar(participante);
         }
 
     }

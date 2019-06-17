@@ -45,7 +45,7 @@ namespace Sise.WcfService
             //proceso
             try
             {
-                if (new UsuarioBll().create(usuario))
+                if (new UsuarioBll().registrar(usuario))
                 {
                     result.IsSuccess = true;
                     result.Message = "usuario registrado correctamente";
@@ -102,7 +102,7 @@ namespace Sise.WcfService
             //proceso
             try
             {
-                if (new UsuarioBll().edit(usuario))
+                if (new UsuarioBll().actualizar(usuario))
                 {
                     result.IsSuccess = true;
                     result.Message = " usuario actualizado correctamente";
@@ -131,7 +131,7 @@ namespace Sise.WcfService
             //proceso
             try
             {
-                var usuario = new UsuarioBll().find(new Usuario() { CodUsuario = CodUsuario });
+                var usuario = new UsuarioBll().buscar(new Usuario() { CodUsuario = CodUsuario });
 
                 if (usuario != null)
                 {
@@ -172,7 +172,7 @@ namespace Sise.WcfService
             //proceso
             try
             {
-                if (new UsuarioBll().remove(new Usuario() { CodUsuario = CodUsuario }))
+                if (new UsuarioBll().eliminar(new Usuario() { CodUsuario = CodUsuario }))
                 {
                     result.IsSuccess = true;
                     result.Message = " usuario eliminado correctamente";
@@ -193,7 +193,7 @@ namespace Sise.WcfService
 
             try
             {
-                result.Items = new UsuarioBll().findAll();
+                result.Items = new UsuarioBll().listar();
                 result.IsSuccess = true;
                 result.Message = "Listado de Usuario";
             }
@@ -211,5 +211,5 @@ namespace Sise.WcfService
     }
 
 
-}
+
 }

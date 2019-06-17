@@ -33,7 +33,7 @@ namespace Sise.WcfService
             //proceso
             try
             {
-                if (new AreaTematicaBll().create(areaTematica))
+                if (new AreaTematicaBll().registrar(areaTematica))
                 {
                     result.IsSuccess = true;
                     result.Message = "Area Tematica registrado correctamente";
@@ -72,7 +72,7 @@ namespace Sise.WcfService
             //proceso
             try
             {
-                if (new AreaTematicaBll().edit(areaTematica))
+                if (new AreaTematicaBll().actualizar(areaTematica))
                 {
                     result.IsSuccess = true;
                     result.Message = "Area Tematica actualizado correctamente";
@@ -104,7 +104,7 @@ namespace Sise.WcfService
             //proceso
             try
             {
-                var areaTematica = new AreaTematicaBll().find(new AreaTematica() { CodAreaTematica = CodAreaTematica });
+                var areaTematica = new AreaTematicaBll().buscar(new AreaTematica() { CodAreaTematica = CodAreaTematica });
 
                 if (areaTematica != null)
                 {
@@ -127,7 +127,7 @@ namespace Sise.WcfService
 
             try
             {
-                result.Items = new AreaTematicaBll().findAll();
+                result.Items = new AreaTematicaBll().listar();
                 result.IsSuccess = true;
                 result.Message = "Listado de area tematica";
             }
@@ -160,7 +160,7 @@ namespace Sise.WcfService
             //proceso
             try
             {
-                if (new AreaTematicaBll().remove(new AreaTematica() { CodAreaTematica = CodAreaTematica }))
+                if (new AreaTematicaBll().eliminar(new AreaTematica() { CodAreaTematica = CodAreaTematica }))
                 {
                     result.IsSuccess = true;
                     result.Message = "Area Tematica eliminado correctamente";

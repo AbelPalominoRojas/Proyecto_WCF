@@ -10,13 +10,13 @@ namespace Sise.Repository
 {
     public class UsuarioRepository : AbstractCrud<Usuario>
     {
-        public override bool create(Usuario usuario)
+        public override bool registrar(Usuario usuario)
         {
             bool result = false;
 
             sqlQuery = "dbo.USP_Usuarios_Insert";
 
-            using (sqlConnection = new SqlConnection(getConnectionStrings()))
+            using (sqlConnection = new SqlConnection(nombreConexcion()))
             {
                 using (sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
                 {
@@ -37,13 +37,13 @@ namespace Sise.Repository
             return result;
         }
 
-        public override bool edit(Usuario usuario)
+        public override bool actualizar(Usuario usuario)
         {
             bool result = false;
 
             sqlQuery = "dbo.USP_Usuarios_Update";
 
-            using (sqlConnection = new SqlConnection(getConnectionStrings()))
+            using (sqlConnection = new SqlConnection(nombreConexcion()))
             {
                 using (sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
                 {
@@ -64,13 +64,13 @@ namespace Sise.Repository
             return result;
         }
 
-        public override bool remove(Usuario usuario)
+        public override bool eliminar(Usuario usuario)
         {
             bool result = false;
 
             sqlQuery = "dbo.USP_Usuarios_Delete";
 
-            using (sqlConnection = new SqlConnection(getConnectionStrings()))
+            using (sqlConnection = new SqlConnection(nombreConexcion()))
             {
                 using (sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
                 {
@@ -86,13 +86,13 @@ namespace Sise.Repository
             return result;
         }
 
-        public override List<Usuario> findAll()
+        public override List<Usuario> listar()
         {
             List<Usuario> listUsuarios = new List<Usuario>();
 
             sqlQuery = "dbo.USP_Usuarios_SelectAll";
 
-            using (sqlConnection = new SqlConnection(getConnectionStrings()))
+            using (sqlConnection = new SqlConnection(nombreConexcion()))
             {
                 using (sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
                 {
@@ -141,13 +141,13 @@ namespace Sise.Repository
             return listUsuarios;
         }
 
-        public override Usuario find(Usuario usuario)
+        public override Usuario buscar(Usuario usuario)
         {
             Usuario resultUsuarios = null;
 
             sqlQuery = "dbo.USP_Usuarios_SelectById";
 
-            using (sqlConnection = new SqlConnection(getConnectionStrings()))
+            using (sqlConnection = new SqlConnection(nombreConexcion()))
             {
                 using (sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
                 {

@@ -40,3 +40,4 @@ TestResult.xml
 [Rr]eleasePS/
 dlldata.c
 EventosWCF/.vs/EventosWCFSolution/v14/.suo
+*.cache

@@ -9,29 +9,29 @@ namespace Sise.Business
     public class TipoParticipanteBll
     {
 
-        public bool create(TipoParticipante tipoParticipante)
+        public bool registrar(TipoParticipante tipoParticipante)
         {
-            return new TipoParticipanteRepository().create(tipoParticipante);
+            return new TipoParticipanteRepository().registrar(tipoParticipante);
         }
 
-        public bool edit(TipoParticipante tipoParticipante)
+        public bool actualizar(TipoParticipante tipoParticipante)
         {
-            return new TipoParticipanteRepository().edit(tipoParticipante);
+            return new TipoParticipanteRepository().actualizar(tipoParticipante);
         }
 
-        public bool remove(TipoParticipante tipoParticipante)
+        public bool eliminar(TipoParticipante tipoParticipante)
         {
-            return new TipoParticipanteRepository().remove(tipoParticipante);
+            return new TipoParticipanteRepository().eliminar(tipoParticipante);
         }
 
-        public List<TipoParticipante> findAll()
+        public List<TipoParticipante> listar()
         {
-            return new TipoParticipanteRepository().findAll();
+            return new TipoParticipanteRepository().listar();
         }
 
-        public TipoParticipante find(TipoParticipante tipoParticipante)
+        public TipoParticipante buscar(TipoParticipante tipoParticipante)
         {
-            return new TipoParticipanteRepository().find(tipoParticipante);
+            return new TipoParticipanteRepository().buscar(tipoParticipante);
         }
 
     }

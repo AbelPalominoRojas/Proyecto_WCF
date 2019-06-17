@@ -10,13 +10,13 @@ namespace Sise.Repository
 {
     public class EventoRepository : AbstractCrud<Evento>
     {
-        public override bool create(Evento evento)
+        public override bool registrar(Evento evento)
         {
             bool result = false;
 
             sqlQuery = "dbo.USP_Eventos_Insert";
 
-            using (sqlConnection = new SqlConnection(getConnectionStrings()))
+            using (sqlConnection = new SqlConnection(nombreConexcion()))
             {
                 using (sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
                 {
@@ -42,13 +42,13 @@ namespace Sise.Repository
             return result;
         }
 
-        public override bool edit(Evento evento)
+        public override bool actualizar(Evento evento)
         {
             bool result = false;
 
             sqlQuery = "dbo.USP_Eventos_Update";
 
-            using (sqlConnection = new SqlConnection(getConnectionStrings()))
+            using (sqlConnection = new SqlConnection(nombreConexcion()))
             {
                 using (sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
                 {
@@ -74,13 +74,13 @@ namespace Sise.Repository
             return result;
         }
 
-        public override bool remove(Evento evento)
+        public override bool eliminar(Evento evento)
         {
             bool result = false;
 
             sqlQuery = "dbo.USP_Eventos_Delete";
 
-            using (sqlConnection = new SqlConnection(getConnectionStrings()))
+            using (sqlConnection = new SqlConnection(nombreConexcion()))
             {
                 using (sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
                 {
@@ -96,13 +96,13 @@ namespace Sise.Repository
             return result;
         }
 
-        public override List<Evento> findAll()
+        public override List<Evento> listar()
         {
             List<Evento> listEventos = new List<Evento>();
 
             sqlQuery = "dbo.USP_Eventos_SelectAll";
 
-            using (sqlConnection = new SqlConnection(getConnectionStrings()))
+            using (sqlConnection = new SqlConnection(nombreConexcion()))
             {
                 using (sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
                 {
@@ -171,13 +171,13 @@ namespace Sise.Repository
             return listEventos;
         }
 
-        public override Evento find(Evento evento)
+        public override Evento buscar(Evento evento)
         {
             Evento resultEventos = null;
 
             sqlQuery = "dbo.USP_Eventos_SelectById";
 
-            using (sqlConnection = new SqlConnection(getConnectionStrings()))
+            using (sqlConnection = new SqlConnection(nombreConexcion()))
             {
                 using (sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
                 {

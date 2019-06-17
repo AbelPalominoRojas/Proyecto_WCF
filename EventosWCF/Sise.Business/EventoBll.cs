@@ -9,29 +9,29 @@ namespace Sise.Business
     public class EventoBll
     {
 
-        public bool create(Evento evento)
+        public bool registrar(Evento evento)
         {
-            return new EventoRepository().create(evento);
+            return new EventoRepository().registrar(evento);
         }
 
-        public bool edit(Evento evento)
+        public bool actualizar(Evento evento)
         {
-            return new EventoRepository().edit(evento);
+            return new EventoRepository().actualizar(evento);
         }
 
-        public bool remove(Evento evento)
+        public bool eliminar(Evento evento)
         {
-            return new EventoRepository().remove(evento);
+            return new EventoRepository().eliminar(evento);
         }
 
-        public List<Evento> findAll()
+        public List<Evento> listar()
         {
-            return new EventoRepository().findAll();
+            return new EventoRepository().listar();
         }
 
-        public Evento find(Evento evento)
+        public Evento buscar(Evento evento)
         {
-            return new EventoRepository().find(evento);
+            return new EventoRepository().buscar(evento);
         }
 
     }

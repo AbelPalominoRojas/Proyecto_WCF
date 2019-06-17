@@ -13,20 +13,20 @@ namespace Sise.Repository
         protected SqlDataReader sqlDataReader;
         protected String sqlQuery;
 
-        protected string getConnectionStrings()
+        protected string nombreConexcion()
         {
             return ConfigurationManager.ConnectionStrings["cndbEventos"].ToString();
         }
 
-        public abstract bool create(T entity);
+        public abstract bool registrar(T entity);
 
-        public abstract bool edit(T entity);
+        public abstract bool actualizar(T entity);
 
-        public abstract bool remove(T entity);
+        public abstract bool eliminar(T entity);
 
-        public abstract T find(T entity);
+        public abstract T buscar(T entity);
 
-        public abstract List<T> findAll();
+        public abstract List<T> listar();
 
     }
 }

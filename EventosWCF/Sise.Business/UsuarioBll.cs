@@ -9,29 +9,29 @@ namespace Sise.Business
     public class UsuarioBll
     {
 
-        public bool create(Usuario usuario)
+        public bool registrar(Usuario usuario)
         {
-            return new UsuarioRepository().create(usuario);
+            return new UsuarioRepository().registrar(usuario);
         }
 
-        public bool edit(Usuario usuario)
+        public bool actualizar(Usuario usuario)
         {
-            return new UsuarioRepository().edit(usuario);
+            return new UsuarioRepository().actualizar(usuario);
         }
 
-        public bool remove(Usuario usuario)
+        public bool eliminar(Usuario usuario)
         {
-            return new UsuarioRepository().remove(usuario);
+            return new UsuarioRepository().eliminar(usuario);
         }
 
-        public List<Usuario> findAll()
+        public List<Usuario> listar()
         {
-            return new UsuarioRepository().findAll();
+            return new UsuarioRepository().listar();
         }
 
-        public Usuario find(Usuario usuario)
+        public Usuario buscar(Usuario usuario)
         {
-            return new UsuarioRepository().find(usuario);
+            return new UsuarioRepository().buscar(usuario);
         }
 
     }

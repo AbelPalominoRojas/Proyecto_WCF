@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Sise.WcfService.EventoParticipantesService" CodeBehind="EventoParticipantesService.svc.cs" %>

@@ -32,7 +32,7 @@ namespace Sise.WcfService
             //proceso
             try
             {
-                if (new TipoParticipanteBll().create(tipoParticipantes))
+                if (new TipoParticipanteBll().registrar(tipoParticipantes))
                 {
                     result.IsSuccess = true;
                     result.Message = "Tipo Participantes registrado correctamente";
@@ -74,7 +74,7 @@ namespace Sise.WcfService
             //proceso
             try
             {
-                if (new TipoParticipanteBll().edit(tipoParticipantes))
+                if (new TipoParticipanteBll().actualizar(tipoParticipantes))
                 {
                     result.IsSuccess = true;
                     result.Message = " Tipo Participante actualizado correctamente";
@@ -103,7 +103,7 @@ namespace Sise.WcfService
             //proceso
             try
             {
-                var tipoParticipantes = new TipoParticipanteBll().find(new TipoParticipante() { CodTipoParticipante = CodTipoParticipantes });
+                var tipoParticipantes = new TipoParticipanteBll().buscar(new TipoParticipante() { CodTipoParticipante = CodTipoParticipantes });
 
                 if (tipoParticipantes != null)
                 {
@@ -144,7 +144,7 @@ namespace Sise.WcfService
             //proceso
             try
             {
-                if (new TipoParticipanteBll().remove(new TipoParticipante() { CodTipoParticipante = CodTipoParticipantes }))
+                if (new TipoParticipanteBll().eliminar(new TipoParticipante() { CodTipoParticipante = CodTipoParticipantes }))
                 {
                     result.IsSuccess = true;
                     result.Message = " Tipo Participante eliminado correctamente";
@@ -165,7 +165,7 @@ namespace Sise.WcfService
 
             try
             {
-                result.Items = new TipoParticipanteBll().findAll();
+                result.Items = new TipoParticipanteBll().listar();
                 result.IsSuccess = true;
                 result.Message = "Listado de Tipo Participante";
             }

@@ -9,29 +9,29 @@ namespace Sise.Business
     public class AreaTematicaBll
     {
 
-        public bool create(AreaTematica areaTematica)
+        public bool registrar(AreaTematica areaTematica)
         {
-            return new AreaTematicaRepository().create(areaTematica);
+            return new AreaTematicaRepository().registrar(areaTematica);
         }
 
-        public bool edit(AreaTematica areaTematica)
+        public bool actualizar(AreaTematica areaTematica)
         {
-            return new AreaTematicaRepository().edit(areaTematica);
+            return new AreaTematicaRepository().actualizar(areaTematica);
         }
 
-        public bool remove(AreaTematica areaTematica)
+        public bool eliminar(AreaTematica areaTematica)
         {
-            return new AreaTematicaRepository().remove(areaTematica);
+            return new AreaTematicaRepository().eliminar(areaTematica);
         }
 
-        public List<AreaTematica> findAll()
+        public List<AreaTematica> listar()
         {
-            return new AreaTematicaRepository().findAll();
+            return new AreaTematicaRepository().listar();
         }
 
-        public AreaTematica find(AreaTematica areaTematica)
+        public AreaTematica buscar(AreaTematica areaTematica)
         {
-            return new AreaTematicaRepository().find(areaTematica);
+            return new AreaTematicaRepository().buscar(areaTematica);
         }
 
     }
