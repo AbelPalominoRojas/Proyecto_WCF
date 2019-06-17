@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0fb97a1a-684b-4d01-928f-3653412a86f3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:4356/AreaTematicaService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AreaTematicaService.wsdl" MetadataType="Wsdl" ID="6067b19e-8fde-4526-9de6-e9909edf66fb" SourceId="1" SourceUrl="http://localhost:4356/AreaTematicaService.svc?wsdl" />
+    <MetadataFile FileName="AreaTematicaService.xsd" MetadataType="Schema" ID="13c0b941-5774-45c7-bad1-7eae04bfd417" SourceId="1" SourceUrl="http://localhost:4356/AreaTematicaService.svc?xsd=xsd2" />
+    <MetadataFile FileName="AreaTematicaService1.xsd" MetadataType="Schema" ID="2d195a80-354b-45df-bef4-bb0587ba7452" SourceId="1" SourceUrl="http://localhost:4356/AreaTematicaService.svc?xsd=xsd3" />
+    <MetadataFile FileName="AreaTematicaService2.xsd" MetadataType="Schema" ID="d16c5e06-bb2b-403c-9bab-387ca4f9a163" SourceId="1" SourceUrl="http://localhost:4356/AreaTematicaService.svc?xsd=xsd0" />
+    <MetadataFile FileName="AreaTematicaService3.xsd" MetadataType="Schema" ID="ffbdbc4c-b69d-4607-b074-ae8535204cc6" SourceId="1" SourceUrl="http://localhost:4356/AreaTematicaService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

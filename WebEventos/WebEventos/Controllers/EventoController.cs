@@ -3,30 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WebEventos.SRefAreaTematica;
 
 namespace WebEventos.Controllers
 {
-    public class AreaTematicaController : Controller
+    public class EventoController : Controller
     {
-        AreaTematicaServiceClient client = new AreaTematicaServiceClient();
-
         // GET: Evento
         public ActionResult Index()
         {
-            List<AreaTematica> listAreaTematica = new List<AreaTematica>();
-            try
-            {
-                listAreaTematica = client.listar().ToList();
-
-            }
-            catch (Exception ex)
-            {
-
-                //throw;
-            }
-
-            return View(listAreaTematica);
+            return View();
         }
 
         // GET: Evento/Details/5
