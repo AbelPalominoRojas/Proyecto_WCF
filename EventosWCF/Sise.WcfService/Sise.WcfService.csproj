@@ -89,42 +89,42 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EventoParticipantesService.svc" />
-    <Content Include="EventosService.svc" />
+    <Content Include="EventoParticipanteService.svc" />
+    <Content Include="EventoService.svc" />
     <Content Include="ParticipanteService.svc" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="AreaTematicaService.svc" />
-    <Content Include="TipoParticipantesService.svc" />
-    <Content Include="UsuariosService.svc" />
+    <Content Include="TipoParticipanteService.svc" />
+    <Content Include="UsuarioService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AreaTematicaService.svc.cs">
       <DependentUpon>AreaTematicaService.svc</DependentUpon>
     </Compile>
-    <Compile Include="Entity\Response.cs" />
-    <Compile Include="EventoParticipantesService.svc.cs">
-      <DependentUpon>EventoParticipantesService.svc</DependentUpon>
+    <Compile Include="Entity\ServiceResponse.cs" />
+    <Compile Include="EventoParticipanteService.svc.cs">
+      <DependentUpon>EventoParticipanteService.svc</DependentUpon>
     </Compile>
-    <Compile Include="EventosService.svc.cs">
-      <DependentUpon>EventosService.svc</DependentUpon>
+    <Compile Include="EventoService.svc.cs">
+      <DependentUpon>EventoService.svc</DependentUpon>
     </Compile>
     <Compile Include="IAreaTematicaService.cs" />
-    <Compile Include="IEventoParticipantesService.cs" />
-    <Compile Include="IEventosService.cs" />
+    <Compile Include="IEventoParticipanteService.cs" />
+    <Compile Include="IEventoService.cs" />
     <Compile Include="IParticipanteService.cs" />
-    <Compile Include="ITipoParticipantesService.cs" />
-    <Compile Include="IUsuariosService.cs" />
+    <Compile Include="ITipoParticipanteService.cs" />
+    <Compile Include="IUsuarioService.cs" />
     <Compile Include="ParticipanteService.svc.cs">
       <DependentUpon>ParticipanteService.svc</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TipoParticipantesService.svc.cs">
-      <DependentUpon>TipoParticipantesService.svc</DependentUpon>
+    <Compile Include="TipoParticipanteService.svc.cs">
+      <DependentUpon>TipoParticipanteService.svc</DependentUpon>
     </Compile>
-    <Compile Include="UsuariosService.svc.cs">
-      <DependentUpon>UsuariosService.svc</DependentUpon>
+    <Compile Include="UsuarioService.svc.cs">
+      <DependentUpon>UsuarioService.svc</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

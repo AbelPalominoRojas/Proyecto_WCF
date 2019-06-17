@@ -7,7 +7,7 @@ using System.Web;
 namespace Sise.WcfService.Entity
 {
     [DataContract]
-    public class Response<T>
+    public class ServiceResponse
     {
         [DataMember]
         public bool IsSuccess { get; set; } = false;
@@ -15,9 +15,5 @@ namespace Sise.WcfService.Entity
         public string Message { get; set; }
         [DataMember]
         public string MessageDev { get; set; }
-        [DataMember]
-        public List<T> Items { get; set; }
-        [DataMember]
-        public T Item { get; set; }
     }
 }

@@ -14,18 +14,18 @@ namespace Sise.WcfService
     public interface IParticipanteService
     {
         [OperationContract]
-        Response<Participante> registrar(Participante participante);
+        ServiceResponse registrar(Participante participante);
 
         [OperationContract]
-        Response<Participante> actualizar(Participante participante);
+        ServiceResponse actualizar(Participante participante);
 
         [OperationContract]
-        Response<Participante> eliminar(Int32 CodParticipante);
+        ServiceResponse eliminar(Int32 CodParticipante);
 
         [OperationContract]
-        Response<Participante> listar();
+        List<Participante> listar();
 
         [OperationContract]
-        Response<Participante> buscar(Int32 CodParticipante);
+        Participante buscar(Int32 CodParticipante);
     }
 }

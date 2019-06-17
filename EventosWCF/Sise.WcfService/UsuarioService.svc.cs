@@ -10,14 +10,14 @@ using Sise.Business;
 
 namespace Sise.WcfService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "UsuariosService" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select UsuariosService.svc or UsuariosService.svc.cs at the Solution Explorer and start debugging.
-    public class UsuariosService : IUsuariosService
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "UsuarioService" in code, svc and config file together.
+    // NOTE: In order to launch WCF Test Client for testing this service, please select UsuarioService.svc or UsuarioService.svc.cs at the Solution Explorer and start debugging.
+    public class UsuarioService : IUsuarioService
     {
 
-        public Response<Usuario> registrar(Usuario usuario)
+        public ServiceResponse registrar(Usuario usuario)
         {
-            Response<Usuario> result = new Response<Usuario>();
+            ServiceResponse result = new ServiceResponse();
 
 
             //validacion 
@@ -41,7 +41,7 @@ namespace Sise.WcfService
                 result.Message = "El campo Password es requerido.";
                 return result;
             }
-            
+
             //proceso
             try
             {
@@ -63,9 +63,9 @@ namespace Sise.WcfService
 
             return result;
         }
-        public Response<Usuario> actualizar(Usuario usuario)
+        public ServiceResponse actualizar(Usuario usuario)
         {
-            Response<Usuario> result = new Response<Usuario>();
+            ServiceResponse result = new ServiceResponse();
 
             //mensaje de error por defecto
             result.Message = "Ocurio un error!!!. No se pudo realizar el actualizacion";
@@ -98,7 +98,7 @@ namespace Sise.WcfService
                 result.Message = "El campo Password es requerido.";
                 return result;
             }
-           
+
             //proceso
             try
             {
@@ -116,47 +116,26 @@ namespace Sise.WcfService
             return result;
         }
 
-        public Response<Usuario> buscar(int CodUsuario)
+        public Usuario buscar(int CodUsuario)
         {
-            Response<Usuario> result = new Response<Usuario>();
+            Usuario usuario = null;
 
-            //validacion
-            if (CodUsuario == 0)
-            {
-                result.Message = "El codigo de usuario no es correcto.";
-                return result;
-            }
-
-
-            //proceso
             try
             {
-                var usuario = new UsuarioBll().buscar(new Usuario() { CodUsuario = CodUsuario });
+                usuario = new UsuarioBll().buscar(new Usuario() { CodUsuario = CodUsuario });
 
-                if (usuario != null)
-                {
-                    result.Item = usuario;
-                    result.IsSuccess = true;
-                    result.Message = " usuario encontrado";
-                }
-                else
-                {
-                    result.Message = "No se encontro datos.";
-                }
             }
             catch (Exception ex)
             {
-                //mensaje de error por defecto
-                result.Message = "Ocurio un error!!!. No se encontro datos.";
-                result.MessageDev = ex.Message;
+
             }
 
-            return result;
+            return usuario;
         }
 
-        public Response<Usuario> eliminar(int CodUsuario)
+        public ServiceResponse eliminar(int CodUsuario)
         {
-            Response<Usuario> result = new Response<Usuario>();
+            ServiceResponse result = new ServiceResponse();
 
             //mensaje de error por defecto
             result.Message = "Ocurio un error!!!. No se pudo realizar la eliminacion";
@@ -186,26 +165,20 @@ namespace Sise.WcfService
             return result;
         }
 
-        public Response<Usuario> listar()
+        public List<Usuario> listar()
         {
-
-            Response<Usuario> result = new Response<Usuario>();
+            List<Usuario> listUsuario = new List<Usuario>();
 
             try
             {
-                result.Items = new UsuarioBll().listar();
-                result.IsSuccess = true;
-                result.Message = "Listado de Usuario";
+                listUsuario = new UsuarioBll().listar();
             }
             catch (Exception ex)
             {
-                //mensaje de error por defecto
-                result.Message = "Ocurio un error!!!. No se encontro datos.";
-                result.MessageDev = ex.Message;
                 //throw;
             }
 
-            return result;
+            return listUsuario;
         }
 
     }

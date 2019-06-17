@@ -15,9 +15,9 @@ namespace Sise.WcfService
     // NOTE: In order to launch WCF Test Client for testing this service, please select AreaTematicaService.svc or AreaTematicaService.svc.cs at the Solution Explorer and start debugging.
     public class AreaTematicaService : IAreaTematicaService
     {
-        public Response<AreaTematica> registrar(AreaTematica areaTematica)
+        public ServiceResponse registrar(AreaTematica areaTematica)
         {
-            Response<AreaTematica> result = new Response<AreaTematica>();
+            ServiceResponse result = new ServiceResponse();
 
             //mensaje de error por defecto
             result.Message = "Ocurio un error!!!. No se pudo realizar el registro";
@@ -47,10 +47,10 @@ namespace Sise.WcfService
             return result;
         }
 
-        public Response<AreaTematica> actualizar(AreaTematica areaTematica)
+        public ServiceResponse actualizar(AreaTematica areaTematica)
         {
 
-            Response<AreaTematica> result = new Response<AreaTematica>();
+            ServiceResponse result = new ServiceResponse();
 
             //mensaje de error por defecto
             result.Message = "Ocurio un error!!!. No se pudo realizar el actualizacion";
@@ -86,68 +86,45 @@ namespace Sise.WcfService
             return result;
         }
 
-        public Response<AreaTematica> buscar(int CodAreaTematica)
+        public AreaTematica buscar(int CodAreaTematica)
         {
-            Response<AreaTematica> result = new Response<AreaTematica>();
-
-            //mensaje de error por defecto
-            result.Message = "Ocurio un error!!!. No se encontro datos.";
-
-            //validacion
-            if (CodAreaTematica == 0)
-            {
-                result.Message = "El codigo de area tematica no es correcto.";
-                return result;
-            }
-
+            AreaTematica areaTematica = null;
 
             //proceso
             try
             {
-                var areaTematica = new AreaTematicaBll().buscar(new AreaTematica() { CodAreaTematica = CodAreaTematica });
-
-                if (areaTematica != null)
-                {
-                    result.Item = areaTematica;
-                    result.IsSuccess = true;
-                    result.Message = "Area Tematica encontrado";
-                }
+                 areaTematica = new AreaTematicaBll().buscar(new AreaTematica() { CodAreaTematica = CodAreaTematica });
+                
             }
             catch (Exception ex)
             {
-                result.MessageDev = ex.Message;
+               
             }
 
-            return result;
+            return areaTematica;
         }
 
-        public Response<AreaTematica> listar()
+        public List<AreaTematica> listar()
         {
-            Response<AreaTematica> result = new Response<AreaTematica>();
+            List<AreaTematica> listAreaTematica = new List<AreaTematica>();
 
             try
             {
-                result.Items = new AreaTematicaBll().listar();
-                result.IsSuccess = true;
-                result.Message = "Listado de area tematica";
+                listAreaTematica = new AreaTematicaBll().listar();
             }
             catch (Exception ex)
             {
-                //mensaje de error por defecto
-                result.Message = "Ocurio un error!!!. No se encontro datos.";
-                result.MessageDev = ex.Message;
+
                 //throw;
             }
 
-            return result;
+            return listAreaTematica;
         }
 
-        public Response<AreaTematica> eliminar(int CodAreaTematica)
+        public ServiceResponse eliminar(int CodAreaTematica)
         {
-            Response<AreaTematica> result = new Response<AreaTematica>();
-
-            //mensaje de error por defecto
-            result.Message = "Ocurio un error!!!. No se pudo realizar la eliminacion";
+            ServiceResponse result = new ServiceResponse();
+            
 
             //validacion
             if (CodAreaTematica == 0)
@@ -169,6 +146,7 @@ namespace Sise.WcfService
             catch (Exception ex)
             {
                 result.MessageDev = ex.Message;
+                result.Message = "Ocurio un error!!!. No se pudo realizar la eliminacion";
             }
 
             return result;

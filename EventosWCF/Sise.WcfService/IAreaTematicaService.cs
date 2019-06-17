@@ -15,19 +15,19 @@ namespace Sise.WcfService
     interface IAreaTematicaService
     {
         [OperationContract]
-        Response<AreaTematica> registrar(AreaTematica areaTematica);
+        ServiceResponse registrar(AreaTematica areaTematica);
 
         [OperationContract]
-        Response<AreaTematica> actualizar(AreaTematica areaTematica);
+        ServiceResponse actualizar(AreaTematica areaTematica);
 
         [OperationContract]
-        Response<AreaTematica> eliminar(Int32 CodAreaTematica);
+        ServiceResponse eliminar(Int32 CodAreaTematica);
 
         [OperationContract]
-        Response<AreaTematica> listar();
+        List<AreaTematica> listar();
 
         [OperationContract]
-        Response<AreaTematica> buscar(Int32 CodAreaTematica);
+        AreaTematica buscar(Int32 CodAreaTematica);
     }
 
 }

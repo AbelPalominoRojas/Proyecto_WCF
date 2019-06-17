@@ -11,21 +11,21 @@ namespace Sise.WcfService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IEventosService" in both code and config file together.
     [ServiceContract]
-    public interface IEventosService
+    public interface IEventoService
     {
         [OperationContract]
-        Response<Evento> registrar(Evento evento);
+        ServiceResponse registrar(Evento evento);
 
         [OperationContract]
-        Response<Evento> actualizar(Evento evento);
+        ServiceResponse actualizar(Evento evento);
 
         [OperationContract]
-        Response<Evento> eliminar(Int32 CodEvento);
+        ServiceResponse eliminar(Int32 CodEvento);
 
         [OperationContract]
-        Response<Evento> listar();
+        List<Evento> listar();
 
         [OperationContract]
-        Response<Evento> buscar(Int32 CodEvento);
+        Evento buscar(Int32 CodEvento);
     }
 }

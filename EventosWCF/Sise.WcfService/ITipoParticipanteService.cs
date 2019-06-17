@@ -12,21 +12,21 @@ namespace Sise.WcfService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "ITipoParticipantesService" in both code and config file together.
     [ServiceContract]
-    public interface ITipoParticipantesService
+    public interface ITipoParticipanteService
     {
         [OperationContract]
-        Response<TipoParticipante> registrar(TipoParticipante tipoParticipantes);
+        ServiceResponse registrar(TipoParticipante tipoParticipantes);
 
         [OperationContract]
-        Response<TipoParticipante> actualizar(TipoParticipante tipoParticipantes);
+        ServiceResponse actualizar(TipoParticipante tipoParticipantes);
 
         [OperationContract]
-        Response<TipoParticipante> eliminar(Int32 CodTipoParticipantes);
+        ServiceResponse eliminar(Int32 CodTipoParticipantes);
 
         [OperationContract]
-        Response<TipoParticipante> listar();
+        List<TipoParticipante> listar();
 
         [OperationContract]
-        Response<TipoParticipante> buscar(Int32 CodTipoParticipantes);
+        TipoParticipante buscar(Int32 CodTipoParticipantes);
     }
 }

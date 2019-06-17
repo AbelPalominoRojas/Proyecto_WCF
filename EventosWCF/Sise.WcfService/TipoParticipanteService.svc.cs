@@ -11,16 +11,16 @@ using Sise.Business;
 
 namespace Sise.WcfService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "TipoParticipantesService" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select TipoParticipantesService.svc or TipoParticipantesService.svc.cs at the Solution Explorer and start debugging.
-    public class TipoParticipantesService : ITipoParticipantesService
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "TipoParticipanteService" in code, svc and config file together.
+    // NOTE: In order to launch WCF Test Client for testing this service, please select TipoParticipanteService.svc or TipoParticipanteService.svc.cs at the Solution Explorer and start debugging.
+    public class TipoParticipanteService : ITipoParticipanteService
     {
 
-        public Response<TipoParticipante> registrar(TipoParticipante tipoParticipantes)
+        public ServiceResponse registrar(TipoParticipante tipoParticipantes)
         {
-            Response<TipoParticipante> result = new Response<TipoParticipante>();
+            ServiceResponse result = new ServiceResponse();
 
-            
+
             //validacion 
             if (tipoParticipantes.NombreTipoParticipante.Trim().Length == 0)
             {
@@ -50,9 +50,9 @@ namespace Sise.WcfService
 
             return result;
         }
-        public Response<TipoParticipante> actualizar(TipoParticipante tipoParticipantes)
+        public ServiceResponse actualizar(TipoParticipante tipoParticipantes)
         {
-            Response<TipoParticipante> result = new Response<TipoParticipante>();
+            ServiceResponse result = new ServiceResponse();
 
             //mensaje de error por defecto
             result.Message = "Ocurio un error!!!. No se pudo realizar el actualizacion";
@@ -88,47 +88,25 @@ namespace Sise.WcfService
             return result;
         }
 
-        public Response<TipoParticipante> buscar(int CodTipoParticipantes)
+        public TipoParticipante buscar(int CodTipoParticipantes)
         {
-            Response<TipoParticipante> result = new Response<TipoParticipante>();
+            TipoParticipante tipoParticipante = null;
 
-            //validacion
-            if (CodTipoParticipantes == 0)
-            {
-                result.Message = "El codigo de Tipo Participante no es correcto.";
-                return result;
-            }
-
-
-            //proceso
             try
             {
-                var tipoParticipantes = new TipoParticipanteBll().buscar(new TipoParticipante() { CodTipoParticipante = CodTipoParticipantes });
-
-                if (tipoParticipantes != null)
-                {
-                    result.Item = tipoParticipantes;
-                    result.IsSuccess = true;
-                    result.Message = "Tipo Participantes encontrado";
-                }
-                else
-                {
-                    result.Message = "No se encontro datos.";
-                }
+                tipoParticipante = new TipoParticipanteBll().buscar(new TipoParticipante() { CodTipoParticipante = CodTipoParticipantes });
             }
             catch (Exception ex)
             {
-                //mensaje de error por defecto
-                result.Message = "Ocurio un error!!!. No se encontro datos.";
-                result.MessageDev = ex.Message;
+
             }
 
-            return result;
+            return tipoParticipante;
         }
 
-        public Response<TipoParticipante> eliminar(int CodTipoParticipantes)
+        public ServiceResponse eliminar(int CodTipoParticipantes)
         {
-            Response<TipoParticipante> result = new Response<TipoParticipante>();
+            ServiceResponse result = new ServiceResponse();
 
             //mensaje de error por defecto
             result.Message = "Ocurio un error!!!. No se pudo realizar la eliminacion";
@@ -159,25 +137,20 @@ namespace Sise.WcfService
         }
 
 
-        public Response<TipoParticipante> listar()
+        public List<TipoParticipante> listar()
         {
-            Response<TipoParticipante> result = new Response<TipoParticipante>();
+            List<TipoParticipante> listTipoParticipante = new List<TipoParticipante>();
 
             try
             {
-                result.Items = new TipoParticipanteBll().listar();
-                result.IsSuccess = true;
-                result.Message = "Listado de Tipo Participante";
+                listTipoParticipante = new TipoParticipanteBll().listar();
             }
             catch (Exception ex)
             {
-                //mensaje de error por defecto
-                result.Message = "Ocurio un error!!!. No se encontro datos.";
-                result.MessageDev = ex.Message;
-                //throw;
+
             }
 
-            return result;
+            return listTipoParticipante;
         }
 
     }

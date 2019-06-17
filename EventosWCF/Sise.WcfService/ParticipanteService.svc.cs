@@ -16,9 +16,9 @@ namespace Sise.WcfService
     public class ParticipanteService : IParticipanteService
     {
 
-        public Response<Participante> registrar(Participante participante)
+        public ServiceResponse registrar(Participante participante)
         {
-            Response<Participante> result = new Response<Participante>();
+            ServiceResponse result = new ServiceResponse();
 
 
             //validacion 
@@ -69,9 +69,9 @@ namespace Sise.WcfService
 
             return result;
         }
-        public Response<Participante> actualizar(Participante participante)
+        public ServiceResponse actualizar(Participante participante)
         {
-            Response<Participante> result = new Response<Participante>();
+            ServiceResponse result = new ServiceResponse();
 
             //mensaje de error por defecto
             result.Message = "Ocurio un error!!!. No se pudo realizar el actualizacion";
@@ -126,47 +126,24 @@ namespace Sise.WcfService
             return result;
         }
 
-        public Response<Participante> buscar(int CodParticipante)
+        public Participante buscar(int CodParticipante)
         {
-            Response<Participante> result = new Response<Participante>();
-
-            //validacion
-            if (CodParticipante == 0)
-            {
-                result.Message = "El codigo de Participante no es correcto.";
-                return result;
-            }
-
-
-            //proceso
+            Participante participante = null;
             try
             {
-                var Participante = new ParticipanteBll().buscar(new Participante() { CodParticipante = CodParticipante });
-
-                if (Participante != null)
-                {
-                    result.Item = Participante;
-                    result.IsSuccess = true;
-                    result.Message = " Participantes encontrado";
-                }
-                else
-                {
-                    result.Message = "No se encontro datos.";
-                }
+                participante = new ParticipanteBll().buscar(new Participante() { CodParticipante = CodParticipante });
             }
             catch (Exception ex)
             {
-                //mensaje de error por defecto
-                result.Message = "Ocurio un error!!!. No se encontro datos.";
-                result.MessageDev = ex.Message;
+
             }
 
-            return result;
+            return participante;
         }
 
-        public Response<Participante> eliminar(int CodParticipante)
+        public ServiceResponse eliminar(int CodParticipante)
         {
-            Response<Participante> result = new Response<Participante>();
+            ServiceResponse result = new ServiceResponse();
 
             //mensaje de error por defecto
             result.Message = "Ocurio un error!!!. No se pudo realizar la eliminacion";
@@ -196,27 +173,22 @@ namespace Sise.WcfService
             return result;
         }
 
-        public Response<Participante> listar()
+        public List<Participante> listar()
         {
-            Response<Participante> result = new Response<Participante>();
+            List<Participante> listParticipante = new List<Participante>();
 
             try
             {
-                result.Items = new ParticipanteBll().listar();
-                result.IsSuccess = true;
-                result.Message = "Listado de Participante";
+                listParticipante = new ParticipanteBll().listar();
             }
             catch (Exception ex)
             {
-                //mensaje de error por defecto
-                result.Message = "Ocurio un error!!!. No se encontro datos.";
-                result.MessageDev = ex.Message;
-                //throw;
+
             }
 
-            return result;
+            return listParticipante;
         }
 
-        
+
     }
 }

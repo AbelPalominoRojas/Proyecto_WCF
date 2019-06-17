@@ -11,21 +11,21 @@ namespace Sise.WcfService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IUsuariosService" in both code and config file together.
     [ServiceContract]
-    public interface IUsuariosService
+    public interface IUsuarioService
     {
         [OperationContract]
-        Response<Usuario> registrar(Usuario usuario);
+        ServiceResponse registrar(Usuario usuario);
 
         [OperationContract]
-        Response<Usuario> actualizar(Usuario usuario);
+        ServiceResponse actualizar(Usuario usuario);
 
         [OperationContract]
-        Response<Usuario> eliminar(Int32 CodUsuario);
+        ServiceResponse eliminar(Int32 CodUsuario);
 
         [OperationContract]
-        Response<Usuario> listar();
+        List<Usuario> listar();
 
         [OperationContract]
-        Response<Usuario> buscar(Int32 CodUsuario);
+        Usuario buscar(Int32 CodUsuario);
     }
 }

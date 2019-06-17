@@ -10,14 +10,14 @@ using Sise.Business;
 
 namespace Sise.WcfService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "EventosService" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select EventosService.svc or EventosService.svc.cs at the Solution Explorer and start debugging.
-    public class EventosService : IEventosService
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "EventoService" in code, svc and config file together.
+    // NOTE: In order to launch WCF Test Client for testing this service, please select EventoService.svc or EventoService.svc.cs at the Solution Explorer and start debugging.
+    public class EventoService : IEventoService
     {
 
-        public Response<Evento> registrar(Evento evento)
+        public ServiceResponse registrar(Evento evento)
         {
-            Response<Evento> result = new Response<Evento>();
+            ServiceResponse result = new ServiceResponse();
 
 
             //validacion 
@@ -95,9 +95,9 @@ namespace Sise.WcfService
 
             return result;
         }
-        public Response<Evento> actualizar(Evento evento)
+        public ServiceResponse actualizar(Evento evento)
         {
-            Response<Evento> result = new Response<Evento>();
+            ServiceResponse result = new ServiceResponse();
 
             //mensaje de error por defecto
             result.Message = "Ocurio un error!!!. No se pudo realizar el actualizacion";
@@ -178,47 +178,24 @@ namespace Sise.WcfService
             return result;
         }
 
-        public Response<Evento> buscar(int CodEvento)
+        public Evento buscar(int CodEvento)
         {
-            Response<Evento> result = new Response<Evento>();
-
-            //validacion
-            if (CodEvento == 0)
-            {
-                result.Message = "El codigo de Evento no es correcto.";
-                return result;
-            }
-
-
-            //proceso
+            Evento evento = null;
             try
             {
-                var Evento = new EventoBll().buscar(new Evento() { CodEvento = CodEvento });
-
-                if (Evento != null)
-                {
-                    result.Item = Evento;
-                    result.IsSuccess = true;
-                    result.Message = " Evento encontrado";
-                }
-                else
-                {
-                    result.Message = "No se encontro datos.";
-                }
+                evento = new EventoBll().buscar(new Evento() { CodEvento = CodEvento });
             }
             catch (Exception ex)
             {
-                //mensaje de error por defecto
-                result.Message = "Ocurio un error!!!. No se encontro datos.";
-                result.MessageDev = ex.Message;
+
             }
 
-            return result;
+            return evento;
         }
 
-        public Response<Evento> eliminar(int CodEvento)
+        public ServiceResponse eliminar(int CodEvento)
         {
-            Response<Evento> result = new Response<Evento>();
+            ServiceResponse result = new ServiceResponse();
 
             //mensaje de error por defecto
             result.Message = "Ocurio un error!!!. No se pudo realizar la eliminacion";
@@ -248,25 +225,20 @@ namespace Sise.WcfService
             return result;
         }
 
-        public Response<Evento> listar()
+        public List<Evento> listar()
         {
-            Response<Evento> result = new Response<Evento>();
+            List<Evento> listEvento = new List<Evento>();
 
             try
             {
-                result.Items = new EventoBll().listar();
-                result.IsSuccess = true;
-                result.Message = "Listado de Eventos";
+                listEvento = new EventoBll().listar();
             }
             catch (Exception ex)
             {
-                //mensaje de error por defecto
-                result.Message = "Ocurio un error!!!. No se encontro datos.";
-                result.MessageDev = ex.Message;
-                //throw;
+
             }
 
-            return result;
+            return listEvento;
         }
 
        
