@@ -1,0 +1,54 @@
+﻿@model WebEventos.SRefAreaTematica.AreaTematica
+
+@{
+ViewBag.Title = "Edit";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="ibox">
+            <div class="ibox-head">
+                <div class="ibox-title">
+                    Editar Area Tematica
+                </div>
+            </div>
+            <div class="ibox-body">
+                @if (ViewBag.Message != null)
+                { 
+                <div class="alert alert-danger alert-dismissable fade show">
+                    <button class="close" data-dismiss="alert" aria-label="Close">×</button>
+                    @ViewBag.Message
+                </div>
+                }
+                
+                @using (Html.BeginForm())
+                {
+                @Html.AntiForgeryToken()
+
+                @Html.HiddenFor(model => model.CodAreaTematica)
+                <div class="form-group">
+                    <label>Area Tematica</label>
+                    @Html.EditorFor(model => model.NombreAreaTematica, new { htmlAttributes = new { @class =
+                    "form-control" } })
+                </div>
+                <hr/>
+                <div class="d-flex justify-content-between">
+                    @Html.ActionLink(" ", "Index", null, new { @class = "btn btn-info fa fa-reply" })
+                    <div>
+                        <button type="submit" class="btn btn-success">
+                            <i class="fa fa-floppy-o"></i>
+                            Guardar
+                        </button>
+                        <button type="reset" class="btn btn-outline-secondary">
+                            <i class="fa fa-times"></i>
+                            Cancelar
+                        </button>
+                    </div>
+
+                </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

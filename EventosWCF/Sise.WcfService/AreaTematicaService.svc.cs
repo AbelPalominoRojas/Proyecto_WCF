@@ -23,7 +23,7 @@ namespace Sise.WcfService
             result.Message = "Ocurio un error!!!. No se pudo realizar el registro";
 
             //validacion 
-            if (areaTematica.NombreAreaTematica.Trim().Length == 0)
+            if (String.IsNullOrWhiteSpace(areaTematica.NombreAreaTematica))
             {
                 result.Message = "El campo NombreAreaTematica es requerido.";
                 return result;
@@ -62,7 +62,7 @@ namespace Sise.WcfService
                 return result;
             }
 
-            if (areaTematica.NombreAreaTematica.Trim().Length == 0)
+            if (String.IsNullOrWhiteSpace(areaTematica.NombreAreaTematica))
             {
                 result.Message = "El campo NombreAreaTematica es requerido.";
                 return result;

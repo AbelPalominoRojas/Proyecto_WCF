@@ -34,7 +34,8 @@ create table Participantes
 	codTipoParticipante int  not null
 
 	constraint pk_Participantes  primary key (codParticipante),
-	constraint ak_dni__Participantes unique(codParticipante)
+	constraint ak_dni__Participantes unique(codParticipante),
+	constraint fk_codTipoParticipante__Participantes foreign key (codTipoParticipante) references TipoParticipantes(codTipoParticipante)
 )
 go
 
@@ -129,5 +130,6 @@ Insert Into Participantes(codParticipante,nombres,apellidos,dni,fechaNac,direcci
 (1,	'Yanet Marleni','Inga Rojas',75228456,'12/08/1999','Av. Jardine Este 562','Marleni@gmail.com',910118596,'San Juan Lurigancho',1)
 SET IDENTITY_INSERT dbo.Participantes OFF; 
 go
+
 
 

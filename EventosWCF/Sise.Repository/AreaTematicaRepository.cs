@@ -25,7 +25,7 @@ namespace Sise.Repository
 
                     sqlCommand.Parameters.Add("@codAreaTematica", SqlDbType.Int).Direction = ParameterDirection.Output;
                     sqlCommand.Parameters.AddWithValue("@nombreAreaTematica", areaTematica.NombreAreaTematica);
-                    sqlCommand.Parameters.AddWithValue("@estado", areaTematica.Estado);
+                    sqlCommand.Parameters.AddWithValue("@estado", "A");
 
                     result = Convert.ToBoolean(sqlCommand.ExecuteNonQuery());
                 }
@@ -49,7 +49,7 @@ namespace Sise.Repository
 
                     sqlCommand.Parameters.AddWithValue("@codAreaTematica", areaTematica.CodAreaTematica);
                     sqlCommand.Parameters.AddWithValue("@nombreAreaTematica", areaTematica.NombreAreaTematica);
-                    sqlCommand.Parameters.AddWithValue("@estado", areaTematica.Estado);
+                    sqlCommand.Parameters.AddWithValue("@estado", "A");
 
                     result = Convert.ToBoolean(sqlCommand.ExecuteNonQuery());
                 }

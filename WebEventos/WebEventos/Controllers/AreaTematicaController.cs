@@ -32,72 +32,121 @@ namespace WebEventos.Controllers
         // GET: Evento/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            AreaTematica areaTematica = client.buscar(id);
+
+            if (areaTematica == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(areaTematica);
         }
 
         // GET: Evento/Create
         public ActionResult Create()
         {
-            return View();
+            return View(new AreaTematica());
         }
 
         // POST: Evento/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(AreaTematica areaTematica)
         {
             try
             {
-                // TODO: Add insert logic here
+                ServiceResponse response = client.registrar(areaTematica);
 
-                return RedirectToAction("Index");
+                if (response.IsSuccess)
+                {
+                    return RedirectToAction("Index");
+
+                }
+
+                ViewBag.Message = response.Message;
+
+                return View(areaTematica);
+
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return View(areaTematica);
             }
         }
 
         // GET: Evento/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            AreaTematica areaTematica = client.buscar(id);
+
+            if (areaTematica == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(areaTematica);
         }
 
         // POST: Evento/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, AreaTematica areaTematica)
         {
             try
             {
-                // TODO: Add update logic here
+                areaTematica.CodAreaTematica = id;
 
-                return RedirectToAction("Index");
+                ServiceResponse response = client.actualizar(areaTematica);
+
+                if (response.IsSuccess)
+                {
+                    return RedirectToAction("Index");
+
+                }
+
+                ViewBag.Message = response.Message;
+                return View(areaTematica);
+
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return View(areaTematica);
             }
         }
 
         // GET: Evento/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            AreaTematica areaTematica = client.buscar(id);
+
+            if (areaTematica == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(areaTematica);
         }
 
         // POST: Evento/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, AreaTematica areaTematica)
         {
             try
             {
-                // TODO: Add delete logic here
 
-                return RedirectToAction("Index");
+
+                ServiceResponse response = client.eliminar(id);
+
+                if (response.IsSuccess)
+                {
+                    return RedirectToAction("Index");
+
+                }
+
+                return View(areaTematica);
+
             }
-            catch
+            catch (Exception)
             {
-                return View();
+                return View(areaTematica);
             }
         }
     }
