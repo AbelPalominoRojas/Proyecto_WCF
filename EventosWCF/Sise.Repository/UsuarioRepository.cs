@@ -28,7 +28,7 @@ namespace Sise.Repository
                     sqlCommand.Parameters.AddWithValue("@apellidos", usuario.Apellidos);
                     sqlCommand.Parameters.AddWithValue("@email", usuario.Email);
                     sqlCommand.Parameters.AddWithValue("@password", usuario.Password);
-                    sqlCommand.Parameters.AddWithValue("@estado", usuario.Estado);
+                    sqlCommand.Parameters.AddWithValue("@estado", "A");
 
                     result = Convert.ToBoolean(sqlCommand.ExecuteNonQuery());
                 }
@@ -55,7 +55,7 @@ namespace Sise.Repository
                     sqlCommand.Parameters.AddWithValue("@apellidos", usuario.Apellidos);
                     sqlCommand.Parameters.AddWithValue("@email", usuario.Email);
                     sqlCommand.Parameters.AddWithValue("@password", usuario.Password);
-                    sqlCommand.Parameters.AddWithValue("@estado", usuario.Estado);
+                    sqlCommand.Parameters.AddWithValue("@estado", "A");
 
                     result = Convert.ToBoolean(sqlCommand.ExecuteNonQuery());
                 }

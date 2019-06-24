@@ -21,22 +21,22 @@ namespace Sise.WcfService
 
 
             //validacion 
-            if (usuario.Nombres.Trim().Length == 0)
+            if (String.IsNullOrWhiteSpace(usuario.Nombres))
             {
                 result.Message = "El campo Nombres es requerido.";
                 return result;
             }
-            if (usuario.Apellidos.Trim().Length == 0)
+            if (String.IsNullOrWhiteSpace(usuario.Apellidos))
             {
                 result.Message = "El campo Apellidos es requerido.";
                 return result;
             }
-            if (usuario.Email.Trim().Length == 0)
+            if (String.IsNullOrWhiteSpace(usuario.Email))
             {
                 result.Message = "El campo Email es requerido.";
                 return result;
             }
-            if (usuario.Password.Trim().Length == 0)
+            if (String.IsNullOrWhiteSpace(usuario.Password))
             {
                 result.Message = "El campo Password es requerido.";
                 return result;

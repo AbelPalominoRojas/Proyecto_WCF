@@ -2844,6 +2844,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\SRefUsuario\configuration91.svcinfo" />
+    <None Include="Service References\SRefUsuario\configuration.svcinfo" />
+    <None Include="Service References\SRefUsuario\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -2853,6 +2859,7 @@
     <Compile Include="Controllers\EventoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TipoParticipanteController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2863,6 +2870,11 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Service References\SRefTipoParticipante\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SRefUsuario\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -3404,6 +3416,18 @@
     <Content Include="Views\TipoParticipante\Edit.cshtml" />
     <Content Include="Views\TipoParticipante\Details.cshtml" />
     <Content Include="Views\TipoParticipante\Delete.cshtml" />
+    <None Include="Service References\SRefUsuario\UsuarioService.wsdl" />
+    <Content Include="Service References\SRefUsuario\WebEventos.SRefUsuario.ServiceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SRefUsuario\WebEventos.SRefUsuario.Usuario.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Usuario\Create.cshtml" />
+    <Content Include="Views\Usuario\Edit.cshtml" />
+    <Content Include="Views\Usuario\Delete.cshtml" />
+    <Content Include="Views\Usuario\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3424,6 +3448,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\SRefAreaTematica\" />
     <WCFMetadataStorage Include="Service References\SRefTipoParticipante\" />
+    <WCFMetadataStorage Include="Service References\SRefUsuario\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<WebEventos.SRefUsuario.Usuario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="ibox">
+            <div class="ibox-head">
+                <div class="ibox-title">Listado de Usuario</div>
+                @Html.ActionLink(" Nuevo", "Create", null, new { @class = "btn btn-success fa fa-file" })
+            </div>
+            <div class="ibox-body">
+              <div class="table-responsive">
+                 <table class="table">
+                   <tr>
+                     <th>Acciones</th>
+                     <th>Codigo</th>
+                     <th>Nombres</th>
+                     <th>Apellidos</th>
+                     <th>Email</th>
+                     <th>Password</th>
+                     <th>Estado</th>
+                   </tr>
+                   @foreach (var item in Model){
+                   <tr>
+                     <td>
+                     @Html.ActionLink(" ", "Edit", new { id = item.CodUsuario }, new { @class = "btn btn-outline-primary fa fa-pencil" })
+                     @Html.ActionLink(" ", "Details", new { id = item.CodUsuario }, new { @class = "btn btn-outline-warning fa fa-search-plus" })
+                     @Html.ActionLink(" ", "Delete", new { id = item.CodUsuario }, new { @class = "btn btn-outline-danger fa fa-trash" })
+                    </td>
+                     <td>@Html.DisplayFor(modelItem => item.CodUsuario)</td>
+                     <td>@Html.DisplayFor(modelItem => item.Nombres)</td>
+                     <td>@Html.DisplayFor(modelItem => item.Apellidos)</td>
+                     <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                     <td>@Html.DisplayFor(modelItem => item.Password)</td>
+                     <td>@Html.DisplayFor(modelItem => item.Estado)</td>
+                    </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
