@@ -2838,6 +2838,25 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\SRefParticipante\ParticipanteService.wsdl" />
+    <None Include="Service References\SRefParticipante\ParticipanteService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SRefParticipante\ParticipanteService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SRefParticipante\ParticipanteService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SRefParticipante\ParticipanteService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\SRefParticipante\WebEventos.SRefParticipante.Participante.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SRefParticipante\WebEventos.SRefParticipante.ServiceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\SRefTipoParticipante\configuration91.svcinfo" />
     <None Include="Service References\SRefTipoParticipante\configuration.svcinfo" />
     <None Include="Service References\SRefTipoParticipante\Reference.svcmap">
@@ -2850,6 +2869,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\SRefParticipante\configuration91.svcinfo" />
+    <None Include="Service References\SRefParticipante\configuration.svcinfo" />
+    <None Include="Service References\SRefParticipante\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -2858,6 +2883,7 @@
     <Compile Include="Controllers\AreaTematicaController.cs" />
     <Compile Include="Controllers\EventoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ParticipanteController.cs" />
     <Compile Include="Controllers\TipoParticipanteController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
@@ -2865,6 +2891,11 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\SRefAreaTematica\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SRefParticipante\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -3428,6 +3459,8 @@
     <Content Include="Views\Usuario\Edit.cshtml" />
     <Content Include="Views\Usuario\Delete.cshtml" />
     <Content Include="Views\Usuario\Details.cshtml" />
+    <Content Include="Views\Participante\Index.cshtml" />
+    <Content Include="Views\Participante\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3447,6 +3480,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\SRefAreaTematica\" />
+    <WCFMetadataStorage Include="Service References\SRefParticipante\" />
     <WCFMetadataStorage Include="Service References\SRefTipoParticipante\" />
     <WCFMetadataStorage Include="Service References\SRefUsuario\" />
   </ItemGroup>

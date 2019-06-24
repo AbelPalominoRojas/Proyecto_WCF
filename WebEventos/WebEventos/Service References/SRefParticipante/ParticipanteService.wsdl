@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ParticipanteService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:4356/ParticipanteService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:4356/ParticipanteService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:4356/ParticipanteService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Sise.Entities" />
+      <xsd:import schemaLocation="http://localhost:4356/ParticipanteService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Sise.WcfService.Entity" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IParticipanteService_registrar_InputMessage">
+    <wsdl:part name="parameters" element="tns:registrar" />
+  </wsdl:message>
+  <wsdl:message name="IParticipanteService_registrar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:registrarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParticipanteService_actualizar_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizar" />
+  </wsdl:message>
+  <wsdl:message name="IParticipanteService_actualizar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParticipanteService_eliminar_InputMessage">
+    <wsdl:part name="parameters" element="tns:eliminar" />
+  </wsdl:message>
+  <wsdl:message name="IParticipanteService_eliminar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParticipanteService_listar_InputMessage">
+    <wsdl:part name="parameters" element="tns:listar" />
+  </wsdl:message>
+  <wsdl:message name="IParticipanteService_listar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParticipanteService_buscar_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscar" />
+  </wsdl:message>
+  <wsdl:message name="IParticipanteService_buscar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IParticipanteService">
+    <wsdl:operation name="registrar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParticipanteService/registrar" message="tns:IParticipanteService_registrar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParticipanteService/registrarResponse" message="tns:IParticipanteService_registrar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParticipanteService/actualizar" message="tns:IParticipanteService_actualizar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParticipanteService/actualizarResponse" message="tns:IParticipanteService_actualizar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParticipanteService/eliminar" message="tns:IParticipanteService_eliminar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParticipanteService/eliminarResponse" message="tns:IParticipanteService_eliminar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParticipanteService/listar" message="tns:IParticipanteService_listar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParticipanteService/listarResponse" message="tns:IParticipanteService_listar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParticipanteService/buscar" message="tns:IParticipanteService_buscar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParticipanteService/buscarResponse" message="tns:IParticipanteService_buscar_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IParticipanteService" type="tns:IParticipanteService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="registrar">
+      <soap:operation soapAction="http://tempuri.org/IParticipanteService/registrar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizar">
+      <soap:operation soapAction="http://tempuri.org/IParticipanteService/actualizar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminar">
+      <soap:operation soapAction="http://tempuri.org/IParticipanteService/eliminar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listar">
+      <soap:operation soapAction="http://tempuri.org/IParticipanteService/listar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscar">
+      <soap:operation soapAction="http://tempuri.org/IParticipanteService/buscar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ParticipanteService">
+    <wsdl:port name="BasicHttpBinding_IParticipanteService" binding="tns:BasicHttpBinding_IParticipanteService">
+      <soap:address location="http://localhost:4356/ParticipanteService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
