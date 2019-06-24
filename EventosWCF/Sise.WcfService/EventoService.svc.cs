@@ -26,12 +26,12 @@ namespace Sise.WcfService
                 result.Message = "El campo CodAreaTematica es requerido.";
                 return result;
             }
-            if (evento.NombreEvento.Trim().Length == 0)
+            if (string.IsNullOrWhiteSpace(evento.NombreEvento))
             {
                 result.Message = "El campo NombreEvento es requerido.";
                 return result;
             }
-            if (evento.DescripcionEvento.Trim().Length == 0)
+            if (string.IsNullOrWhiteSpace(  evento.DescripcionEvento))
             {
                 result.Message = "El campo DescripcionEvento es requerido.";
                 return result;
@@ -41,14 +41,14 @@ namespace Sise.WcfService
                 result.Message = "El campo FechaEvento es requerido.";
                 return result;
             }
-            if (evento.Expositor.Trim().Length == 0)
+            if ( string.IsNullOrWhiteSpace( evento.Expositor))
             {
                 result.Message = "El campo Expositor es requerido.";
                 return result;
             }
 
 
-            if (evento.LugarEvento.Trim().Length == 0)
+            if (string.IsNullOrWhiteSpace(evento.LugarEvento))
             {
                 result.Message = "El campo LugarEvento es requerido.";
                 return result;
@@ -113,12 +113,12 @@ namespace Sise.WcfService
                 result.Message = "El campo CodAreaTematica es requerido.";
                 return result;
             }
-            if (evento.NombreEvento.Trim().Length == 0)
+            if (string.IsNullOrWhiteSpace( evento.NombreEvento))
             {
                 result.Message = "El campo NombreEvento es requerido.";
                 return result;
             }
-            if (evento.DescripcionEvento.Trim().Length == 0)
+            if (string.IsNullOrWhiteSpace( evento.DescripcionEvento))
             {
                 result.Message = "El campo DescripcionEvento es requerido.";
                 return result;
@@ -128,14 +128,14 @@ namespace Sise.WcfService
                 result.Message = "El campo FechaEvento es requerido.";
                 return result;
             }
-            if (evento.Expositor.Trim().Length == 0)
+            if (string.IsNullOrWhiteSpace( evento.Expositor))
             {
                 result.Message = "El campo Expositor es requerido.";
                 return result;
             }
 
 
-            if (evento.LugarEvento.Trim().Length == 0)
+            if (string.IsNullOrWhiteSpace( evento.LugarEvento))
             {
                 result.Message = "El campo LugarEvento es requerido.";
                 return result;

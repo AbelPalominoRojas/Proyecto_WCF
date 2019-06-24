@@ -22,22 +22,22 @@ namespace Sise.WcfService
 
 
             //validacion 
-            if (participante.Nombres.Trim().Length == 0)
+            if ( string.IsNullOrWhiteSpace( participante.Nombres))
             {
                 result.Message = "El campo Nombres es requerido.";
                 return result;
             }
-            if (participante.Apellidos.Trim().Length == 0)
+            if ( string.IsNullOrWhiteSpace( participante.Apellidos))
             {
                 result.Message = "El campo Apellidos es requerido.";
                 return result;
             }
-            if (participante.Dni.Trim().Length == 0)
+            if ( string.IsNullOrWhiteSpace( participante.Dni))
             {
                 result.Message = "El campo Dni es requerido.";
                 return result;
             }
-            if (participante.Correo.Trim().Length == 0)
+            if (string.IsNullOrWhiteSpace( participante.Correo))
             {
                 result.Message = "El campo Correo es requerido.";
                 return result;
@@ -83,23 +83,23 @@ namespace Sise.WcfService
                 return result;
             }
 
-            if (participante.Nombres.Trim().Length == 0)
+            if (string.IsNullOrWhiteSpace(participante.Nombres))
             {
                 result.Message = "El campo Nombre es requerido.";
                 return result;
             }
-            if (participante.Apellidos.Trim().Length == 0)
+            if (string.IsNullOrWhiteSpace(participante.Apellidos))
             {
                 result.Message = "El campo Apellidos es requerido.";
                 return result;
             }
 
-            if (participante.Dni.Trim().Length == 0)
+            if (string.IsNullOrWhiteSpace(participante.Dni))
             {
                 result.Message = "El campo Dni es requerido.";
                 return result;
             }
-            if (participante.Correo.Trim().Length == 0)
+            if (string.IsNullOrWhiteSpace(participante.Correo))
             {
                 result.Message = "El campo Correo es requerido.";
                 return result;

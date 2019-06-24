@@ -47,6 +47,7 @@ codAreaTematica,
 nombreAreaTematica,
 estado
 FROM [dbo].[AreaTematicas]
+where estado='A'
 Go 
 
 IF OBJECT_ID('dbo.USP_AreaTematicas_SelectById', 'P') IS NOT NULL

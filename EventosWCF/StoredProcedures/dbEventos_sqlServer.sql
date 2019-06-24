@@ -31,7 +31,8 @@ create table Participantes
 	correo nvarchar(60) not null,
 	telefono nvarchar(60) null,
 	distrito nvarchar(60) null,
-	codTipoParticipante int  not null
+	codTipoParticipante int  not null,
+	estado char(1) not null default 'A'
 
 	constraint pk_Participantes  primary key (codParticipante),
 	constraint ak_dni__Participantes unique(codParticipante),
@@ -79,7 +80,7 @@ create table Eventos
 	limiteParticipantes int not null,
 	lugaresDisponibles int not null,
 	codUsuario int not null,
-	estado char(1) not null default 'P'
+	estado char(1) not null default 'A'
 
 	constraint pk_Eventos  primary key(codEvento),
 	constraint fk_codAreaTematica__Eventos foreign key (codAreaTematica) references AreaTematicas(codAreaTematica),

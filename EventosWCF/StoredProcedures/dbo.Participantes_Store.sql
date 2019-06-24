@@ -89,6 +89,7 @@ telefono,
 distrito,
 codTipoParticipante
 FROM [dbo].[Participantes]
+where estatado='A'
 Go 
 
 IF OBJECT_ID('dbo.USP_Participantes_SelectById', 'P') IS NOT NULL
@@ -119,8 +120,10 @@ Go
 CREATE PROCEDURE dbo.USP_Participantes_Delete
 @codParticipante int
 as
-DELETE FROM [dbo].[Participantes]
+UPDATE [dbo].[Participantes] SET
+estado= 'E'
 where
 codParticipante = @codParticipante
 Go
 
+ 

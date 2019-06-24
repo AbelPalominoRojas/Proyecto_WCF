@@ -28,7 +28,7 @@ namespace Sise.Repository
                     sqlCommand.Parameters.AddWithValue("@fechaRegistro", eventoParticipante.FechaRegistro);
                     sqlCommand.Parameters.AddWithValue("@participanteAsistio", eventoParticipante.ParticipanteAsistio);
                     sqlCommand.Parameters.AddWithValue("@codUsuario", eventoParticipante.CodUsuario);
-                    sqlCommand.Parameters.AddWithValue("@estado", eventoParticipante.Estado);
+                    sqlCommand.Parameters.AddWithValue("@estado", "A");
 
                     result = Convert.ToBoolean(sqlCommand.ExecuteNonQuery());
                 }
@@ -55,7 +55,7 @@ namespace Sise.Repository
                     sqlCommand.Parameters.AddWithValue("@fechaRegistro", eventoParticipante.FechaRegistro);
                     sqlCommand.Parameters.AddWithValue("@participanteAsistio", eventoParticipante.ParticipanteAsistio);
                     sqlCommand.Parameters.AddWithValue("@codUsuario", eventoParticipante.CodUsuario);
-                    sqlCommand.Parameters.AddWithValue("@estado", eventoParticipante.Estado);
+                    sqlCommand.Parameters.AddWithValue("@estado", "A");
 
                     result = Convert.ToBoolean(sqlCommand.ExecuteNonQuery());
                 }

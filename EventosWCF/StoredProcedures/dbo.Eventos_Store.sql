@@ -95,6 +95,7 @@ lugaresDisponibles,
 codUsuario,
 estado
 FROM [dbo].[Eventos]
+where estado='A'
 Go 
 
 IF OBJECT_ID('dbo.USP_Eventos_SelectById', 'P') IS NOT NULL
