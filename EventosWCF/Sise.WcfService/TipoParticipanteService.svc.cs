@@ -22,7 +22,7 @@ namespace Sise.WcfService
 
 
             //validacion 
-            if (tipoParticipantes.NombreTipoParticipante.Trim().Length == 0)
+            if (String.IsNullOrWhiteSpace(tipoParticipantes.NombreTipoParticipante))
             {
                 result.Message = "El campo NombreTipoParticipante es requerido.";
                 return result;

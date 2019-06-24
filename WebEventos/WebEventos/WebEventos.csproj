@@ -2838,6 +2838,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\SRefTipoParticipante\configuration91.svcinfo" />
+    <None Include="Service References\SRefTipoParticipante\configuration.svcinfo" />
+    <None Include="Service References\SRefTipoParticipante\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -2846,11 +2852,17 @@
     <Compile Include="Controllers\AreaTematicaController.cs" />
     <Compile Include="Controllers\EventoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TipoParticipanteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\SRefAreaTematica\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SRefTipoParticipante\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -3380,6 +3392,18 @@
     <Content Include="Views\Evento\Delete.cshtml" />
     <Content Include="Views\AreaTematica\Delete.cshtml" />
     <Content Include="Views\AreaTematica\Details.cshtml" />
+    <None Include="Service References\SRefTipoParticipante\TipoParticipanteService.wsdl" />
+    <Content Include="Service References\SRefTipoParticipante\WebEventos.SRefTipoParticipante.ServiceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SRefTipoParticipante\WebEventos.SRefTipoParticipante.TipoParticipante.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Views\TipoParticipante\Index.cshtml" />
+    <Content Include="Views\TipoParticipante\Create.cshtml" />
+    <Content Include="Views\TipoParticipante\Edit.cshtml" />
+    <Content Include="Views\TipoParticipante\Details.cshtml" />
+    <Content Include="Views\TipoParticipante\Delete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3399,6 +3423,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\SRefAreaTematica\" />
+    <WCFMetadataStorage Include="Service References\SRefTipoParticipante\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
