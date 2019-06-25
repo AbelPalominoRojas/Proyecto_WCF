@@ -1,0 +1,108 @@
+﻿@model IEnumerable<WebEventos.SRefEvento.Evento>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="row">
+    <div class="col-12">
+
+        <div class="ibox">
+            <div class="ibox-head">
+                <div class="ibox-title">Lista de Eventos</div>
+                @Html.ActionLink(" Nuevo", "Create", null, new { @class = "btn btn-success fa fa-file" })
+            </div>
+            <div class="ibox-body">
+                <div class="table-responsive">
+
+                    <table class="table">
+                        <tr>
+                            <th>Acciones</th>
+                            <th>
+                                Cod
+                            </th>
+                            <th>
+                                Fecha
+                            </th>
+                            <th>
+                                Evento
+                            </th>
+                            <th>
+                                Area Tematica
+                            </th>
+                            <th>
+                                Descripcion
+                            </th>
+
+                            <th>
+                                Expositor
+                            </th>
+
+                            <th>
+                                Limete
+                            </th>
+                            <th>
+                                Disponible
+                            </th>
+                            <th>
+                                Lugar Evento
+                            </th>
+                            <th>
+                                Estado
+                            </th>
+
+
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.ActionLink(" ", "Details", new {  id=item.CodEvento }, new { @class = "btn btn-outline-warning fa fa-search-plus" })
+                                    @Html.ActionLink(" ", "Edit", new {  id=item.CodEvento }, new { @class = "btn btn-outline-primary fa fa-pencil" })
+                                    @Html.ActionLink(" ", "Delete", new {  id=item.CodEvento }, new { @class = "btn btn-outline-danger fa fa-trash" })
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CodEvento)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FechaEvento)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NombreEvento)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CodAreaTematica)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DescripcionEvento)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Expositor)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LimiteParticipantes)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LugaresDisponibles)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LugarEvento)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Estado)
+                                </td>
+
+                            </tr>
+                        }
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

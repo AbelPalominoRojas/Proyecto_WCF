@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="EventoService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:4356/EventoService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:4356/EventoService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:4356/EventoService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Sise.Entities" />
+      <xsd:import schemaLocation="http://localhost:4356/EventoService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Sise.WcfService.Entity" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IEventoService_registrar_InputMessage">
+    <wsdl:part name="parameters" element="tns:registrar" />
+  </wsdl:message>
+  <wsdl:message name="IEventoService_registrar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:registrarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEventoService_actualizar_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizar" />
+  </wsdl:message>
+  <wsdl:message name="IEventoService_actualizar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEventoService_eliminar_InputMessage">
+    <wsdl:part name="parameters" element="tns:eliminar" />
+  </wsdl:message>
+  <wsdl:message name="IEventoService_eliminar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEventoService_listar_InputMessage">
+    <wsdl:part name="parameters" element="tns:listar" />
+  </wsdl:message>
+  <wsdl:message name="IEventoService_listar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEventoService_buscar_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscar" />
+  </wsdl:message>
+  <wsdl:message name="IEventoService_buscar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IEventoService">
+    <wsdl:operation name="registrar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventoService/registrar" message="tns:IEventoService_registrar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventoService/registrarResponse" message="tns:IEventoService_registrar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventoService/actualizar" message="tns:IEventoService_actualizar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventoService/actualizarResponse" message="tns:IEventoService_actualizar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventoService/eliminar" message="tns:IEventoService_eliminar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventoService/eliminarResponse" message="tns:IEventoService_eliminar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventoService/listar" message="tns:IEventoService_listar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventoService/listarResponse" message="tns:IEventoService_listar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventoService/buscar" message="tns:IEventoService_buscar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventoService/buscarResponse" message="tns:IEventoService_buscar_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IEventoService" type="tns:IEventoService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="registrar">
+      <soap:operation soapAction="http://tempuri.org/IEventoService/registrar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizar">
+      <soap:operation soapAction="http://tempuri.org/IEventoService/actualizar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminar">
+      <soap:operation soapAction="http://tempuri.org/IEventoService/eliminar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listar">
+      <soap:operation soapAction="http://tempuri.org/IEventoService/listar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscar">
+      <soap:operation soapAction="http://tempuri.org/IEventoService/buscar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EventoService">
+    <wsdl:port name="BasicHttpBinding_IEventoService" binding="tns:BasicHttpBinding_IEventoService">
+      <soap:address location="http://localhost:4356/EventoService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

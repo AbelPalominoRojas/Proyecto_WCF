@@ -1,0 +1,87 @@
+﻿@model WebEventos.SRefEvento.Evento
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="row">
+    <div class="col-12">
+
+        <div class="ibox">
+            <div class="ibox-head">
+                <div class="ibox-title">Registrar Evento</div>
+            </div>
+            <div class="ibox-body">
+                @if (ViewBag.Message != null)
+                {
+                    <div class="alert alert-danger alert-dismissable fade show">
+                        <button class="close" data-dismiss="alert" aria-label="Close">×</button>
+                        @ViewBag.Message
+                    </div>
+                }
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-row">
+
+                        <div class="form-group col-sm-6 col-xl-4">
+                            <label>Evento</label>
+                            @Html.EditorFor(model => model.NombreEvento, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+
+
+                        <div class="form-group col-sm-6 col-xl-4">
+                            <label>Descripcion</label>
+                            @Html.EditorFor(model => model.DescripcionEvento, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="form-group col-sm-6 col-xl-4">
+                            <label>Fecha</label>
+                            @Html.EditorFor(model => model.FechaEvento, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+
+                        <div class="form-group col-sm-6 col-xl-4">
+                            <label>Area Tematica</label>
+                            @Html.DropDownListFor(model => model.CodAreaTematica, ViewBag.areaTematicas as IEnumerable<SelectListItem>, "Seleccione", new { @class = "form-control" })
+                        </div>
+
+                        <div class="form-group col-sm-6 col-xl-4">
+                            <label>Expositor</label>
+                            @Html.EditorFor(model => model.Expositor, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="form-group col-sm-6 col-xl-4">
+                            <label>Limete de Participantes</label>
+                            @Html.EditorFor(model => model.LimiteParticipantes, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="form-group col-sm-6 col-xl-4">
+                            <label>Lugar del Evento</label>
+                            @Html.EditorFor(model => model.LugarEvento, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+
+                    </div>
+
+                    <hr />
+
+                    <div class="d-flex justify-content-between">
+                        @Html.ActionLink(" ", "Index", null, new { @class = "btn btn-info fa fa-reply" })
+
+                        <button type="submit" class="btn btn-success">
+                            <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                            Guardar
+                        </button>
+                    </div>
+
+
+                }
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+

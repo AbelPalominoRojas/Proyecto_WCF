@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ec1c809a-90e1-4423-9934-9a75202c6bbe" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:4356/EventoService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="EventoService.xsd" MetadataType="Schema" ID="913dcb78-9f32-4084-9116-c2d5112cf6ff" SourceId="1" SourceUrl="http://localhost:4356/EventoService.svc?xsd=xsd2" />
+    <MetadataFile FileName="EventoService.wsdl" MetadataType="Wsdl" ID="a0cce4dc-c215-45e8-96f8-ecc66ee98be7" SourceId="1" SourceUrl="http://localhost:4356/EventoService.svc?wsdl" />
+    <MetadataFile FileName="EventoService1.xsd" MetadataType="Schema" ID="c40504f9-11be-44e4-9bb7-b97ee1851e6e" SourceId="1" SourceUrl="http://localhost:4356/EventoService.svc?xsd=xsd0" />
+    <MetadataFile FileName="EventoService2.xsd" MetadataType="Schema" ID="caaa2cf5-a54f-4f9a-a569-ea3287327787" SourceId="1" SourceUrl="http://localhost:4356/EventoService.svc?xsd=xsd3" />
+    <MetadataFile FileName="EventoService3.xsd" MetadataType="Schema" ID="646c52e9-371c-46f1-bc2b-d31504c2e155" SourceId="1" SourceUrl="http://localhost:4356/EventoService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

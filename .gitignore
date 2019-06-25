@@ -41,3 +41,8 @@ TestResult.xml
 dlldata.c
 EventosWCF/.vs/EventosWCFSolution/v14/.suo
 *.cache
+WebEventos/WebEventos/bin/WebEventos.dll
+WebEventos/WebEventos/bin/WebEventos.pdb
+WebEventos/WebEventos/obj/Debug/WebEventos.dll
+WebEventos/WebEventos/obj/Debug/WebEventos.pdb
+WebEventos/WebEventos/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
