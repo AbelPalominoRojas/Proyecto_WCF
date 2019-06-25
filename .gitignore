@@ -47,3 +47,5 @@ WebEventos/WebEventos/obj/Debug/WebEventos.dll
 WebEventos/WebEventos/obj/Debug/WebEventos.pdb
 WebEventos/WebEventos/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 WebEventos/WebEventos/Service References/SRefEvento/configuration91.svcinfo
+*.cache
+WebEventos/WebEventos/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
