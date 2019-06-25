@@ -89,7 +89,7 @@ telefono,
 distrito,
 codTipoParticipante
 FROM [dbo].[Participantes]
-where estatado='A'
+where estado='A'
 Go 
 
 IF OBJECT_ID('dbo.USP_Participantes_SelectById', 'P') IS NOT NULL

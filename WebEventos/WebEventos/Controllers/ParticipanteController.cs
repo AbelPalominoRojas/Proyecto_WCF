@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using WebEventos.SRefParticipante;
 using WebEventos.SRefTipoParticipante;
 
+
 namespace WebEventos.Controllers
 {
     public class ParticipanteController : Controller
@@ -17,7 +18,7 @@ namespace WebEventos.Controllers
         public ActionResult Index()
         {
             List<Participante> listParticipantes = new List<Participante>();
-            
+
             try
             {
                 listParticipantes = clientP.listar().ToList();
@@ -44,9 +45,8 @@ namespace WebEventos.Controllers
         {
             try
             {
-                List<SelectListItem> tipoParticipantes = (from tp in clientTp.listar().ToList() select 
-                                                          new SelectListItem() { Value = tp.CodTipoParticipante.ToString(), Text = tp.NombreTipoParticipante }).ToList();
-                ViewBag.TipoParticipantes = tipoParticipantes;
+
+                ViewBag.TipoParticipantes = comboBoxTipoParticipante();
 
                 return View(new Participante());
             }
@@ -56,7 +56,7 @@ namespace WebEventos.Controllers
                 //throw;
             }
 
-            
+
         }
 
         // POST: Participante/Create
@@ -65,36 +65,73 @@ namespace WebEventos.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                SRefParticipante.ServiceResponse response = clientP.registrar(participante);
 
-                return RedirectToAction("Index");
+                if (response.IsSuccess)
+                {
+                    return RedirectToAction("Index");
+                }
+
+
+                ViewBag.TipoParticipantes = comboBoxTipoParticipante();
+
+                ViewBag.Message = response.Message;
+                //return View(participante);
+
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
             }
+            return View(participante);
         }
+
+
 
         // GET: Participante/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            try
+            {
+                Participante participante = clientP.buscar(id);
+                if (participante == null)
+                {
+                    return RedirectToAction("Index");
+                }
+                ViewBag.TipoParticipantes = comboBoxTipoParticipante();
+
+                return View(participante);
+            }
+            catch (Exception ex)
+            {
+
+                return RedirectToAction("Index");
+                // throw;
+            }
+           
         }
 
         // POST: Participante/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Participante participante)
         {
             try
             {
-                // TODO: Add update logic here
+                participante.CodParticipante = id;
+                SRefParticipante.ServiceResponse response = clientP.actualizar(participante);
+                if (response.IsSuccess)
+                {
+                    return RedirectToAction("Index");
+                }
 
-                return RedirectToAction("Index");
+                ViewBag.TipoParticipantes = comboBoxTipoParticipante();
+
+                ViewBag.Message = response.Message;
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+              
             }
+            return View(participante);
         }
 
         // GET: Participante/Delete/5
@@ -117,6 +154,13 @@ namespace WebEventos.Controllers
             {
                 return View();
             }
+        }
+
+        private IEnumerable<SelectListItem> comboBoxTipoParticipante()
+        {
+            return (from tp in clientTp.listar()
+                    select
+                  new SelectListItem() { Value = tp.CodTipoParticipante.ToString(), Text = tp.NombreTipoParticipante });
         }
     }
 }
