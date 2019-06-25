@@ -3461,6 +3461,7 @@
     <Content Include="Views\Usuario\Details.cshtml" />
     <Content Include="Views\Participante\Index.cshtml" />
     <Content Include="Views\Participante\Create.cshtml" />
+    <Content Include="Views\Participante\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
