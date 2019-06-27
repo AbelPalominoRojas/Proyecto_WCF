@@ -23,6 +23,9 @@ namespace WebEventos.SRefEvento {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WebEventos.SRefEvento.AreaTematica AreaTematicaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int CodAreaTematicaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -62,6 +65,19 @@ namespace WebEventos.SRefEvento {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WebEventos.SRefEvento.AreaTematica AreaTematica {
+            get {
+                return this.AreaTematicaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AreaTematicaField, value) != true)) {
+                    this.AreaTematicaField = value;
+                    this.RaisePropertyChanged("AreaTematica");
+                }
             }
         }
         
@@ -204,6 +220,83 @@ namespace WebEventos.SRefEvento {
                 if ((object.ReferenceEquals(this.NombreEventoField, value) != true)) {
                     this.NombreEventoField = value;
                     this.RaisePropertyChanged("NombreEvento");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AreaTematica", Namespace="http://schemas.datacontract.org/2004/07/Sise.Entities")]
+    [System.SerializableAttribute()]
+    public partial class AreaTematica : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CodAreaTematicaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EstadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreAreaTematicaField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CodAreaTematica {
+            get {
+                return this.CodAreaTematicaField;
+            }
+            set {
+                if ((this.CodAreaTematicaField.Equals(value) != true)) {
+                    this.CodAreaTematicaField = value;
+                    this.RaisePropertyChanged("CodAreaTematica");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Estado {
+            get {
+                return this.EstadoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EstadoField, value) != true)) {
+                    this.EstadoField = value;
+                    this.RaisePropertyChanged("Estado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreAreaTematica {
+            get {
+                return this.NombreAreaTematicaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreAreaTematicaField, value) != true)) {
+                    this.NombreAreaTematicaField = value;
+                    this.RaisePropertyChanged("NombreAreaTematica");
                 }
             }
         }

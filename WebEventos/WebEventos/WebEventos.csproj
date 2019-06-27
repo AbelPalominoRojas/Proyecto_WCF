@@ -3495,7 +3495,7 @@
     <Content Include="Views\Evento\Create.cshtml" />
     <Content Include="Views\Evento\Edit.cshtml" />
     <Content Include="Views\Participante\Edit.cshtml" />
-
+    <Content Include="Views\Evento\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

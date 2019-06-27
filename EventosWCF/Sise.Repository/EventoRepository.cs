@@ -111,17 +111,23 @@ namespace Sise.Repository
                     using (sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.SingleResult))
                     {
                         Evento resultEventos = null;
+                        AreaTematica area = null;
 
                         while (sqlDataReader.Read())
                         {
                             resultEventos = new Evento();
+                            area = new AreaTematica();
+
                             int codEvento_index = sqlDataReader.GetOrdinal("codEvento");
                             if (!sqlDataReader.IsDBNull(codEvento_index))
                                 resultEventos.CodEvento = sqlDataReader.GetInt32(codEvento_index);
 
                             int codAreaTematica_index = sqlDataReader.GetOrdinal("codAreaTematica");
                             if (!sqlDataReader.IsDBNull(codAreaTematica_index))
+                            {
                                 resultEventos.CodAreaTematica = sqlDataReader.GetInt32(codAreaTematica_index);
+                                area.CodAreaTematica = resultEventos.CodAreaTematica;
+                            }
 
                             int nombreEvento_index = sqlDataReader.GetOrdinal("nombreEvento");
                             if (!sqlDataReader.IsDBNull(nombreEvento_index))
@@ -159,7 +165,11 @@ namespace Sise.Repository
                             if (!sqlDataReader.IsDBNull(estado_index))
                                 resultEventos.Estado = sqlDataReader.GetString(estado_index);
 
+                            int nombreAreaTematica_index = sqlDataReader.GetOrdinal("nombreAreaTematica");
+                            if (!sqlDataReader.IsDBNull(nombreAreaTematica_index))
+                                area.NombreAreaTematica = sqlDataReader.GetString(nombreAreaTematica_index);
 
+                            resultEventos.AreaTematica = area;
 
                             listEventos.Add(resultEventos);
                         }
@@ -187,17 +197,23 @@ namespace Sise.Repository
 
                     using (sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.SingleResult))
                     {
+                        AreaTematica area = null;
 
                         while (sqlDataReader.Read())
                         {
                             resultEventos = new Evento();
+                            area = new AreaTematica();
+
                             int codEvento_index = sqlDataReader.GetOrdinal("codEvento");
                             if (!sqlDataReader.IsDBNull(codEvento_index))
                                 resultEventos.CodEvento = sqlDataReader.GetInt32(codEvento_index);
 
                             int codAreaTematica_index = sqlDataReader.GetOrdinal("codAreaTematica");
                             if (!sqlDataReader.IsDBNull(codAreaTematica_index))
+                            {
                                 resultEventos.CodAreaTematica = sqlDataReader.GetInt32(codAreaTematica_index);
+                                area.CodAreaTematica = resultEventos.CodAreaTematica;
+                            }
 
                             int nombreEvento_index = sqlDataReader.GetOrdinal("nombreEvento");
                             if (!sqlDataReader.IsDBNull(nombreEvento_index))
@@ -234,7 +250,12 @@ namespace Sise.Repository
                             int estado_index = sqlDataReader.GetOrdinal("estado");
                             if (!sqlDataReader.IsDBNull(estado_index))
                                 resultEventos.Estado = sqlDataReader.GetString(estado_index);
+                            
+                            int nombreAreaTematica_index = sqlDataReader.GetOrdinal("nombreAreaTematica");
+                            if (!sqlDataReader.IsDBNull(nombreAreaTematica_index)) { }
+                                area.NombreAreaTematica = sqlDataReader.GetString(nombreAreaTematica_index);
 
+                            resultEventos.AreaTematica = area;
 
 
                         }

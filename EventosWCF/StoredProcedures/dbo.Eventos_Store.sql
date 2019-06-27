@@ -58,7 +58,6 @@ CREATE PROCEDURE dbo.USP_Eventos_Update
 @expositor nvarchar(150),
 @lugarEvento nvarchar(200),
 @limiteParticipantes int,
-@lugaresDisponibles int,
 @codUsuario int,
 @estado char(1)
 as
@@ -70,7 +69,6 @@ fechaEvento = @fechaEvento,
 expositor = @expositor,
 lugarEvento = @lugarEvento,
 limiteParticipantes = @limiteParticipantes,
-lugaresDisponibles = @lugaresDisponibles,
 codUsuario = @codUsuario,
 estado = @estado
 where
@@ -83,19 +81,21 @@ Go
 CREATE PROCEDURE dbo.USP_Eventos_SelectAll
 as
 SELECT
-codEvento,
-codAreaTematica,
-nombreEvento,
-descripcionEvento,
-fechaEvento,
-expositor,
-lugarEvento,
-limiteParticipantes,
-lugaresDisponibles,
-codUsuario,
-estado
-FROM [dbo].[Eventos]
-where estado='A'
+e.codEvento,
+e.codAreaTematica,
+e.nombreEvento,
+e.descripcionEvento,
+e.fechaEvento,
+e.expositor,
+e.lugarEvento,
+e.limiteParticipantes,
+e.lugaresDisponibles,
+e.codUsuario,
+a.nombreAreaTematica,
+e.estado
+FROM [dbo].[Eventos] e
+INNER JOIN [dbo].[AreaTematicas] a ON e.codAreaTematica = a.codAreaTematica
+where e.estado='A'
 Go 
 
 IF OBJECT_ID('dbo.USP_Eventos_SelectById', 'P') IS NOT NULL
@@ -105,20 +105,21 @@ CREATE PROCEDURE dbo.USP_Eventos_SelectById
 @codEvento int
 as
 SELECT
-codEvento,
-codAreaTematica,
-nombreEvento,
-descripcionEvento,
-fechaEvento,
-expositor,
-lugarEvento,
-limiteParticipantes,
-lugaresDisponibles,
-codUsuario,
-estado
-FROM [dbo].[Eventos]
-where
-codEvento = @codEvento
+e.codEvento,
+e.codAreaTematica,
+e.nombreEvento,
+e.descripcionEvento,
+e.fechaEvento,
+e.expositor,
+e.lugarEvento,
+e.limiteParticipantes,
+e.lugaresDisponibles,
+e.codUsuario,
+a.nombreAreaTematica,
+e.estado
+FROM [dbo].[Eventos] AS e
+INNER JOIN [dbo].[AreaTematicas] As a on a.codAreaTematica = e.codAreaTematica
+WHERE codEvento = @codEvento
 Go
 
 IF OBJECT_ID('dbo.USP_Eventos_Delete', 'P') IS NOT NULL

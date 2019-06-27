@@ -45,5 +45,8 @@ namespace Sise.Entities
         [DataMember]
         public String Estado { get; set; }
 
+        [DataMember]
+        public AreaTematica AreaTematica { get; set; } 
+
     }
 }

@@ -35,7 +35,24 @@ namespace WebEventos.Controllers
         // GET: Evento/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            try
+            {
+                Evento evento = clientEv.buscar(id);
+
+                if (evento == null)
+                {
+                    return RedirectToAction("Index");
+                }
+
+                ViewBag.areaTematicas = comboBoxAreaTematica();
+                return View(evento);
+            }
+            catch (Exception ex)
+            {
+
+                return RedirectToAction("Index");
+                //throw;
+            }
         }
 
         // GET: Evento/Create

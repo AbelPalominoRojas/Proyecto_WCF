@@ -48,7 +48,6 @@ D:\Desarrollo\Net\Proyecto_WCF\WebEventos\WebEventos\bin\System.Web.Webpages.Dep
 D:\Desarrollo\Net\Proyecto_WCF\WebEventos\WebEventos\bin\System.Web.Webpages.Razor.xml
 D:\Desarrollo\Net\Proyecto_WCF\WebEventos\WebEventos\bin\System.Web.Helpers.xml
 D:\Desarrollo\Net\Proyecto_WCF\WebEventos\WebEventos\bin\System.Web.Mvc.xml
-D:\Desarrollo\Net\Proyecto_WCF\WebEventos\WebEventos\obj\Debug\WebEventos.csprojResolveAssemblyReference.cache
 D:\Desarrollo\Net\Proyecto_WCF\WebEventos\WebEventos\obj\Debug\WebEventos.dll
 D:\Desarrollo\Net\Proyecto_WCF\WebEventos\WebEventos\obj\Debug\WebEventos.pdb
 D:\Desarrollo\tallersise\Proyecto_WCF\WebEventos\WebEventos\bin\ApplicationInsights.config
@@ -157,3 +156,4 @@ D:\Desarrollo\yanet\Net\Proyecto_WCF\WebEventos\WebEventos\bin\System.Web.Mvc.xm
 D:\Desarrollo\yanet\Net\Proyecto_WCF\WebEventos\WebEventos\obj\Debug\WebEventos.csprojResolveAssemblyReference.cache
 D:\Desarrollo\yanet\Net\Proyecto_WCF\WebEventos\WebEventos\obj\Debug\WebEventos.dll
 D:\Desarrollo\yanet\Net\Proyecto_WCF\WebEventos\WebEventos\obj\Debug\WebEventos.pdb
+D:\Desarrollo\Net\Proyecto_WCF\WebEventos\WebEventos\obj\Debug\WebEventos.csprojResolveAssemblyReference.cache
