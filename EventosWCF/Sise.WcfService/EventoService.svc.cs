@@ -146,12 +146,7 @@ namespace Sise.WcfService
                 result.Message = "El campo LimiteParticipantes es requerido.";
                 return result;
             }
-
-            if (evento.LugaresDisponibles == 0)
-            {
-                result.Message = "El campo LugaresDisponibles es requerido.";
-                return result;
-            }
+            
 
             if (evento.CodUsuario == 0)
             {

@@ -63,7 +63,6 @@ namespace Sise.Repository
                     sqlCommand.Parameters.AddWithValue("@expositor", evento.Expositor);
                     sqlCommand.Parameters.AddWithValue("@lugarEvento", evento.LugarEvento);
                     sqlCommand.Parameters.AddWithValue("@limiteParticipantes", evento.LimiteParticipantes);
-                    sqlCommand.Parameters.AddWithValue("@lugaresDisponibles", evento.LugaresDisponibles);
                     sqlCommand.Parameters.AddWithValue("@codUsuario", evento.CodUsuario);
                     sqlCommand.Parameters.AddWithValue("@estado", "A");
 

@@ -119,6 +119,7 @@ namespace WebEventos.Controllers
             try
             {
                 evento.CodEvento = id;
+                evento.CodUsuario = 1;
                 SRefEvento.ServiceResponse response = clientEv.actualizar(evento);
 
                 if (response.IsSuccess)
