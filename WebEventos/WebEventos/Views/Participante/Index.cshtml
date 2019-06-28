@@ -29,9 +29,8 @@
                             <th>
                                 Dni
                             </th>
-
                             <th>
-                                Tipo Participante
+                                Tipo
                             </th>
                             <th>
                                 Correo
@@ -76,7 +75,7 @@
                                 </td>
 
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.CodTipoParticipante)
+                                    @Html.DisplayFor(modelItem => item.TipoParticipante.NombreTipoParticipante)
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Correo)

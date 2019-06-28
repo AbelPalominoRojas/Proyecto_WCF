@@ -199,7 +199,7 @@ namespace Sise.Repository
                     {
                         AreaTematica area = null;
 
-                        while (sqlDataReader.Read())
+                        if (sqlDataReader.Read())
                         {
                             resultEventos = new Evento();
                             area = new AreaTematica();

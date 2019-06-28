@@ -78,18 +78,21 @@ Go
 CREATE PROCEDURE dbo.USP_Participantes_SelectAll
 as
 SELECT
-codParticipante,
-nombres,
-apellidos,
-dni,
-fechaNac,
-direccion,
-correo,
-telefono,
-distrito,
-codTipoParticipante
-FROM [dbo].[Participantes]
-where estado='A'
+p.codParticipante,
+p.nombres,
+p.apellidos,
+p.dni,
+p.fechaNac,
+p.direccion,
+p.correo,
+p.telefono,
+p.distrito,
+p.codTipoParticipante,
+t.nombreTipoParticipante
+FROM [dbo].[Participantes] AS p
+INNER JOIN [dbo].[TipoParticipantes] AS t
+ON p.codTipoParticipante = t.codTipoParticipante
+where p.estado='A'
 Go 
 
 IF OBJECT_ID('dbo.USP_Participantes_SelectById', 'P') IS NOT NULL
@@ -99,17 +102,20 @@ CREATE PROCEDURE dbo.USP_Participantes_SelectById
 @codParticipante int
 as
 SELECT
-codParticipante,
-nombres,
-apellidos,
-dni,
-fechaNac,
-direccion,
-correo,
-telefono,
-distrito,
-codTipoParticipante
-FROM [dbo].[Participantes]
+p.codParticipante,
+p.nombres,
+p.apellidos,
+p.dni,
+p.fechaNac,
+p.direccion,
+p.correo,
+p.telefono,
+p.distrito,
+p.codTipoParticipante,
+t.nombreTipoParticipante
+FROM [dbo].[Participantes] AS p
+INNER JOIN [dbo].[TipoParticipantes] AS t
+ON p.codTipoParticipante = t.codTipoParticipante
 where
 codParticipante = @codParticipante
 Go

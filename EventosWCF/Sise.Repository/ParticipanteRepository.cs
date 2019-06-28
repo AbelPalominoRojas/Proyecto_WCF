@@ -110,10 +110,13 @@ namespace Sise.Repository
                     using (sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.SingleResult))
                     {
                         Participante resultParticipantes = null;
+                        TipoParticipante tipoParticipante = null;
 
                         while (sqlDataReader.Read())
                         {
                             resultParticipantes = new Participante();
+                            tipoParticipante = new TipoParticipante();
+
                             int codParticipante_index = sqlDataReader.GetOrdinal("codParticipante");
                             if (!sqlDataReader.IsDBNull(codParticipante_index))
                                 resultParticipantes.CodParticipante = sqlDataReader.GetInt32(codParticipante_index);
@@ -152,9 +155,16 @@ namespace Sise.Repository
 
                             int codTipoParticipante_index = sqlDataReader.GetOrdinal("codTipoParticipante");
                             if (!sqlDataReader.IsDBNull(codTipoParticipante_index))
+                            {
                                 resultParticipantes.CodTipoParticipante = sqlDataReader.GetInt32(codTipoParticipante_index);
+                                tipoParticipante.CodTipoParticipante = resultParticipantes.CodTipoParticipante;
+                            }
 
+                            int nombreTipoParticipante_index = sqlDataReader.GetOrdinal("nombreTipoParticipante");
+                            if (!sqlDataReader.IsDBNull(nombreTipoParticipante_index))
+                                tipoParticipante.NombreTipoParticipante = sqlDataReader.GetString(nombreTipoParticipante_index);
 
+                            resultParticipantes.TipoParticipante = tipoParticipante;
 
                             listParticipantes.Add(resultParticipantes);
                         }
@@ -182,10 +192,13 @@ namespace Sise.Repository
 
                     using (sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.SingleResult))
                     {
+                        TipoParticipante tipoParticipante = null;
 
-                        while (sqlDataReader.Read())
+                        if (sqlDataReader.Read())
                         {
                             resultParticipantes = new Participante();
+                            tipoParticipante = new TipoParticipante();
+
                             int codParticipante_index = sqlDataReader.GetOrdinal("codParticipante");
                             if (!sqlDataReader.IsDBNull(codParticipante_index))
                                 resultParticipantes.CodParticipante = sqlDataReader.GetInt32(codParticipante_index);
@@ -224,7 +237,16 @@ namespace Sise.Repository
 
                             int codTipoParticipante_index = sqlDataReader.GetOrdinal("codTipoParticipante");
                             if (!sqlDataReader.IsDBNull(codTipoParticipante_index))
+                            {
                                 resultParticipantes.CodTipoParticipante = sqlDataReader.GetInt32(codTipoParticipante_index);
+                                tipoParticipante.CodTipoParticipante = resultParticipantes.CodTipoParticipante;
+                            }
+
+                            int nombreTipoParticipante_index = sqlDataReader.GetOrdinal("nombreTipoParticipante");
+                            if (!sqlDataReader.IsDBNull(nombreTipoParticipante_index))
+                                tipoParticipante.NombreTipoParticipante = sqlDataReader.GetString(nombreTipoParticipante_index);
+
+                            resultParticipantes.TipoParticipante = tipoParticipante;
 
 
 

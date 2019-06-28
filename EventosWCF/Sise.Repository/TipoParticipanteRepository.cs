@@ -141,7 +141,7 @@ namespace Sise.Repository
                     using (sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.SingleResult))
                     {
 
-                        while (sqlDataReader.Read())
+                        if (sqlDataReader.Read())
                         {
                             resultTipoParticipantes = new TipoParticipante();
                             int codTipoParticipante_index = sqlDataReader.GetOrdinal("codTipoParticipante");

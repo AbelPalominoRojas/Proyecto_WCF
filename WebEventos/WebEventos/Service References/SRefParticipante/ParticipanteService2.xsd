@@ -9,12 +9,22 @@
       <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Distrito" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Dni" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FechaNac" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Nombres" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoParticipante" nillable="true" type="tns:TipoParticipante" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Participante" nillable="true" type="tns:Participante" />
+  <xs:complexType name="TipoParticipante">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodTipoParticipante" type="xs:int" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreTipoParticipante" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TipoParticipante" nillable="true" type="tns:TipoParticipante" />
   <xs:complexType name="ArrayOfParticipante">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Participante" nillable="true" type="tns:Participante" />

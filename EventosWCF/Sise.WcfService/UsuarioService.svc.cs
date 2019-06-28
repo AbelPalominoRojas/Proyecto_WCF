@@ -93,11 +93,6 @@ namespace Sise.WcfService
                 result.Message = "El campo Email es requerido.";
                 return result;
             }
-            if (usuario.Password.Trim().Length == 0)
-            {
-                result.Message = "El campo Password es requerido.";
-                return result;
-            }
 
             //proceso
             try

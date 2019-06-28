@@ -38,16 +38,12 @@ CREATE PROCEDURE dbo.USP_Usuarios_Update
 @codUsuario int,
 @nombres nvarchar(40),
 @apellidos nvarchar(60),
-@email nvarchar(60),
-@password nvarchar(100),
-@estado char(1)
+@email nvarchar(60)
 as
 UPDATE [dbo].[Usuarios] SET 
 nombres = @nombres,
 apellidos = @apellidos,
-email = @email,
-password = @password,
-estado = @estado
+email = @email
 where
 codUsuario = @codUsuario
 Go
@@ -62,7 +58,6 @@ codUsuario,
 nombres,
 apellidos,
 email,
-password,
 estado
 FROM [dbo].[Usuarios]
 Go 
@@ -78,7 +73,6 @@ codUsuario,
 nombres,
 apellidos,
 email,
-password,
 estado
 FROM [dbo].[Usuarios]
 where

@@ -54,8 +54,6 @@ namespace Sise.Repository
                     sqlCommand.Parameters.AddWithValue("@nombres", usuario.Nombres);
                     sqlCommand.Parameters.AddWithValue("@apellidos", usuario.Apellidos);
                     sqlCommand.Parameters.AddWithValue("@email", usuario.Email);
-                    sqlCommand.Parameters.AddWithValue("@password", usuario.Password);
-                    sqlCommand.Parameters.AddWithValue("@estado", "A");
 
                     result = Convert.ToBoolean(sqlCommand.ExecuteNonQuery());
                 }
@@ -121,11 +119,7 @@ namespace Sise.Repository
                             int email_index = sqlDataReader.GetOrdinal("email");
                             if (!sqlDataReader.IsDBNull(email_index))
                                 resultUsuarios.Email = sqlDataReader.GetString(email_index);
-
-                            int password_index = sqlDataReader.GetOrdinal("password");
-                            if (!sqlDataReader.IsDBNull(password_index))
-                                resultUsuarios.Password = sqlDataReader.GetString(password_index);
-
+                            
                             int estado_index = sqlDataReader.GetOrdinal("estado");
                             if (!sqlDataReader.IsDBNull(estado_index))
                                 resultUsuarios.Estado = sqlDataReader.GetString(estado_index);
@@ -159,7 +153,7 @@ namespace Sise.Repository
                     using (sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.SingleResult))
                     {
 
-                        while (sqlDataReader.Read())
+                        if (sqlDataReader.Read())
                         {
                             resultUsuarios = new Usuario();
                             int codUsuario_index = sqlDataReader.GetOrdinal("codUsuario");
@@ -177,11 +171,7 @@ namespace Sise.Repository
                             int email_index = sqlDataReader.GetOrdinal("email");
                             if (!sqlDataReader.IsDBNull(email_index))
                                 resultUsuarios.Email = sqlDataReader.GetString(email_index);
-
-                            int password_index = sqlDataReader.GetOrdinal("password");
-                            if (!sqlDataReader.IsDBNull(password_index))
-                                resultUsuarios.Password = sqlDataReader.GetString(password_index);
-
+                            
                             int estado_index = sqlDataReader.GetOrdinal("estado");
                             if (!sqlDataReader.IsDBNull(estado_index))
                                 resultUsuarios.Estado = sqlDataReader.GetString(estado_index);

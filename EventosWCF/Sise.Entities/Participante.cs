@@ -42,5 +42,8 @@ namespace Sise.Entities
         [DataMember]
         public String Estado { get; set; }
 
+        [DataMember]
+        public TipoParticipante TipoParticipante { get; set; }
+
     }
 }

@@ -140,7 +140,7 @@ namespace Sise.Repository
                     using (sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.SingleResult))
                     {
 
-                        while (sqlDataReader.Read())
+                        if (sqlDataReader.Read())
                         {
                             resultAreaTematicas = new AreaTematica();
                             int codAreaTematica_index = sqlDataReader.GetOrdinal("codAreaTematica");

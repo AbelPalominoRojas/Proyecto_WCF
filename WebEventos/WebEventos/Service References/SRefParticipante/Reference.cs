@@ -44,6 +44,9 @@ namespace WebEventos.SRefParticipante {
         private string DniField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EstadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime FechaNacField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -51,6 +54,9 @@ namespace WebEventos.SRefParticipante {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TelefonoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WebEventos.SRefParticipante.TipoParticipante TipoParticipanteField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -154,6 +160,19 @@ namespace WebEventos.SRefParticipante {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Estado {
+            get {
+                return this.EstadoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EstadoField, value) != true)) {
+                    this.EstadoField = value;
+                    this.RaisePropertyChanged("Estado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.DateTime FechaNac {
             get {
                 return this.FechaNacField;
@@ -188,6 +207,96 @@ namespace WebEventos.SRefParticipante {
                 if ((object.ReferenceEquals(this.TelefonoField, value) != true)) {
                     this.TelefonoField = value;
                     this.RaisePropertyChanged("Telefono");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WebEventos.SRefParticipante.TipoParticipante TipoParticipante {
+            get {
+                return this.TipoParticipanteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TipoParticipanteField, value) != true)) {
+                    this.TipoParticipanteField = value;
+                    this.RaisePropertyChanged("TipoParticipante");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TipoParticipante", Namespace="http://schemas.datacontract.org/2004/07/Sise.Entities")]
+    [System.SerializableAttribute()]
+    public partial class TipoParticipante : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CodTipoParticipanteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EstadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreTipoParticipanteField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CodTipoParticipante {
+            get {
+                return this.CodTipoParticipanteField;
+            }
+            set {
+                if ((this.CodTipoParticipanteField.Equals(value) != true)) {
+                    this.CodTipoParticipanteField = value;
+                    this.RaisePropertyChanged("CodTipoParticipante");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Estado {
+            get {
+                return this.EstadoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EstadoField, value) != true)) {
+                    this.EstadoField = value;
+                    this.RaisePropertyChanged("Estado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreTipoParticipante {
+            get {
+                return this.NombreTipoParticipanteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreTipoParticipanteField, value) != true)) {
+                    this.NombreTipoParticipanteField = value;
+                    this.RaisePropertyChanged("NombreTipoParticipante");
                 }
             }
         }

@@ -5,7 +5,7 @@
 }
 
 <div class="row">
-    <div class="col-12">
+    <div class="col-12 col-xl-10">
         <div class="ibox">
             <div class="ibox-head">
                 <div class="ibox-title">Listado de Usuario</div>
@@ -20,8 +20,6 @@
                      <th>Nombres</th>
                      <th>Apellidos</th>
                      <th>Email</th>
-                     <th>Password</th>
-                     <th>Estado</th>
                    </tr>
                    @foreach (var item in Model){
                    <tr>
@@ -34,8 +32,6 @@
                      <td>@Html.DisplayFor(modelItem => item.Nombres)</td>
                      <td>@Html.DisplayFor(modelItem => item.Apellidos)</td>
                      <td>@Html.DisplayFor(modelItem => item.Email)</td>
-                     <td>@Html.DisplayFor(modelItem => item.Password)</td>
-                     <td>@Html.DisplayFor(modelItem => item.Estado)</td>
                     </tr>
                         }
                     </table>

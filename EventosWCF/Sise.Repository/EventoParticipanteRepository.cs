@@ -161,7 +161,7 @@ namespace Sise.Repository
                     using (sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.SingleResult))
                     {
 
-                        while (sqlDataReader.Read())
+                        if (sqlDataReader.Read())
                         {
                             resultEventoParticipantes = new EventoParticipante();
                             int codEvento_index = sqlDataReader.GetOrdinal("codEvento");
