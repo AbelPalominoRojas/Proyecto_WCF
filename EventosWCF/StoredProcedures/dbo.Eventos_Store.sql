@@ -96,6 +96,7 @@ e.estado
 FROM [dbo].[Eventos] e
 INNER JOIN [dbo].[AreaTematicas] a ON e.codAreaTematica = a.codAreaTematica
 where e.estado='A'
+order by codEvento desc
 Go 
 
 IF OBJECT_ID('dbo.USP_Eventos_SelectById', 'P') IS NOT NULL

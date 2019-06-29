@@ -68,6 +68,7 @@ codUsuario,
 estado
 FROM [dbo].[EventoParticipantes]
 where estado='A'
+order by codEvento desc
 Go 
 
 IF OBJECT_ID('dbo.USP_EventoParticipantes_SelectById', 'P') IS NOT NULL

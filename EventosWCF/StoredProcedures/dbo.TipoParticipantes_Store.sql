@@ -48,6 +48,7 @@ nombreTipoParticipante,
 estado
 FROM [dbo].[TipoParticipantes]
 where estado='A'
+order by codTipoParticipante desc
 Go 
 
 IF OBJECT_ID('dbo.USP_TipoParticipantes_SelectById', 'P') IS NOT NULL

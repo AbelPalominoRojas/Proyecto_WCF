@@ -93,6 +93,7 @@ FROM [dbo].[Participantes] AS p
 INNER JOIN [dbo].[TipoParticipantes] AS t
 ON p.codTipoParticipante = t.codTipoParticipante
 where p.estado='A'
+order by codParticipante desc
 Go 
 
 IF OBJECT_ID('dbo.USP_Participantes_SelectById', 'P') IS NOT NULL
