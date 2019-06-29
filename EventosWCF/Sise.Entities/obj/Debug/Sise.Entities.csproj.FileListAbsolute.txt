@@ -21,3 +21,4 @@ D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Entities\bin\Debug\Sise.En
 D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Entities\obj\Debug\Sise.Entities.csprojResolveAssemblyReference.cache
 D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Entities\obj\Debug\Sise.Entities.dll
 D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Entities\obj\Debug\Sise.Entities.pdb
+D:\Desarrollo\yanet\Net\Proyecto_WCF\EventosWCF\Sise.Entities\obj\Debug\Sise.Entities.csprojResolveAssemblyReference.cache

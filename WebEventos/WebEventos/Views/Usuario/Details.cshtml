@@ -40,7 +40,7 @@
 
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">
-                        Tipo Email
+                        Email
                     </label>
                     <div class="col-sm-10">
                         : @Html.DisplayFor(model => model.Email)
@@ -49,9 +49,13 @@
 
                 <div class="d-flex justify-content-between">
                     @Html.ActionLink(" ", "Index", null, new { @class = "btn btn-info fa fa-reply" })
-                    @Html.ActionLink(" Editar", "Edit", new { id = Model.CodUsuario }, new { @class = "btn btn-info fa fa-pencil" })
-
+                  
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fa fa-trash" aria-hidden="true"></i>Eliminar
+                    </button>
                 </div>
+
+               
 
             </div>
         </div>

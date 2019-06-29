@@ -24,8 +24,8 @@
                    @foreach (var item in Model){
                    <tr>
                      <td>
-                     @Html.ActionLink(" ", "Edit", new { id = item.CodUsuario }, new { @class = "btn btn-outline-primary fa fa-pencil" })
                      @Html.ActionLink(" ", "Details", new { id = item.CodUsuario }, new { @class = "btn btn-outline-warning fa fa-search-plus" })
+                     @Html.ActionLink(" ", "Edit", new { id = item.CodUsuario }, new { @class = "btn btn-outline-primary fa fa-pencil" })
                      @Html.ActionLink(" ", "Delete", new { id = item.CodUsuario }, new { @class = "btn btn-outline-danger fa fa-trash" })
                     </td>
                      <td>@Html.DisplayFor(modelItem => item.CodUsuario)</td>

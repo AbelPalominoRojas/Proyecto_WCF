@@ -24,7 +24,7 @@
                 @Html.AntiForgeryToken()
 
                 <div class="form-group">
-                    <label>Area Tematica</label>
+                    <label>Area Tematica <span class="text-danger">*</span></label>
                     @Html.EditorFor(model => model.NombreAreaTematica, new { htmlAttributes = new { @class =
                     "form-control" } })
                 </div>

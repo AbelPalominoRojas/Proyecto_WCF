@@ -43,8 +43,7 @@ namespace WebEventos.Controllers
                 {
                     return RedirectToAction("Index");
                 }
-
-                ViewBag.areaTematicas = comboBoxAreaTematica();
+                
                 return View(evento);
             }
             catch (Exception ex)
@@ -161,22 +160,45 @@ namespace WebEventos.Controllers
         // GET: Evento/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            try
+            {
+                Evento evento = clientEv.buscar(id);
+
+                if (evento == null)
+                {
+                    return RedirectToAction("Index");
+                }
+
+                
+                return View(evento);
+            }
+            catch (Exception ex)
+            {
+
+                return RedirectToAction("Index");
+                //throw;
+            }
         }
 
         // POST: Evento/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, Evento evento)
         {
+          
             try
             {
-                // TODO: Add delete logic here
 
-                return RedirectToAction("Index");
+                SRefEvento.ServiceResponse service = clientEv.eliminar(id);
+                // TODO: Add delete logic here
+                if (service.IsSuccess)
+                {
+                    return RedirectToAction("Index");
+                }
+                return View(evento);
             }
             catch
             {
-                return View();
+                return View(evento);
             }
         }
 

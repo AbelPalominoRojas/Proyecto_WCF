@@ -3496,6 +3496,8 @@
     <Content Include="Views\Evento\Edit.cshtml" />
     <Content Include="Views\Participante\Edit.cshtml" />
     <Content Include="Views\Evento\Details.cshtml" />
+    <Content Include="Views\Participante\Delete.cshtml" />
+    <Content Include="Views\Participante\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

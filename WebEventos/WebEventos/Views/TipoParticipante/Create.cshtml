@@ -27,7 +27,7 @@
                     @Html.AntiForgeryToken()
 
                     <div class="form-group">
-                        <label>Tipo Participante</label>
+                        <label>Tipo Participante <span class="text-danger">*</span></label>
                         @Html.EditorFor(model => model.NombreTipoParticipante, new { htmlAttributes = new { @class = "form-control" } })
                     </div>
                     <hr />

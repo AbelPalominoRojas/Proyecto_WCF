@@ -14,74 +14,110 @@
             </div>
             <div class="ibox-body">
 
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Código</label>
-                    <div class="col-sm-10">
-                        : @Html.DisplayFor(model => model.CodEvento)
+                <div class="form-row">
+
+                    <div class="form-group col-md-6">
+                        <div class="form-group row mb-0">
+                            <label class="col-sm-4 mb-0 font-bold ">Codigo</label>
+                            <div class="col-sm-8">
+                                : @Html.DisplayFor(model => model.CodEvento)
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Evento</label>
-                    <div class="col-sm-10">
-                        : @Html.DisplayFor(model => model.NombreEvento)
+
+
+                    <div class="form-group col-md-6">
+                        <div class="form-group row mb-0">
+                            <label class="col-sm-4 mb-0 font-bold ">Nombre Evento</label>
+                            <div class="col-sm-8">
+                                : @Html.DisplayFor(model => model.NombreEvento)
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Descripcion</label>
-                    <div class="col-sm-10">
-                        : @Html.DisplayFor(model => model.DescripcionEvento)
+
+
+                    <div class="form-group col-md-6">
+                        <div class="form-group row mb-0">
+                            <label class="col-sm-4 mb-0 font-bold ">Descripcion Evento</label>
+                            <div class="col-sm-8">
+                                : @Html.DisplayFor(model => model.DescripcionEvento)
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Area Tematica</label>
-                    <div class="col-sm-10">
-                        : @Html.DisplayFor(model => model.AreaTematica.NombreAreaTematica)
+
+                    <div class="form-group col-md-6">
+                        <div class="form-group row mb-0">
+                            <label class="col-sm-4 mb-0 font-bold ">Area Tematica</label>
+                            <div class="col-sm-8">
+                                : @Html.DisplayFor(model => model.AreaTematica.NombreAreaTematica)
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Fecha</label>
-                    <div class="col-sm-10">
-                        : @Html.DisplayFor(model => model.FechaEvento)
+
+
+                    <div class="form-group col-md-6">
+                        <div class="form-group row mb-0">
+                            <label class="col-sm-4 mb-0 font-bold ">Fecha Evento</label>
+                            <div class="col-sm-8">
+                                : @Html.DisplayFor(model => model.FechaEvento)
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Expositor</label>
-                    <div class="col-sm-10">
-                        : @Html.DisplayFor(model => model.Expositor)
+
+                    <div class="form-group col-md-6">
+                        <div class="form-group row mb-0">
+                            <label class="col-sm-4 mb-0 font-bold ">Expositor</label>
+                            <div class="col-sm-8">
+                                : @Html.DisplayFor(model => model.Expositor)
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Limite de Participantes</label>
-                    <div class="col-sm-10">
-                        : @Html.DisplayFor(model => model.LimiteParticipantes)
+
+                    <div class="form-group col-md-6">
+                        <div class="form-group row mb-0">
+                            <label class="col-sm-4 mb-0 font-bold ">Limite Participantes</label>
+                            <div class="col-sm-8">
+                                : @Html.DisplayFor(model => model.LimiteParticipantes)
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Cant. Lugares Distponibles</label>
-                    <div class="col-sm-10">
-                        : @Html.DisplayFor(model => model.LugaresDisponibles)
+
+                    <div class="form-group col-md-6">
+                        <div class="form-group row mb-0">
+                            <label class="col-sm-4 mb-0 font-bold ">Lugares Disponibles</label>
+                            <div class="col-sm-8">
+                                : @Html.DisplayFor(model => model.LugaresDisponibles)
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Ligar del Evento</label>
-                    <div class="col-sm-10">
-                        : @Html.DisplayFor(model => model.LugarEvento)
+
+                    <div class="form-group col-md-6">
+                        <div class="form-group row mb-0">
+                            <label class="col-sm-4 mb-0 font-bold ">Lugar Evento</label>
+                            <div class="col-sm-8">
+                                : @Html.DisplayFor(model => model.LugarEvento)
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Estado</label>
-                    <div class="col-sm-10">
-                        : @Html.DisplayFor(model => model.Estado)
+
+                    <div class="form-group col-md-6">
+                        <div class="form-group row mb-0">
+                            <label class="col-sm-4 mb-0 font-bold ">Estado</label>
+                            <div class="col-sm-8">
+                                : @Html.DisplayFor(model => model.Estado)
+                            </div>
+                        </div>
                     </div>
+
                 </div>
 
-                <hr />
-                <div class="d-flex justify-content-between">
-                    @Html.ActionLink(" ", "Index", null, new { @class = "btn btn-info fa fa-reply" })
-                    @Html.ActionLink(" Editar", "Edit", new { id = Model.CodEvento }, new { @class = "btn btn-primary fa fa-pencil" })
-                </div>
+                        <hr />
+                        <div class="d-flex justify-content-between">
+                            @Html.ActionLink(" ", "Index", null, new { @class = "btn btn-info fa fa-reply" })
+                            @Html.ActionLink(" Editar", "Edit", new { id = Model.CodEvento }, new { @class = "btn btn-primary fa fa-pencil" })
+                        </div>
 
-            </div>
-        </div>
+                    </div>
+                </div>
     </div>
 </div>

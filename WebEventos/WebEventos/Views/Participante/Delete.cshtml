@@ -1,28 +1,28 @@
-﻿@model WebEventos.SRefEvento.Evento
+﻿@model WebEventos.SRefParticipante.Participante
 
 @{
     ViewBag.Title = "Delete";
 }
 
+
 <div class="row">
-    <div class="col-12">
+    <div class="col-12 ">
         <div class="ibox">
             <div class="ibox-head">
                 <div class="ibox-title">
-                    Eliminar de Evento
+                    Eliminar Participante
                 </div>
             </div>
             <div class="ibox-body">
-                <h3>¿Estás seguro que quieres eliminar este registro?</h3>
+                <h4>¿Estás seguro que quieres eliminar este registro?</h4>
                 <br />
-
                 <div class="form-row">
-
+                    
                     <div class="form-group col-md-6">
                         <div class="form-group row mb-0">
                             <label class="col-sm-4 mb-0 font-bold ">Codigo</label>
                             <div class="col-sm-8">
-                                : @Html.DisplayFor(model => model.CodEvento)
+                                :@Html.DisplayFor(model => model.CodParticipante)
                             </div>
                         </div>
                     </div>
@@ -30,102 +30,113 @@
 
                     <div class="form-group col-md-6">
                         <div class="form-group row mb-0">
-                            <label class="col-sm-4 mb-0 font-bold ">Nombre Evento</label>
+                            <label class="col-sm-4 mb-0 font-bold ">Nombre</label>
                             <div class="col-sm-8">
-                                : @Html.DisplayFor(model => model.NombreEvento)
+                                : @Html.DisplayFor(model => model.Nombres)
                             </div>
                         </div>
                     </div>
 
 
+
                     <div class="form-group col-md-6">
                         <div class="form-group row mb-0">
-                            <label class="col-sm-4 mb-0 font-bold ">Descripcion Evento</label>
+                            <label class="col-sm-4 mb-0 font-bold ">Apellido</label>
                             <div class="col-sm-8">
-                                : @Html.DisplayFor(model => model.DescripcionEvento)
+                                : @Html.DisplayFor(model => model.Apellidos)
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group col-md-6">
                         <div class="form-group row mb-0">
-                            <label class="col-sm-4 mb-0 font-bold ">Area Tematica</label>
+                            <label class="col-sm-4 mb-0 font-bold ">Dni</label>
                             <div class="col-sm-8">
-                                : @Html.DisplayFor(model => model.AreaTematica.NombreAreaTematica)
+                                :@Html.DisplayFor(model => model.Dni)
                             </div>
                         </div>
                     </div>
-
-
                     <div class="form-group col-md-6">
                         <div class="form-group row mb-0">
-                            <label class="col-sm-4 mb-0 font-bold ">Fecha Evento</label>
+                            <label class="col-sm-4 mb-0 font-bold ">Tipo Participante</label>
                             <div class="col-sm-8">
-                                : @Html.DisplayFor(model => model.FechaEvento)
+                                : @Html.DisplayFor(model => model.TipoParticipante.NombreTipoParticipante)
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group col-md-6">
                         <div class="form-group row mb-0">
-                            <label class="col-sm-4 mb-0 font-bold ">Expositor</label>
+                            <label class="col-sm-4 mb-0 font-bold ">correo</label>
                             <div class="col-sm-8">
-                                : @Html.DisplayFor(model => model.Expositor)
+                                :@Html.DisplayFor(model => model.Correo)
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group col-md-6">
                         <div class="form-group row mb-0">
-                            <label class="col-sm-4 mb-0 font-bold ">Limite Participantes</label>
+                            <label class="col-sm-4 mb-0 font-bold ">Direccion</label>
                             <div class="col-sm-8">
-                                : @Html.DisplayFor(model => model.LimiteParticipantes)
+                                : @Html.DisplayFor(model => model.Direccion)
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group col-md-6">
                         <div class="form-group row mb-0">
-                            <label class="col-sm-4 mb-0 font-bold ">Lugares Disponibles</label>
+                            <label class="col-sm-4 mb-0 font-bold ">Distrito</label>
                             <div class="col-sm-8">
-                                : @Html.DisplayFor(model => model.LugaresDisponibles)
+                                :@Html.DisplayFor(model => model.Distrito)
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group col-md-6">
                         <div class="form-group row mb-0">
-                            <label class="col-sm-4 mb-0 font-bold ">Lugar Evento</label>
+                            <label class="col-sm-4 mb-0 font-bold ">Fecha Nacimiento</label>
                             <div class="col-sm-8">
-                                : @Html.DisplayFor(model => model.LugarEvento)
+                                : @Html.DisplayFor(model => model.FechaNac)
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group col-md-6">
                         <div class="form-group row mb-0">
-                            <label class="col-sm-4 mb-0 font-bold ">Estado</label>
+                            <label class="col-sm-4 mb-0 font-bold ">Telefono</label>
                             <div class="col-sm-8">
-                                : @Html.DisplayFor(model => model.Estado)
+                                :@Html.DisplayFor(model => model.Telefono)
                             </div>
                         </div>
                     </div>
+                </div>
+               
+
+
+                <hr />
+                <div>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="d-flex justify-content-between">
+                            @Html.ActionLink(" ", "Index", null, new { @class = "btn btn-info fa fa-reply" })
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fa fa-trash"></i>
+                                Eliminar
+                            </button>
+                        </div>
+                    }
 
                 </div>
-                <hr />
 
-                @using (Html.BeginForm())
-                {
-                    @Html.AntiForgeryToken()
-
-                    <div class="d-flex justify-content-between">
-                        @Html.ActionLink(" ", "Index", null, new { @class = "btn btn-info fa fa-reply" })
-                        <button type="submit" class="btn btn-danger">
-                            <i class="fa fa-trash" aria-hidden="true"></i>Eliminar
-                        </button>
-                    </div>
-                }
+                </div>
             </div>
-        </div>
-    </div>
+       </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+

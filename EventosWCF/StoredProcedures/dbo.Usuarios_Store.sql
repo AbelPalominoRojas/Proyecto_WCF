@@ -60,6 +60,7 @@ apellidos,
 email,
 estado
 FROM [dbo].[Usuarios]
+order by codUsuario desc
 Go 
 
 IF OBJECT_ID('dbo.USP_Usuarios_SelectById', 'P') IS NOT NULL

@@ -37,7 +37,13 @@ namespace WebEventos.Controllers
         // GET: Participante/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            Participante participante = clientP.buscar(id);
+
+            if (participante==null)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(participante);
         }
 
         // GET: Participante/Create
@@ -137,22 +143,33 @@ namespace WebEventos.Controllers
         // GET: Participante/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            Participante participante = clientP.buscar(id);
+            if (participante==null)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(participante);
         }
 
         // POST: Participante/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, Participante participante)
         {
             try
             {
-                // TODO: Add delete logic here
+                SRefParticipante.ServiceResponse response = clientP.eliminar(id);
 
-                return RedirectToAction("Index");
+                if (response.IsSuccess)
+                {
+                    return RedirectToAction("Index");
+                }
+                // TODO: Add delete logic here
+                return View(participante);
+              
             }
             catch
             {
-                return View();
+                return View(participante);
             }
         }
 
