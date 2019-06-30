@@ -95,7 +95,6 @@ a.nombreAreaTematica,
 e.estado
 FROM [dbo].[Eventos] e
 INNER JOIN [dbo].[AreaTematicas] a ON e.codAreaTematica = a.codAreaTematica
-where e.estado='A'
 order by codEvento desc
 Go 
 

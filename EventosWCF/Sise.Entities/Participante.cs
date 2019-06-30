@@ -25,6 +25,8 @@ namespace Sise.Entities
         public String Dni { get; set; }
 
         [DataMember]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime FechaNac { get; set; }
         [DataMember]
         public String Direccion { get; set; }

@@ -90,7 +90,7 @@
                         <div class="form-group row mb-0">
                             <label class="col-sm-4 mb-0 font-bold ">Fecha Nacimiento</label>
                             <div class="col-sm-8">
-                                : @Html.DisplayFor(model => model.FechaNac)
+                                : @Convert.ToDateTime(Model.FechaNac).ToString("dd-MM-yyyy")
                             </div>
                         </div>
                     </div>
@@ -108,7 +108,7 @@
                 <hr />
                 <div class="d-flex justify-content-between">
                     @Html.ActionLink(" ", "Index", null, new { @class = "btn btn-info fa fa-reply" })
-                    @Html.ActionLink("Edit", "Edit", new { id = Model.CodParticipante }, new { @class = "btn btn-primary fa fa-pencil" })
+                    @Html.ActionLink(" Edit", "Edit", new { id = Model.CodParticipante }, new { @class = "btn btn-primary fa fa-pencil" })
 
                 </div>
 

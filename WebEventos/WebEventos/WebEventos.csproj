@@ -2831,6 +2831,14 @@
     <Content Include="assets\admincast\assets\vendors\themify-icons\fonts\themify.svg" />
     <Content Include="assets\admincast\assets\vendors\themify-icons\ie7\ie7.css" />
     <Content Include="assets\admincast\assets\vendors\themify-icons\ie7\ie7.js" />
+    <Content Include="assets\css\sisce.css" />
+    <Content Include="assets\js\sisce.js" />
+    <Content Include="assets\js\siscedate.js" />
+    <Content Include="assets\js\siscedatetime.js" />
+    <Content Include="assets\vendors\bootstrap4-datetimepicker\css\bootstrap-datetimepicker.css" />
+    <Content Include="assets\vendors\bootstrap4-datetimepicker\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="assets\vendors\bootstrap4-datetimepicker\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="assets\vendors\bootstrap4-datetimepicker\js\moment.js" />
     <Content Include="Global.asax" />
     <None Include="Service References\SRefAreaTematica\configuration91.svcinfo" />
     <None Include="Service References\SRefAreaTematica\configuration.svcinfo" />

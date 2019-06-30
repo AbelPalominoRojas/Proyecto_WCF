@@ -18,12 +18,15 @@
 
                     <table class="table">
                         <tr>
-                            <th>Acciones</th>
+                            <th class="tbl-cell-md">Acciones</th>
                             <th>
                                 Cod
                             </th>
-                            <th>
+                            <th class="tbl-cell-sm">
                                 Fecha
+                            </th>
+                            <th class="tbl-cell-sm">
+                                Hora
                             </th>
                             <th>
                                 Evento
@@ -31,7 +34,7 @@
                             <th>
                                 Area Tematica
                             </th>
-                            <th>
+                            <th class="tbl-cell-lg">
                                 Descripcion
                             </th>
 
@@ -45,7 +48,7 @@
                             <th>
                                 Disponible
                             </th>
-                            <th>
+                            <th class="tbl-cell-lg">
                                 Lugar Evento
                             </th>
                             <th>
@@ -59,15 +62,18 @@
                         {
                             <tr>
                                 <td>
-                                    @Html.ActionLink(" ", "Details", new {  id=item.CodEvento }, new { @class = "btn btn-outline-warning fa fa-search-plus" })
-                                    @Html.ActionLink(" ", "Edit", new {  id=item.CodEvento }, new { @class = "btn btn-outline-primary fa fa-pencil" })
-                                    @Html.ActionLink(" ", "Delete", new {  id=item.CodEvento }, new { @class = "btn btn-outline-danger fa fa-trash" })
+                                    @Html.ActionLink(" ", "Details", new { id = item.CodEvento }, new { @class = "btn btn-outline-warning fa fa-search-plus" })
+                                    @Html.ActionLink(" ", "Edit", new { id = item.CodEvento }, new { @class = "btn btn-outline-primary fa fa-pencil" })
+                                    @Html.ActionLink(" ", "Delete", new { id = item.CodEvento }, new { @class = "btn btn-outline-danger fa fa-trash" })
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.CodEvento)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.FechaEvento)
+                                    @Convert.ToDateTime(item.FechaEvento).ToString("dd-MM-yyyy")
+                                </td>
+                                <td>
+                                    @Convert.ToDateTime(item.FechaEvento).ToString("hh:mm tt")
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.NombreEvento)
@@ -91,7 +97,18 @@
                                     @Html.DisplayFor(modelItem => item.LugarEvento)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Estado)
+                                    @if ("A".Equals(item.Estado))
+                                    {
+                                        <span class="badge badge-success badge-pill">Activo</span>
+                                    }
+                                    else if ("F".Equals(item.Estado))
+                                    {
+                                        <span class="badge badge-primary badge-pill">Finalizado</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge badge-danger badge-pill">Cancelado</span>
+                                    }
                                 </td>
 
                             </tr>

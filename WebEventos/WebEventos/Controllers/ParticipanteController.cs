@@ -54,7 +54,7 @@ namespace WebEventos.Controllers
 
                 ViewBag.TipoParticipantes = comboBoxTipoParticipante();
 
-                return View(new Participante());
+                return View(new Participante() { FechaNac = DateTime.Now});
             }
             catch (Exception ex)
             {

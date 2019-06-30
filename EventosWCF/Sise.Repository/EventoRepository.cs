@@ -64,7 +64,7 @@ namespace Sise.Repository
                     sqlCommand.Parameters.AddWithValue("@lugarEvento", evento.LugarEvento);
                     sqlCommand.Parameters.AddWithValue("@limiteParticipantes", evento.LimiteParticipantes);
                     sqlCommand.Parameters.AddWithValue("@codUsuario", evento.CodUsuario);
-                    sqlCommand.Parameters.AddWithValue("@estado", "A");
+                    sqlCommand.Parameters.AddWithValue("@estado", evento.Estado);
 
                     result = Convert.ToBoolean(sqlCommand.ExecuteNonQuery());
                 }

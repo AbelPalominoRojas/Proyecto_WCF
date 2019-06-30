@@ -62,7 +62,7 @@ namespace WebEventos.Controllers
 
                 ViewBag.areaTematicas = comboBoxAreaTematica();
 
-                return View(new Evento());
+                return View(new Evento() { FechaEvento = DateTime.Now});
             }
             catch (Exception ex)
             {
@@ -117,6 +117,8 @@ namespace WebEventos.Controllers
                 }
 
                 ViewBag.areaTematicas = comboBoxAreaTematica();
+                ViewBag.estados = comboBoxEstado();
+
                 return View(evento);
             }
             catch (Exception ex)
@@ -146,6 +148,7 @@ namespace WebEventos.Controllers
 
 
                 ViewBag.areaTematicas = comboBoxAreaTematica();
+                ViewBag.estados = comboBoxEstado();
 
                 ViewBag.Message = response.Message;
             }
@@ -205,6 +208,23 @@ namespace WebEventos.Controllers
         private IEnumerable<SelectListItem> comboBoxAreaTematica()
         {
             return (from at in clientAt.listar() select new SelectListItem() { Value = at.CodAreaTematica.ToString(), Text = at.NombreAreaTematica });
+        }
+
+        private IEnumerable<SelectListItem> comboBoxEstado()
+        {
+            List<SelectListItem> estados = new List<SelectListItem>();
+
+            estados.Add(new SelectListItem() { Value = "A", Text = "Activo" });
+            estados.Add(new SelectListItem() { Value = "F", Text = "Finalizado" });
+            estados.Add(new SelectListItem() { Value = "E", Text = "Cancelado" });
+
+
+            return estados;
+        }
+
+        public String getEstado(String estado)
+        {
+            return comboBoxEstado().FirstOrDefault(e => e.Value == estado).Text;
         }
     }
 }

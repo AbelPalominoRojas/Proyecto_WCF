@@ -4,6 +4,10 @@
     ViewBag.Title = "Create";
 }
 
+@section styles{
+
+    @Styles.Render("~/assets/vendors/datetime/css")
+}
 <div class="row">
     <div class="col-12">
 
@@ -36,9 +40,13 @@
                             <label>Descripcion</label>
                             @Html.EditorFor(model => model.DescripcionEvento, new { htmlAttributes = new { @class = "form-control" } })
                         </div>
-                        <div class="form-group col-sm-6 col-xl-4">
-                            <label>Fecha <span class="text-danger">*</span></label>
-                            @Html.EditorFor(model => model.FechaEvento, new { htmlAttributes = new { @class = "form-control" } })
+
+                        <div class="form-group form-group-date col-sm-6 col-xl-4">
+                            <label>Fecha y Hora del Evento</label>
+                            <div class="input-group date" id='datetimepickerFechaEvento'>
+                                @Html.TextBoxFor(model => model.FechaEvento, new { @class = "form-control", @readonly = true })
+                                <span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
+                            </div>
                         </div>
 
                         <div class="form-group col-sm-6 col-xl-4">
@@ -51,7 +59,7 @@
                             @Html.EditorFor(model => model.Expositor, new { htmlAttributes = new { @class = "form-control" } })
                         </div>
                         <div class="form-group col-sm-6 col-xl-4">
-                            <label>Limete de Participantes <span class="text-danger">*</span></label>
+                            <label>Limite de Participantes <span class="text-danger">*</span></label>
                             @Html.EditorFor(model => model.LimiteParticipantes, new { htmlAttributes = new { @class = "form-control" } })
                         </div>
                         <div class="form-group col-sm-6 col-xl-4">
@@ -81,7 +89,8 @@
     </div>
 </div>
 
+@section scripts{
 
+    @Scripts.Render("~/assets/vendors/datetime/js")
 
-
-
+}
