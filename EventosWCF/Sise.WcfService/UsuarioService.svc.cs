@@ -176,6 +176,20 @@ namespace Sise.WcfService
             return listUsuario;
         }
 
+        public Usuario login(string email, string password)
+        {
+            Usuario usuario = null;
+                try
+            {
+                usuario = new UsuarioBll().login(email,password);
+            }
+            catch (Exception)
+            {
+
+                //throw;
+            }
+            return usuario;
+        }
     }
 
 

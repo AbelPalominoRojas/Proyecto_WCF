@@ -90,3 +90,14 @@ BEGIN
 	 SELECT email, codUsuario,getdate() as Fecha,'Nuevo Usuario' as Accion from inserted
 END
 go
+
+CREATE procedure [dbo].[USP_Auditoria_Paticipante_por_Usuario_Insert]
+@email_usuario nvarchar(30),
+@codParticipante int,
+@fecha datetime,
+@accion varchar(30)
+AS BEGIN
+INSERT INTO Auditoria_Paticipante_por_Usuario(email_usuario,codParticipante,fecha,accion) 
+VALUES (@email_usuario,@codParticipante,@fecha,@accion)
+END
+

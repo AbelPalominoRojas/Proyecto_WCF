@@ -43,3 +43,12 @@ D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Business\bin\Debug\Sise.Re
 D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Business\obj\Debug\Sise.Business.csprojResolveAssemblyReference.cache
 D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Business\obj\Debug\Sise.Business.dll
 D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Business\obj\Debug\Sise.Business.pdb
+C:\Users\ALUMNO\Documents\GitHub\Proyecto_WCF\EventosWCF\Sise.Business\bin\Debug\Sise.Business.dll
+C:\Users\ALUMNO\Documents\GitHub\Proyecto_WCF\EventosWCF\Sise.Business\bin\Debug\Sise.Business.pdb
+C:\Users\ALUMNO\Documents\GitHub\Proyecto_WCF\EventosWCF\Sise.Business\bin\Debug\Sise.Entities.dll
+C:\Users\ALUMNO\Documents\GitHub\Proyecto_WCF\EventosWCF\Sise.Business\bin\Debug\Sise.Repository.dll
+C:\Users\ALUMNO\Documents\GitHub\Proyecto_WCF\EventosWCF\Sise.Business\bin\Debug\Sise.Entities.pdb
+C:\Users\ALUMNO\Documents\GitHub\Proyecto_WCF\EventosWCF\Sise.Business\bin\Debug\Sise.Repository.pdb
+C:\Users\ALUMNO\Documents\GitHub\Proyecto_WCF\EventosWCF\Sise.Business\obj\Debug\Sise.Business.csprojResolveAssemblyReference.cache
+C:\Users\ALUMNO\Documents\GitHub\Proyecto_WCF\EventosWCF\Sise.Business\obj\Debug\Sise.Business.dll
+C:\Users\ALUMNO\Documents\GitHub\Proyecto_WCF\EventosWCF\Sise.Business\obj\Debug\Sise.Business.pdb

@@ -34,5 +34,10 @@ namespace Sise.Business
             return new UsuarioRepository().buscar(usuario);
         }
 
+        public Usuario login(String email, String password)
+        {
+            return new UsuarioRepository().login(email,password);
+        }
+
     }
 }
