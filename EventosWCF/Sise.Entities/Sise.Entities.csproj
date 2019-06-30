@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AreaTematica.cs" />
+    <Compile Include="Auditoria_Paticipante_por_Usuario.cs" />
     <Compile Include="EventoParticipante.cs" />
     <Compile Include="Evento.cs" />
     <Compile Include="Participante.cs" />

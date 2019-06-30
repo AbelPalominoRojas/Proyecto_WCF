@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AreaTematicaRepository.cs" />
+    <Compile Include="Auditoria_Paticipante_por_UsuarioRepository.cs" />
     <Compile Include="EventoParticipanteRepository.cs" />
     <Compile Include="EventoRepository.cs" />
     <Compile Include="ParticipanteRepository.cs" />

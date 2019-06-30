@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Sise.WcfService.Auditoria_Paticipante_por_UsuarioService" CodeBehind="Auditoria_Paticipante_por_UsuarioService.svc.cs" %>

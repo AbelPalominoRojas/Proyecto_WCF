@@ -89,6 +89,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Auditoria_Paticipante_por_UsuarioService.svc" />
     <Content Include="EventoParticipanteService.svc" />
     <Content Include="EventoService.svc" />
     <Content Include="ParticipanteService.svc" />
@@ -103,6 +104,9 @@
     <Compile Include="AreaTematicaService.svc.cs">
       <DependentUpon>AreaTematicaService.svc</DependentUpon>
     </Compile>
+    <Compile Include="Auditoria_Paticipante_por_UsuarioService.svc.cs">
+      <DependentUpon>Auditoria_Paticipante_por_UsuarioService.svc</DependentUpon>
+    </Compile>
     <Compile Include="Entity\ServiceResponse.cs" />
     <Compile Include="EventoParticipanteService.svc.cs">
       <DependentUpon>EventoParticipanteService.svc</DependentUpon>
@@ -111,6 +115,7 @@
       <DependentUpon>EventoService.svc</DependentUpon>
     </Compile>
     <Compile Include="IAreaTematicaService.cs" />
+    <Compile Include="IAuditoria_Paticipante_por_UsuarioService.cs" />
     <Compile Include="IEventoParticipanteService.cs" />
     <Compile Include="IEventoService.cs" />
     <Compile Include="IParticipanteService.cs" />
