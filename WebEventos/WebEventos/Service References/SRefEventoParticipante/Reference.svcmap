@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="072d4df4-5b69-4e74-a6ca-4f83d6a8e10b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:4356/EventoParticipanteService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="EventoParticipanteService.xsd" MetadataType="Schema" ID="f07c917b-413b-411b-a30a-ef846d92a179" SourceId="1" SourceUrl="http://localhost:4356/EventoParticipanteService.svc?xsd=xsd0" />
+    <MetadataFile FileName="EventoParticipanteService1.xsd" MetadataType="Schema" ID="fba36b0c-82ba-47c2-80b9-739d41dd7851" SourceId="1" SourceUrl="http://localhost:4356/EventoParticipanteService.svc?xsd=xsd3" />
+    <MetadataFile FileName="EventoParticipanteService2.xsd" MetadataType="Schema" ID="ee028c91-bffc-4f15-950b-22e1bbfb0f34" SourceId="1" SourceUrl="http://localhost:4356/EventoParticipanteService.svc?xsd=xsd1" />
+    <MetadataFile FileName="EventoParticipanteService.wsdl" MetadataType="Wsdl" ID="eaf4ee27-5730-42c0-a4ea-0c2172a7c34a" SourceId="1" SourceUrl="http://localhost:4356/EventoParticipanteService.svc?wsdl" />
+    <MetadataFile FileName="EventoParticipanteService3.xsd" MetadataType="Schema" ID="91b97576-61ee-4df4-9431-ac178ed979b9" SourceId="1" SourceUrl="http://localhost:4356/EventoParticipanteService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

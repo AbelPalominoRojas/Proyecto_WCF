@@ -2846,6 +2846,25 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\SRefEventoParticipante\EventoParticipanteService.wsdl" />
+    <None Include="Service References\SRefEventoParticipante\EventoParticipanteService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SRefEventoParticipante\EventoParticipanteService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SRefEventoParticipante\EventoParticipanteService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SRefEventoParticipante\EventoParticipanteService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\SRefEventoParticipante\WebEventos.SRefEventoParticipante.EventoParticipante.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SRefEventoParticipante\WebEventos.SRefEventoParticipante.ServiceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\SRefEvento\EventoService.wsdl" />
     <None Include="Service References\SRefEvento\EventoService.xsd">
       <SubType>Designer</SubType>
@@ -2858,6 +2877,12 @@
     </None>
     <None Include="Service References\SRefEvento\EventoService3.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SRefEventoParticipante\configuration91.svcinfo" />
+    <None Include="Service References\SRefEventoParticipante\configuration.svcinfo" />
+    <None Include="Service References\SRefEventoParticipante\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Service References\SRefEvento\WebEventos.SRefEvento.Evento.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -2915,6 +2940,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AreaTematicaController.cs" />
     <Compile Include="Controllers\EventoController.cs" />
+    <Compile Include="Controllers\EventoParticipanteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ParticipanteController.cs" />
     <Compile Include="Controllers\TipoParticipanteController.cs" />
@@ -2922,8 +2948,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EventoParticipanteModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\SRefAreaTematica\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SRefEventoParticipante\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -3506,6 +3538,8 @@
     <Content Include="Views\Evento\Details.cshtml" />
     <Content Include="Views\Participante\Delete.cshtml" />
     <Content Include="Views\Participante\Details.cshtml" />
+    <Content Include="Views\EventoParticipante\Index.cshtml" />
+    <Content Include="Views\EventoParticipante\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3515,7 +3549,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -3525,6 +3558,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\SRefAreaTematica\" />
+    <WCFMetadataStorage Include="Service References\SRefEventoParticipante\" />
     <WCFMetadataStorage Include="Service References\SRefEvento\" />
     <WCFMetadataStorage Include="Service References\SRefParticipante\" />
     <WCFMetadataStorage Include="Service References\SRefTipoParticipante\" />

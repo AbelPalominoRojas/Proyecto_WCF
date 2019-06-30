@@ -1,0 +1,39 @@
+﻿@model IEnumerable<WebEventos.SRefEventoParticipante.EventoParticipante>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="ibox">
+            <div class="ibox-head">
+                <div class="ibox-title">Control de Eventos</div>
+                @Html.ActionLink(" Nuevo", "Create", null, new { @class = "btn btn-success fa fa-file" })
+            </div>
+            <div class="ibox-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

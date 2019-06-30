@@ -1,0 +1,196 @@
+﻿@model WebEventos.Models.EventoParticipanteModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="ibox mb-2">
+            <div class="ibox-head">
+                <div class="ibox-title">Buscar Eventos</div>
+                <div class="ibox-tools">
+                    <button class="btn btn-sm btn-primary">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        Buscar
+                    </button>
+                    <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
+                </div>
+            </div>
+            <div class="ibox-body">
+                <div class="form-row">
+                    <div class="form-group col-sm-6 col-xl-4">
+                        <label>Fecha Desde <span class="text-danger">*</span></label>
+                        <div class="input-group date">
+                            <input type="text" class="form-control" readonly />
+                            <span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6 col-xl-4">
+                        <label>Fecha Hasta <span class="text-danger">*</span></label>
+                        <div class="input-group date">
+                            <input type="text" class="form-control" readonly />
+                            <span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-sm-6 col-xl-4">
+                        <label>Area Tematica </label>
+                        <select class="form-control" id="CodAreaTematica" name="CodAreaTematica">
+                            <option value="0">Seleccione</option>
+                            <option value="6">General</option>
+                            <option value="5">Negocios Internacionales</option>
+                            <option value="4">Ciencias Empresariales</option>
+                            <option value="3">Diseño Web</option>
+                            <option value="2">Redes y Seguridad Informatica</option>
+                            <option value="1">Software y Sistema</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr>
+                            <th></th>
+                            <th>
+                                Cod
+                            </th>
+                            <th class="tbl-cell-sm">
+                                Fecha
+                            </th>
+                            <th class="tbl-cell-sm">
+                                Hora
+                            </th>
+                            <th>
+                                Evento
+                            </th>
+                            <th>
+                                Tematica
+                            </th>
+                            <th class="tbl-cell-lg">
+                                Descripcion
+                            </th>
+                            <th>
+                                Expositor
+                            </th>
+                            <th>
+                                Limete
+                            </th>
+                            <th>
+                                Disponible
+                            </th>
+                            <th class="tbl-cell-lg">
+                                Lugar Evento
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-12">
+        <div class="ibox mb-2">
+            <div class="ibox-head">
+                <div class="ibox-title">Buscar Participante</div>
+                <div class="ibox-tools">
+                    <button class="btn btn-sm btn-primary">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        Buscar
+                    </button>
+                    <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
+                </div>
+            </div>
+            <div class="ibox-body">
+                <div class="form-row">
+                    <div class="form-group col-sm-6 col-xl-4">
+                        <label>Dni</label>
+                        <input class="form-control" />
+                    </div>
+                    <div class="form-group col-sm-6 col-xl-4">
+                        <label>Nombres</label>
+                        <input class="form-control" />
+                    </div>
+                    <div class="form-group col-sm-6 col-xl-4">
+                        <label>Apellidos</label>
+                        <input class="form-control" />
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr>
+                            <th></th>
+                            <th>
+                                Cod
+                            </th>
+                            <th>
+                                Nombres
+                            </th>
+                            <th>
+                                Apellidos
+                            </th>
+                            <th>
+                                Dni
+                            </th>
+                            <th>
+                                Tipo
+                            </th>
+                            <th>
+                                Correo
+                            </th>
+                            <th class="tbl-cell-lg">
+                                Direccion
+                            </th>
+                            <th>
+                                Distrito
+                            </th>
+                            <th>
+                                Telefono
+                            </th>
+
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 mb-2">
+        <div class="ibox">
+            <div class="ibox-head">
+                <div class="ibox-title">Registrar Participantes a un Evento</div>
+                <div class="ibox-tools">
+                    <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
+                </div>
+            </div>
+            <div class="ibox-body">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-row">
+                        <div class="form-group col-sm-6 col-xl-4">
+                            <label>Participante <span class="text-danger">*</span></label>
+                            <span class="form-control"></span>
+                        </div>
+                        <div class="form-group col-sm-6 col-xl-4">
+                            <label>Dni <span class="text-danger">*</span></label>
+                            <span class="form-control"></span>
+                        </div>
+                    </div>
+
+                    <hr />
+                    <div class="d-flex justify-content-between">
+                        @Html.ActionLink(" ", "Index", null, new { @class = "btn btn-info fa fa-reply" })
+                        <button type="button" class="btn btn-success">
+                            <i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar
+                        </button>
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
