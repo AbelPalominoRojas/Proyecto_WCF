@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7321713b-25e1-4a96-9e8e-7020387068fb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:4356/Auditoria_Paticipante_por_UsuarioService.svc?singleWsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Auditoria_Paticipante_por_UsuarioService.wsdl" MetadataType="Wsdl" ID="ca4f4d91-9515-4c8c-a4f2-ae702da29d69" SourceId="1" SourceUrl="http://localhost:4356/Auditoria_Paticipante_por_UsuarioService.svc?singleWsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

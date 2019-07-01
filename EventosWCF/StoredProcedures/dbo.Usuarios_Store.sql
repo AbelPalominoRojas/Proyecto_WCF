@@ -92,3 +92,20 @@ where
 codUsuario = @codUsuario
 Go
 
+
+CREATE PROCEDURE dbo.USP_Usuarios_login
+@email nvarchar(60),
+@password nvarchar(100)
+as
+SELECT
+codUsuario,
+nombres,
+apellidos,
+email,
+estado
+FROM [dbo].[Usuarios]
+where
+email = @email and password=@password and estado='A'
+Go
+
+USP_Usuarios_login 'mramirez@hotmail.com','@123'

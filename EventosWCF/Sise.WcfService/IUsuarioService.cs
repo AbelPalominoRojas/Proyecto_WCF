@@ -27,5 +27,8 @@ namespace Sise.WcfService
 
         [OperationContract]
         Usuario buscar(Int32 CodUsuario);
+
+        [OperationContract]
+        Usuario login(String email, String password);
     }
 }
