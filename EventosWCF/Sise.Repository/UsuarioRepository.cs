@@ -186,5 +186,58 @@ namespace Sise.Repository
             return resultUsuarios;
         }
 
+        public Usuario login(String email, String password)
+        {
+            Usuario resultUsuarios = null;
+
+            sqlQuery = "dbo.USP_Usuarios_login";
+
+            using (sqlConnection = new SqlConnection(nombreConexcion()))
+            {
+                using (sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
+                {
+                    sqlConnection.Open();
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                    sqlCommand.Parameters.AddWithValue("@email", email);
+                    sqlCommand.Parameters.AddWithValue("@password", password);
+
+                    using (sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.SingleResult))
+                    {
+
+                        if (sqlDataReader.Read())
+                        {
+                            resultUsuarios = new Usuario();
+                            int codUsuario_index = sqlDataReader.GetOrdinal("codUsuario");
+                            if (!sqlDataReader.IsDBNull(codUsuario_index))
+                                resultUsuarios.CodUsuario = sqlDataReader.GetInt32(codUsuario_index);
+
+                            int nombres_index = sqlDataReader.GetOrdinal("nombres");
+                            if (!sqlDataReader.IsDBNull(nombres_index))
+                                resultUsuarios.Nombres = sqlDataReader.GetString(nombres_index);
+
+                            int apellidos_index = sqlDataReader.GetOrdinal("apellidos");
+                            if (!sqlDataReader.IsDBNull(apellidos_index))
+                                resultUsuarios.Apellidos = sqlDataReader.GetString(apellidos_index);
+
+                            int email_index = sqlDataReader.GetOrdinal("email");
+                            if (!sqlDataReader.IsDBNull(email_index))
+                                resultUsuarios.Email = sqlDataReader.GetString(email_index);
+
+                            int estado_index = sqlDataReader.GetOrdinal("estado");
+                            if (!sqlDataReader.IsDBNull(estado_index))
+                                resultUsuarios.Estado = sqlDataReader.GetString(estado_index);
+
+
+
+                        }
+                    }
+                }
+            }
+
+            return resultUsuarios;
+        }
+
+
     }
 }

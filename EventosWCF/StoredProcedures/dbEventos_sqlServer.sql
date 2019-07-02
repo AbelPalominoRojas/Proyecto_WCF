@@ -1,13 +1,10 @@
 use master
 go
-
 -- Creando base de datos Proyecto Final dbEventos
 create database dbEventos
 go
-
 use dbEventos
 go
-
 Create table TipoParticipantes
 (
 	codTipoParticipante int identity,
@@ -18,8 +15,6 @@ Create table TipoParticipantes
 	constraint ak_nombreTipoParticipante_estado__TipoParticipantes unique(nombreTipoParticipante, estado)
 )
 go
-
-
 create table Participantes
 (
 	codParticipante int identity,
@@ -39,8 +34,6 @@ create table Participantes
 	constraint fk_codTipoParticipante__Participantes foreign key (codTipoParticipante) references TipoParticipantes(codTipoParticipante)
 )
 go
-
-
 create table Usuarios
 (
 	codUsuario int identity,
@@ -54,8 +47,6 @@ create table Usuarios
 	constraint ak_codUsuario__Usuarios unique(email)
 )
 go
-
-
 create table AreaTematicas
 (
 	codAreaTematica int identity,
@@ -66,8 +57,6 @@ create table AreaTematicas
 	constraint ak_nombreAreaTematica_estado__TipoEventos unique(nombreAreaTematica, estado)
 )
 go
-
-
 create table Eventos
 (
 	codEvento int identity,
@@ -87,8 +76,6 @@ create table Eventos
 	constraint fk_codUsuario__Eventos foreign key (codUsuario) references Usuarios(codUsuario)
 )
 go
-
-
 create table EventoParticipantes
 (
 	codEvento int not null,
