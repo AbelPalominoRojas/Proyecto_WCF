@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebEventos.SRefAreaTematica;
+using WebEventos.Util;
 
 namespace WebEventos.Controllers
 {
@@ -14,6 +15,11 @@ namespace WebEventos.Controllers
         // GET: Evento
         public ActionResult Index()
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
+
             List<AreaTematica> listAreaTematica = new List<AreaTematica>();
             try
             {
@@ -32,6 +38,12 @@ namespace WebEventos.Controllers
         // GET: Evento/Details/5
         public ActionResult Details(int id)
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
+
+
             AreaTematica areaTematica = client.buscar(id);
 
             if (areaTematica == null)
@@ -52,6 +64,10 @@ namespace WebEventos.Controllers
         [HttpPost]
         public ActionResult Create(AreaTematica areaTematica)
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
             try
             {
                 ServiceResponse response = client.registrar(areaTematica);
@@ -76,6 +92,10 @@ namespace WebEventos.Controllers
         // GET: Evento/Edit/5
         public ActionResult Edit(int id)
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
             AreaTematica areaTematica = client.buscar(id);
 
             if (areaTematica == null)
@@ -90,6 +110,10 @@ namespace WebEventos.Controllers
         [HttpPost]
         public ActionResult Edit(int id, AreaTematica areaTematica)
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
             try
             {
                 areaTematica.CodAreaTematica = id;
@@ -115,6 +139,11 @@ namespace WebEventos.Controllers
         // GET: Evento/Delete/5
         public ActionResult Delete(int id)
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
+
             AreaTematica areaTematica = client.buscar(id);
 
             if (areaTematica == null)
@@ -129,9 +158,9 @@ namespace WebEventos.Controllers
         [HttpPost]
         public ActionResult Delete(int id, AreaTematica areaTematica)
         {
+
             try
             {
-
 
                 ServiceResponse response = client.eliminar(id);
 

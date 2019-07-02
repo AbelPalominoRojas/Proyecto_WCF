@@ -7,6 +7,7 @@ using WebEventos.Models;
 using WebEventos.SRefEvento;
 using WebEventos.SRefParticipante;
 using WebEventos.SRefEventoParticipante;
+using WebEventos.Util;
 
 namespace WebEventos.Controllers
 {
@@ -18,6 +19,10 @@ namespace WebEventos.Controllers
         // GET: EventoParticipante
         public ActionResult Index()
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
             List<EventoParticipante> listEParticipante = new List<EventoParticipante>();
             return View(listEParticipante);
         }
@@ -25,6 +30,10 @@ namespace WebEventos.Controllers
 
         public ActionResult Create()
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
             try
             {
                 EventoParticipanteModel eParticipante = new EventoParticipanteModel();
@@ -48,6 +57,7 @@ namespace WebEventos.Controllers
         [HttpPost]
         public ActionResult Create(EventoParticipanteModel eParticipante)
         {
+        
             try
             {
 

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebEventos.SRefParticipante;
 using WebEventos.SRefTipoParticipante;
+using WebEventos.Util;
 
 
 namespace WebEventos.Controllers
@@ -17,6 +18,10 @@ namespace WebEventos.Controllers
         // GET: Participante
         public ActionResult Index()
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
             List<Participante> listParticipantes = new List<Participante>();
 
             try
@@ -37,6 +42,10 @@ namespace WebEventos.Controllers
         // GET: Participante/Details/5
         public ActionResult Details(int id)
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
             Participante participante = clientP.buscar(id);
 
             if (participante==null)
@@ -49,6 +58,10 @@ namespace WebEventos.Controllers
         // GET: Participante/Create
         public ActionResult Create()
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
             try
             {
 
@@ -69,6 +82,7 @@ namespace WebEventos.Controllers
         [HttpPost]
         public ActionResult Create(Participante participante)
         {
+           
             try
             {
                 SRefParticipante.ServiceResponse response = clientP.registrar(participante);
@@ -96,6 +110,10 @@ namespace WebEventos.Controllers
         // GET: Participante/Edit/5
         public ActionResult Edit(int id)
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
             try
             {
                 Participante participante = clientP.buscar(id);
@@ -120,6 +138,7 @@ namespace WebEventos.Controllers
         [HttpPost]
         public ActionResult Edit(int id, Participante participante)
         {
+           
             try
             {
                 participante.CodParticipante = id;
@@ -143,6 +162,10 @@ namespace WebEventos.Controllers
         // GET: Participante/Delete/5
         public ActionResult Delete(int id)
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
             Participante participante = clientP.buscar(id);
             if (participante==null)
             {
@@ -155,6 +178,7 @@ namespace WebEventos.Controllers
         [HttpPost]
         public ActionResult Delete(int id, Participante participante)
         {
+           
             try
             {
                 SRefParticipante.ServiceResponse response = clientP.eliminar(id);

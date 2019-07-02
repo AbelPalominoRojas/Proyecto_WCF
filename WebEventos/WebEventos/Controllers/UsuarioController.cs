@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebEventos.SRefUsuario;
+using WebEventos.Util;
 
 namespace WebEventos.Controllers
 {
@@ -15,6 +16,10 @@ namespace WebEventos.Controllers
         // GET: Listado de Usuario 
         public ActionResult Index()
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
             List<Usuario> lstu = new List<Usuario>();
             try
             {
@@ -32,6 +37,10 @@ namespace WebEventos.Controllers
         // GET: Usuario/Details/5 Ver un usuario por su id
         public ActionResult Details(int id)
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
             Usuario usuario = clienteu.buscar(id);
             if (usuario == null)
             {
@@ -43,6 +52,10 @@ namespace WebEventos.Controllers
         // GET: Usuario/Create - Contruye un Nuevo Usuario
         public ActionResult Create()
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
             return View(new Usuario());
         }
 
@@ -70,6 +83,10 @@ namespace WebEventos.Controllers
         // GET: Usuario/Edit/5 Buscamos por el ID
         public ActionResult Edit(int id)
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
             Usuario usuario = clienteu.buscar(id);
             if (usuario==null)
             {
@@ -82,7 +99,9 @@ namespace WebEventos.Controllers
         [HttpPost]
         public ActionResult Edit(int id, Usuario usuario)
         {
-            try{
+           
+            try
+            {
                 usuario.CodUsuario = id;
                 ServiceResponse response = clienteu.actualizar(usuario);
                 // TODO: Add update logic here
@@ -99,6 +118,10 @@ namespace WebEventos.Controllers
         // GET: Usuario/Delete/5 Buscar registro a eliminar
         public ActionResult Delete(int id)
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
             Usuario usuario = clienteu.buscar(id);
             if (usuario == null)
             {
@@ -111,6 +134,7 @@ namespace WebEventos.Controllers
         [HttpPost]
         public ActionResult Delete(int id, Usuario usuario)
         {
+            
             try
             {
                 ServiceResponse response = clienteu.eliminar(id);

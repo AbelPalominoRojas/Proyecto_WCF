@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using WebEventos.SRefEvento;
 using WebEventos.SRefAreaTematica;
 using WebEventos.Models;
+using WebEventos.Util;
+using WebEventos.SRefUsuario;
 
 namespace WebEventos.Controllers
 {
@@ -17,6 +19,10 @@ namespace WebEventos.Controllers
         // GET: Evento
         public ActionResult Index()
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
             List<Evento> listEvento = new List<Evento>();
 
             try
@@ -36,6 +42,10 @@ namespace WebEventos.Controllers
         // GET: Evento/Details/5
         public ActionResult Details(int id)
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
             try
             {
                 Evento evento = clientEv.buscar(id);
@@ -58,6 +68,10 @@ namespace WebEventos.Controllers
         // GET: Evento/Create
         public ActionResult Create()
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
             try
             {
 
@@ -80,34 +94,56 @@ namespace WebEventos.Controllers
         [HttpPost]
         public ActionResult Create(Evento evento)
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
             try
             {
-                evento.CodUsuario = 1;
-                evento.LugaresDisponibles = evento.LimiteParticipantes;
-                SRefEvento.ServiceResponse response = clientEv.registrar(evento);
 
-                if (response.IsSuccess)
+                Usuario usLogeado = (Usuario)Session[Constantes.UsuarioSession];
+
+               
+                if (evento==null)
                 {
-                    return RedirectToAction("Index");
+                    ViewBag.Message = "Ingrese Datos";
+                    return View(evento);
 
                 }
 
-                ViewBag.areaTematicas = comboBoxAreaTematica();
+                evento.CodUsuario = usLogeado.CodUsuario;
+                evento.LugaresDisponibles = evento.LimiteParticipantes;
 
-                ViewBag.Message = response.Message;
+                SRefEvento.ServiceResponse respuesta = clientEv.registrar(evento);
+
+                if (respuesta.IsSuccess)
+                {
+                    return RedirectToAction("Index");
+                }
+             
+
+                ViewBag.Message = respuesta.Message;
 
                 return View(evento);
 
             }
             catch (Exception ex)
             {
-                return View(evento);
+               
             }
+
+            ViewBag.AreaTematicas = comboBoxAreaTematica();
+
+            return View(evento);
         }
 
         // GET: Evento/Edit/5
         public ActionResult Edit(int id)
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
             try
             {
                 Evento evento = clientEv.buscar(id);
@@ -135,6 +171,10 @@ namespace WebEventos.Controllers
         [HttpPost]
         public ActionResult Edit(int id, Evento evento)
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
             try
             {
                 evento.CodEvento = id;
@@ -164,6 +204,10 @@ namespace WebEventos.Controllers
         // GET: Evento/Delete/5
         public ActionResult Delete(int id)
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
             try
             {
                 Evento evento = clientEv.buscar(id);
@@ -188,7 +232,7 @@ namespace WebEventos.Controllers
         [HttpPost]
         public ActionResult Delete(int id, Evento evento)
         {
-          
+           
             try
             {
 

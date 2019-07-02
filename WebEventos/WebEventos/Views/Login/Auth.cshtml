@@ -1,0 +1,62 @@
+﻿@model WebEventos.SRefUsuario.Usuario
+@{
+    ViewBag.Title = "Auth";
+}
+
+
+<div cla class="row">
+    <div class="col-12 col-sm-8">
+        <div class="ibox">
+            
+            <div class="ibox-head">
+                <div class="ibox-title">Ingreso al sistema </div>
+            </div>
+
+            <div class="ibox-body">
+
+                @if (ViewBag.message !=null)
+                {
+                    <div class="alert alert-warning  alert-dismissable fade show" role="alert">
+                     @ViewBag.message
+                        <button type="button" class="close" data-dissmiss="alert" aria-label="close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                }
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        @Html.EditorFor(model => model.Email , new { HtmlAttributes = new { @class = "form-control" } })
+
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        
+                        @Html.EditorFor(model => model.Password, new { HtmlAttributes = new { @class = "form-control" } })
+                    </div>
+
+                    <hr />
+
+                    <div class="d-flex justify-content-between" >
+                        <button class="btn btn-success" >
+                            <i class="fa fa-key"> Ingresar</i>
+                        </button>
+                    </div>
+                }
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+

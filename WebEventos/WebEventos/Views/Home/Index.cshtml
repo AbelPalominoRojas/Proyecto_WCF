@@ -11,10 +11,13 @@
                     <i class="ti-user"></i>
                 </h1>
                 <h2 class="mb-3 text-dark">BIENVENIDO AL SISTEMA</h2>
-                <h4 class="mb-1 text-info">Abel Palomino Rojas</h4>
-                <div class="text-secondary">abelpr@gmail.com</div>
+                @if (Session[WebEventos.Util.Constantes.UsuarioSession] != null)
+                {
+                    WebEventos.SRefUsuario.Usuario usLogeado = (WebEventos.SRefUsuario.Usuario)Session[WebEventos.Util.Constantes.UsuarioSession];
+                    <h4 class="mb-1 text-info uppercase">@usLogeado.Nombres @usLogeado.Apellidos</h4>
+                    <div class="text-secondary">@usLogeado.Email</div>
+                }
             </div>
         </div>
     </div>
 </div>
-
