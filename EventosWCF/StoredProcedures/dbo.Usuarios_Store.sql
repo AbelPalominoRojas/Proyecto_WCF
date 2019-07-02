@@ -60,7 +60,7 @@ apellidos,
 email,
 estado
 FROM [dbo].[Usuarios]
-where estado ='E'
+where estado ='A'
 order by codUsuario desc
 Go 
 

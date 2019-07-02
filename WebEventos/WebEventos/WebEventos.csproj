@@ -2942,6 +2942,7 @@
     <Compile Include="Controllers\EventoController.cs" />
     <Compile Include="Controllers\EventoParticipanteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ParticipanteController.cs" />
     <Compile Include="Controllers\TipoParticipanteController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -2980,6 +2981,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Util\Constantes.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -3540,6 +3542,7 @@
     <Content Include="Views\Participante\Details.cshtml" />
     <Content Include="Views\EventoParticipante\Index.cshtml" />
     <Content Include="Views\EventoParticipante\Create.cshtml" />
+    <Content Include="Views\Login\Auth.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

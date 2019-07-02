@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebEventos.SRefTipoParticipante;
+using WebEventos.Util;
 namespace WebEventos.Controllers
 {
     public class TipoParticipanteController : Controller
@@ -13,6 +14,10 @@ namespace WebEventos.Controllers
         // GET: TipoParticipante obteniendo el listado de Tipo Participante
         public ActionResult Index()
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
             List<TipoParticipante> listtp = new List<TipoParticipante>();
             try
             {
@@ -29,6 +34,10 @@ namespace WebEventos.Controllers
         // GET: TipoParticipante/Details/5
         public ActionResult Details(int id)
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
             TipoParticipante tipoparticipante = clientTp.buscar(id);
             if (tipoparticipante==null)
             {
@@ -40,7 +49,10 @@ namespace WebEventos.Controllers
         // GET: TipoParticipante/Create
         public ActionResult Create()
         {
-
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
             return View(new TipoParticipante());
         }
 
@@ -48,6 +60,7 @@ namespace WebEventos.Controllers
         [HttpPost]
         public ActionResult Create(TipoParticipante tipoparticipante)
         {
+          
             try
             {
                 ServiceResponse response = clientTp.registrar(tipoparticipante);
@@ -67,6 +80,10 @@ namespace WebEventos.Controllers
         // GET: TipoParticipante/Edit/5
         public ActionResult Edit(int id)
         {
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
             TipoParticipante tipoparticipante = clientTp.buscar(id);
             if (tipoparticipante==null)
             {
@@ -79,6 +96,7 @@ namespace WebEventos.Controllers
         [HttpPost]
         public ActionResult Edit(int id, TipoParticipante tipoparticipante)
         {
+           
             try
             {
                 tipoparticipante.CodTipoParticipante = id;
@@ -99,7 +117,10 @@ namespace WebEventos.Controllers
         // GET: TipoParticipante/Delete/5
         public ActionResult Delete(int id)
         {
-
+            if (Session[Constantes.UsuarioSession] == null)
+            {
+                return RedirectToAction("Auth", "Login");
+            }
             TipoParticipante tipoparticipante = clientTp.buscar(id);
             if (tipoparticipante == null)
             {
