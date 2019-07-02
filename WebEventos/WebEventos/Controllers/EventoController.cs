@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebEventos.SRefEvento;
 using WebEventos.SRefAreaTematica;
+using WebEventos.Models;
 
 namespace WebEventos.Controllers
 {
@@ -225,6 +226,22 @@ namespace WebEventos.Controllers
         public String getEstado(String estado)
         {
             return comboBoxEstado().FirstOrDefault(e => e.Value == estado).Text;
+        }
+
+        public JsonResult searhList(EventoFiltro eventoFiltro)
+        {
+            List<Evento> listEvento = new List<Evento>();
+            try
+            {
+                listEvento = clientEv.buscarLista(eventoFiltro.codAreaTematica, eventoFiltro.fechaDesde, eventoFiltro.fechaHasta).ToList();
+            }
+            catch (Exception ex)
+            {
+
+               // throw;
+            }
+
+            return Json(listEvento, JsonRequestBehavior.AllowGet);
         }
     }
 }

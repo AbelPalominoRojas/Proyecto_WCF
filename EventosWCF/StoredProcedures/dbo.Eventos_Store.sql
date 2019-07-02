@@ -134,3 +134,32 @@ where
 codEvento = @codEvento
 Go
 
+
+IF OBJECT_ID('dbo.USP_Eventos_Search', 'P') IS NOT NULL
+   DROP PROCEDURE dbo.USP_Eventos_Search
+Go
+CREATE PROCEDURE dbo.USP_Eventos_Search
+@codAreaTematica int,
+@fechaDesde date,
+@fechaHasta date
+as
+SELECT
+e.codEvento,
+e.codAreaTematica,
+e.nombreEvento,
+e.descripcionEvento,
+e.fechaEvento,
+e.expositor,
+e.lugarEvento,
+e.limiteParticipantes,
+e.lugaresDisponibles,
+e.codUsuario,
+a.nombreAreaTematica,
+e.estado
+FROM [dbo].[Eventos] AS e
+INNER JOIN [dbo].[AreaTematicas] As a on a.codAreaTematica = e.codAreaTematica
+WHERE 
+	e.estado = 'A' 
+	and (CASE WHEN @codAreaTematica > 0 THEN  e.codAreaTematica ELSE @codAreaTematica END) = @codAreaTematica
+	and CONVERT(date, e.fechaEvento) BETWEEN ISNULL(@fechaDesde, e.fechaEvento) and ISNULL(@fechaHasta, e.fechaEvento)
+Go

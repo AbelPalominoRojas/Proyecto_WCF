@@ -34,5 +34,9 @@ namespace Sise.Business
             return new EventoRepository().buscar(evento);
         }
 
+        public List<Evento> buscarLista(Int32 codAreaTematica, DateTime? fechaDesde, DateTime? fechaHasta)
+        {
+            return new EventoRepository().buscarLista(codAreaTematica, fechaDesde, fechaHasta);
+        }
     }
 }

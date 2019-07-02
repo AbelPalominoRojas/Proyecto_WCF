@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using Sise.Entities;
 using System.Data;
+using System.Data.SqlTypes;
 
 namespace Sise.Repository
 {
@@ -110,68 +111,11 @@ namespace Sise.Repository
 
                     using (sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.SingleResult))
                     {
-                        Evento resultEventos = null;
-                        AreaTematica area = null;
 
                         while (sqlDataReader.Read())
                         {
-                            resultEventos = new Evento();
-                            area = new AreaTematica();
 
-                            int codEvento_index = sqlDataReader.GetOrdinal("codEvento");
-                            if (!sqlDataReader.IsDBNull(codEvento_index))
-                                resultEventos.CodEvento = sqlDataReader.GetInt32(codEvento_index);
-
-                            int codAreaTematica_index = sqlDataReader.GetOrdinal("codAreaTematica");
-                            if (!sqlDataReader.IsDBNull(codAreaTematica_index))
-                            {
-                                resultEventos.CodAreaTematica = sqlDataReader.GetInt32(codAreaTematica_index);
-                                area.CodAreaTematica = resultEventos.CodAreaTematica;
-                            }
-
-                            int nombreEvento_index = sqlDataReader.GetOrdinal("nombreEvento");
-                            if (!sqlDataReader.IsDBNull(nombreEvento_index))
-                                resultEventos.NombreEvento = sqlDataReader.GetString(nombreEvento_index);
-
-                            int descripcionEvento_index = sqlDataReader.GetOrdinal("descripcionEvento");
-                            if (!sqlDataReader.IsDBNull(descripcionEvento_index))
-                                resultEventos.DescripcionEvento = sqlDataReader.GetString(descripcionEvento_index);
-
-                            int fechaEvento_index = sqlDataReader.GetOrdinal("fechaEvento");
-                            if (!sqlDataReader.IsDBNull(fechaEvento_index))
-                                resultEventos.FechaEvento = sqlDataReader.GetDateTime(fechaEvento_index);
-
-                            int expositor_index = sqlDataReader.GetOrdinal("expositor");
-                            if (!sqlDataReader.IsDBNull(expositor_index))
-                                resultEventos.Expositor = sqlDataReader.GetString(expositor_index);
-
-                            int lugarEvento_index = sqlDataReader.GetOrdinal("lugarEvento");
-                            if (!sqlDataReader.IsDBNull(lugarEvento_index))
-                                resultEventos.LugarEvento = sqlDataReader.GetString(lugarEvento_index);
-
-                            int limiteParticipantes_index = sqlDataReader.GetOrdinal("limiteParticipantes");
-                            if (!sqlDataReader.IsDBNull(limiteParticipantes_index))
-                                resultEventos.LimiteParticipantes = sqlDataReader.GetInt32(limiteParticipantes_index);
-
-                            int lugaresDisponibles_index = sqlDataReader.GetOrdinal("lugaresDisponibles");
-                            if (!sqlDataReader.IsDBNull(lugaresDisponibles_index))
-                                resultEventos.LugaresDisponibles = sqlDataReader.GetInt32(lugaresDisponibles_index);
-
-                            int codUsuario_index = sqlDataReader.GetOrdinal("codUsuario");
-                            if (!sqlDataReader.IsDBNull(codUsuario_index))
-                                resultEventos.CodUsuario = sqlDataReader.GetInt32(codUsuario_index);
-
-                            int estado_index = sqlDataReader.GetOrdinal("estado");
-                            if (!sqlDataReader.IsDBNull(estado_index))
-                                resultEventos.Estado = sqlDataReader.GetString(estado_index);
-
-                            int nombreAreaTematica_index = sqlDataReader.GetOrdinal("nombreAreaTematica");
-                            if (!sqlDataReader.IsDBNull(nombreAreaTematica_index))
-                                area.NombreAreaTematica = sqlDataReader.GetString(nombreAreaTematica_index);
-
-                            resultEventos.AreaTematica = area;
-
-                            listEventos.Add(resultEventos);
+                            listEventos.Add(SetEvento(sqlDataReader));
                         }
                     }
                 }
@@ -201,69 +145,111 @@ namespace Sise.Repository
 
                         if (sqlDataReader.Read())
                         {
-                            resultEventos = new Evento();
-                            area = new AreaTematica();
-
-                            int codEvento_index = sqlDataReader.GetOrdinal("codEvento");
-                            if (!sqlDataReader.IsDBNull(codEvento_index))
-                                resultEventos.CodEvento = sqlDataReader.GetInt32(codEvento_index);
-
-                            int codAreaTematica_index = sqlDataReader.GetOrdinal("codAreaTematica");
-                            if (!sqlDataReader.IsDBNull(codAreaTematica_index))
-                            {
-                                resultEventos.CodAreaTematica = sqlDataReader.GetInt32(codAreaTematica_index);
-                                area.CodAreaTematica = resultEventos.CodAreaTematica;
-                            }
-
-                            int nombreEvento_index = sqlDataReader.GetOrdinal("nombreEvento");
-                            if (!sqlDataReader.IsDBNull(nombreEvento_index))
-                                resultEventos.NombreEvento = sqlDataReader.GetString(nombreEvento_index);
-
-                            int descripcionEvento_index = sqlDataReader.GetOrdinal("descripcionEvento");
-                            if (!sqlDataReader.IsDBNull(descripcionEvento_index))
-                                resultEventos.DescripcionEvento = sqlDataReader.GetString(descripcionEvento_index);
-
-                            int fechaEvento_index = sqlDataReader.GetOrdinal("fechaEvento");
-                            if (!sqlDataReader.IsDBNull(fechaEvento_index))
-                                resultEventos.FechaEvento = sqlDataReader.GetDateTime(fechaEvento_index);
-
-                            int expositor_index = sqlDataReader.GetOrdinal("expositor");
-                            if (!sqlDataReader.IsDBNull(expositor_index))
-                                resultEventos.Expositor = sqlDataReader.GetString(expositor_index);
-
-                            int lugarEvento_index = sqlDataReader.GetOrdinal("lugarEvento");
-                            if (!sqlDataReader.IsDBNull(lugarEvento_index))
-                                resultEventos.LugarEvento = sqlDataReader.GetString(lugarEvento_index);
-
-                            int limiteParticipantes_index = sqlDataReader.GetOrdinal("limiteParticipantes");
-                            if (!sqlDataReader.IsDBNull(limiteParticipantes_index))
-                                resultEventos.LimiteParticipantes = sqlDataReader.GetInt32(limiteParticipantes_index);
-
-                            int lugaresDisponibles_index = sqlDataReader.GetOrdinal("lugaresDisponibles");
-                            if (!sqlDataReader.IsDBNull(lugaresDisponibles_index))
-                                resultEventos.LugaresDisponibles = sqlDataReader.GetInt32(lugaresDisponibles_index);
-
-                            int codUsuario_index = sqlDataReader.GetOrdinal("codUsuario");
-                            if (!sqlDataReader.IsDBNull(codUsuario_index))
-                                resultEventos.CodUsuario = sqlDataReader.GetInt32(codUsuario_index);
-
-                            int estado_index = sqlDataReader.GetOrdinal("estado");
-                            if (!sqlDataReader.IsDBNull(estado_index))
-                                resultEventos.Estado = sqlDataReader.GetString(estado_index);
+                            resultEventos = SetEvento(sqlDataReader);
                             
-                            int nombreAreaTematica_index = sqlDataReader.GetOrdinal("nombreAreaTematica");
-                            if (!sqlDataReader.IsDBNull(nombreAreaTematica_index)) { }
-                                area.NombreAreaTematica = sqlDataReader.GetString(nombreAreaTematica_index);
-
-                            resultEventos.AreaTematica = area;
-
-
                         }
                     }
                 }
             }
 
             return resultEventos;
+        }
+
+
+
+        public List<Evento> buscarLista(Int32 codAreaTematica, DateTime? fechaDesde, DateTime? fechaHasta)
+        {
+            List<Evento> listEventos = new List<Evento>();
+
+            sqlQuery = "dbo.USP_Eventos_Search";
+
+            using (sqlConnection = new SqlConnection(nombreConexcion()))
+            {
+                using (sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
+                {
+                    sqlConnection.Open();
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                    sqlCommand.Parameters.AddWithValue("@codAreaTematica", codAreaTematica);
+                    sqlCommand.Parameters.AddWithValue("@fechaDesde", fechaDesde?? SqlDateTime.Null);
+                    sqlCommand.Parameters.AddWithValue("@fechaHasta", fechaHasta ?? SqlDateTime.Null);
+
+
+                    using (sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.SingleResult))
+                    {
+                        while (sqlDataReader.Read())
+                        { 
+                            listEventos.Add(SetEvento(sqlDataReader));
+                        }
+                    }
+                }
+            }
+
+            return listEventos;
+        }
+
+
+        private Evento SetEvento(IDataReader sqlDataReader)
+        {
+            Evento resultEventos = new Evento();
+            AreaTematica area = new AreaTematica();
+
+            int codEvento_index = sqlDataReader.GetOrdinal("codEvento");
+            if (!sqlDataReader.IsDBNull(codEvento_index))
+                resultEventos.CodEvento = sqlDataReader.GetInt32(codEvento_index);
+
+            int codAreaTematica_index = sqlDataReader.GetOrdinal("codAreaTematica");
+            if (!sqlDataReader.IsDBNull(codAreaTematica_index))
+            {
+                resultEventos.CodAreaTematica = sqlDataReader.GetInt32(codAreaTematica_index);
+                area.CodAreaTematica = resultEventos.CodAreaTematica;
+            }
+
+            int nombreEvento_index = sqlDataReader.GetOrdinal("nombreEvento");
+            if (!sqlDataReader.IsDBNull(nombreEvento_index))
+                resultEventos.NombreEvento = sqlDataReader.GetString(nombreEvento_index);
+
+            int descripcionEvento_index = sqlDataReader.GetOrdinal("descripcionEvento");
+            if (!sqlDataReader.IsDBNull(descripcionEvento_index))
+                resultEventos.DescripcionEvento = sqlDataReader.GetString(descripcionEvento_index);
+
+            int fechaEvento_index = sqlDataReader.GetOrdinal("fechaEvento");
+            if (!sqlDataReader.IsDBNull(fechaEvento_index))
+                resultEventos.FechaEvento = sqlDataReader.GetDateTime(fechaEvento_index);
+
+            int expositor_index = sqlDataReader.GetOrdinal("expositor");
+            if (!sqlDataReader.IsDBNull(expositor_index))
+                resultEventos.Expositor = sqlDataReader.GetString(expositor_index);
+
+            int lugarEvento_index = sqlDataReader.GetOrdinal("lugarEvento");
+            if (!sqlDataReader.IsDBNull(lugarEvento_index))
+                resultEventos.LugarEvento = sqlDataReader.GetString(lugarEvento_index);
+
+            int limiteParticipantes_index = sqlDataReader.GetOrdinal("limiteParticipantes");
+            if (!sqlDataReader.IsDBNull(limiteParticipantes_index))
+                resultEventos.LimiteParticipantes = sqlDataReader.GetInt32(limiteParticipantes_index);
+
+            int lugaresDisponibles_index = sqlDataReader.GetOrdinal("lugaresDisponibles");
+            if (!sqlDataReader.IsDBNull(lugaresDisponibles_index))
+                resultEventos.LugaresDisponibles = sqlDataReader.GetInt32(lugaresDisponibles_index);
+
+            int codUsuario_index = sqlDataReader.GetOrdinal("codUsuario");
+            if (!sqlDataReader.IsDBNull(codUsuario_index))
+                resultEventos.CodUsuario = sqlDataReader.GetInt32(codUsuario_index);
+
+            int estado_index = sqlDataReader.GetOrdinal("estado");
+            if (!sqlDataReader.IsDBNull(estado_index))
+                resultEventos.Estado = sqlDataReader.GetString(estado_index);
+
+            int nombreAreaTematica_index = sqlDataReader.GetOrdinal("nombreAreaTematica");
+            if (!sqlDataReader.IsDBNull(nombreAreaTematica_index))
+                area.NombreAreaTematica = sqlDataReader.GetString(nombreAreaTematica_index);
+
+            resultEventos.AreaTematica = area;
+
+
+            return resultEventos;
+
         }
 
     }

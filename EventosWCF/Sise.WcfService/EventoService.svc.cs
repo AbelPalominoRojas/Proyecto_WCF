@@ -236,6 +236,20 @@ namespace Sise.WcfService
             return listEvento;
         }
 
-       
+        public List<Evento> buscarLista(int codAreaTematica, DateTime? fechaDesde, DateTime? fechaHasta)
+        {
+            List<Evento> listEvento = new List<Evento>();
+
+            try
+            {
+                listEvento = new EventoBll().buscarLista(codAreaTematica,fechaDesde,fechaHasta);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return listEvento;
+        }
     }
 }

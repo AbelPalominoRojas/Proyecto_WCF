@@ -70,4 +70,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="buscarLista">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codAreaTematica" type="xs:int" />
+        <xs:element minOccurs="0" name="fechaDesde" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fechaHasta" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="buscarListaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Sise.Entities" minOccurs="0" name="buscarListaResult" nillable="true" type="q8:ArrayOfEvento" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

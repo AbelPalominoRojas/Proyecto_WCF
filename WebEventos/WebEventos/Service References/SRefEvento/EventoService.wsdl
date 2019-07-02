@@ -38,6 +38,12 @@
   <wsdl:message name="IEventoService_buscar_OutputMessage">
     <wsdl:part name="parameters" element="tns:buscarResponse" />
   </wsdl:message>
+  <wsdl:message name="IEventoService_buscarLista_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarLista" />
+  </wsdl:message>
+  <wsdl:message name="IEventoService_buscarLista_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarListaResponse" />
+  </wsdl:message>
   <wsdl:portType name="IEventoService">
     <wsdl:operation name="registrar">
       <wsdl:input wsaw:Action="http://tempuri.org/IEventoService/registrar" message="tns:IEventoService_registrar_InputMessage" />
@@ -58,6 +64,10 @@
     <wsdl:operation name="buscar">
       <wsdl:input wsaw:Action="http://tempuri.org/IEventoService/buscar" message="tns:IEventoService_buscar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IEventoService/buscarResponse" message="tns:IEventoService_buscar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarLista">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventoService/buscarLista" message="tns:IEventoService_buscarLista_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventoService/buscarListaResponse" message="tns:IEventoService_buscarLista_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IEventoService" type="tns:IEventoService">
@@ -100,6 +110,15 @@
     </wsdl:operation>
     <wsdl:operation name="buscar">
       <soap:operation soapAction="http://tempuri.org/IEventoService/buscar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarLista">
+      <soap:operation soapAction="http://tempuri.org/IEventoService/buscarLista" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -4,13 +4,18 @@
     ViewBag.Title = "Create";
 }
 
+@section styles{
+
+    @Styles.Render("~/assets/template/date/css")
+}
+
 <div class="row">
     <div class="col-12">
         <div class="ibox mb-2">
             <div class="ibox-head">
                 <div class="ibox-title">Buscar Eventos</div>
                 <div class="ibox-tools">
-                    <button class="btn btn-sm btn-primary">
+                    <button class="btn btn-sm btn-primary" id="btnBuscarEventos">
                         <i class="fa fa-search" aria-hidden="true"></i>
                         Buscar
                     </button>
@@ -19,15 +24,15 @@
             </div>
             <div class="ibox-body">
                 <div class="form-row">
-                    <div class="form-group col-sm-6 col-xl-4">
-                        <label>Fecha Desde <span class="text-danger">*</span></label>
+                    <div class="form-group form-group-date col-sm-6 col-xl-4">
+                        <label>Fecha Desde</label>
                         <div class="input-group date">
                             <input type="text" class="form-control" readonly />
                             <span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
                         </div>
                     </div>
-                    <div class="form-group col-sm-6 col-xl-4">
-                        <label>Fecha Hasta <span class="text-danger">*</span></label>
+                    <div class="form-group form-group-date col-sm-6 col-xl-4">
+                        <label>Fecha Hasta</label>
                         <div class="input-group date">
                             <input type="text" class="form-control" readonly />
                             <span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
@@ -36,7 +41,7 @@
 
                     <div class="form-group col-sm-6 col-xl-4">
                         <label>Area Tematica </label>
-                        <select class="form-control" id="CodAreaTematica" name="CodAreaTematica">
+                        <select class="form-control" id="ddlAreaTematica" name="CodAreaTematica">
                             <option value="0">Seleccione</option>
                             <option value="6">General</option>
                             <option value="5">Negocios Internacionales</option>
@@ -48,7 +53,7 @@
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <table class="table">
+                    <table class="table" id="tblEventos">
                         <tr>
                             <th></th>
                             <th>
@@ -193,4 +198,55 @@
             </div>
         </div>
     </div>
+</div>
 
+@section scripts{
+    @Scripts.Render("~/assets/template/date/js")
+
+    <script>
+        $(document).ready(function () {
+            let el_btnBuscarEvento = $('#btnBuscarEventos'),
+                el_tblEventos = $('#tblEventos'),
+                el_ddlAreaTematica = $('#ddlAreaTematica');
+
+
+
+            el_btnBuscarEvento.on('click', function () {
+                let rows = '';
+
+                $.ajax({
+                    data: { CodAreaTematica : el_ddlAreaTematica.val() },
+                    type: "POST",
+                    dataType: "json",
+                    url: "@Url.Action("searhList","Evento")",
+                })
+             .done(function (data, textStatus, jqXHR) {
+
+                 $.each(data, function (index, value) {
+
+                     rows += `<tr>
+                                <td>${value.CodEvento}</td>
+                                <td>${value.FechaEvento}</td>
+                                <td>${value.FechaEvento}</td>
+                                <td>${value.NombreEvento}</td>
+                                <td>${value.AreaTematica.NombreAreaTematica}</td>
+                                <td>${value.DescripcionEvento}</td>
+                                <td>${value.Expositor}</td>
+                                <td>${value.LimiteParticipantes}</td>
+                                <td>${value.LugaresDisponibles}</td>
+                                <td>${value.LugarEvento}</td>
+                            </tr>`;
+                 });
+                 console.log(data);
+
+                 el_tblEventos.find('>tbody').html(rows);
+             })
+             .fail(function (jqXHR, textStatus, errorThrown) {
+                 console.log("La solicitud a fallado: " + textStatus);
+             });
+            });
+
+
+        });
+    </script>
+}

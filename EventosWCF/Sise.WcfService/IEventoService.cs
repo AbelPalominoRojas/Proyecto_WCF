@@ -27,5 +27,8 @@ namespace Sise.WcfService
 
         [OperationContract]
         Evento buscar(Int32 CodEvento);
+
+        [OperationContract]
+        List<Evento> buscarLista(Int32 codAreaTematica, DateTime? fechaDesde, DateTime? fechaHasta);
     }
 }
