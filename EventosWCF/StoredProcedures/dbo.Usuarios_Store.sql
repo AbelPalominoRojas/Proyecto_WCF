@@ -60,6 +60,7 @@ apellidos,
 email,
 estado
 FROM [dbo].[Usuarios]
+where estado ='E'
 order by codUsuario desc
 Go 
 
@@ -92,3 +93,21 @@ where
 codUsuario = @codUsuario
 Go
 
+IF OBJECT_ID('dbo.USP_Usuarios_Login', 'P') IS NOT NULL
+   DROP PROCEDURE dbo.USP_Usuarios_Login
+Go
+CREATE PROCEDURE dbo.USP_Usuarios_Login
+@email nvarchar(60),
+@password nvarchar(100)
+as
+SELECT
+codUsuario,
+nombres,
+apellidos,
+email,
+estado
+FROM [dbo].[Usuarios]
+where
+email = @email AND password = @password
+AND estado = 'A'
+Go
