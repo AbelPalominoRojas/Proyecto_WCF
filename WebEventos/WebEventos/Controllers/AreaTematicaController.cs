@@ -178,5 +178,23 @@ namespace WebEventos.Controllers
                 return View(areaTematica);
             }
         }
+
+
+        public JsonResult lista()
+        {
+            List<AreaTematica> listAreaTematica = new List<AreaTematica>();
+            try
+            {
+                listAreaTematica = client.listar().ToList();
+
+            }
+            catch (Exception ex)
+            {
+
+                //throw;
+            }
+
+            return Json(listAreaTematica, JsonRequestBehavior.AllowGet);
+        }
     }
 }

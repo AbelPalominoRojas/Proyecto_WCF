@@ -36,18 +36,18 @@ namespace WebEventos.Controllers
             }
             try
             {
-                EventoParticipanteModel eParticipante = new EventoParticipanteModel();
-                eParticipante.Participante = new Participante();
-                eParticipante.Evento = new Evento();
-                eParticipante.Participantes = clientP.listar().ToList();
-                eParticipante.Eventos = clientEv.listar().ToList();
+                //EventoParticipanteModel eParticipante = new EventoParticipanteModel();
+                //eParticipante.Participante = new Participante();
+                //eParticipante.Evento = new Evento();
+                //eParticipante.Participantes = clientP.listar().ToList();
+                //eParticipante.Eventos = clientEv.listar().ToList();
 
-                return View(eParticipante);
+                return View(new Evento());
             }
             catch (Exception ex)
             {
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
                 //throw;
             }
 
@@ -57,7 +57,7 @@ namespace WebEventos.Controllers
         [HttpPost]
         public ActionResult Create(EventoParticipanteModel eParticipante)
         {
-        
+
             try
             {
 

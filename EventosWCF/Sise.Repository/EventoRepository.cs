@@ -215,7 +215,10 @@ namespace Sise.Repository
 
             int fechaEvento_index = sqlDataReader.GetOrdinal("fechaEvento");
             if (!sqlDataReader.IsDBNull(fechaEvento_index))
+            {
                 resultEventos.FechaEvento = sqlDataReader.GetDateTime(fechaEvento_index);
+                resultEventos.FechaEventoString = resultEventos.FechaEvento.ToString("dd-MM-yyyy hh:mm tt");
+            }
 
             int expositor_index = sqlDataReader.GetOrdinal("expositor");
             if (!sqlDataReader.IsDBNull(expositor_index))

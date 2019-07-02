@@ -8,6 +8,8 @@ namespace Sise.Entities
     [DataContract]
     public class Evento
     {
+
+
         [DataMember]
         public Int32 CodEvento { get; set; }
 
@@ -26,6 +28,9 @@ namespace Sise.Entities
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy hh:mm tt}", ApplyFormatInEditMode = true)]
         public DateTime FechaEvento { get; set; }
+
+        [DataMember]
+        public String FechaEventoString { get; set; }
 
         [DataMember]
         [Required]

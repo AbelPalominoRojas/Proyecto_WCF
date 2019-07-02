@@ -17,13 +17,12 @@ D:\Desarrollo\Net\Proyecto_WCF\EventosWCF\Sise.Entities\bin\Debug\Sise.Entities.
 D:\Desarrollo\Net\Proyecto_WCF\EventosWCF\Sise.Entities\obj\Debug\Sise.Entities.dll
 D:\Desarrollo\Net\Proyecto_WCF\EventosWCF\Sise.Entities\obj\Debug\Sise.Entities.pdb
 D:\Desarrollo\yanet\Net\Proyecto_WCF\EventosWCF\Sise.Entities\obj\Debug\Sise.Entities.csprojResolveAssemblyReference.cache
-D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Entities\bin\Debug\Sise.Entities.dll
-D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Entities\bin\Debug\Sise.Entities.pdb
-D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Entities\obj\Debug\Sise.Entities.csprojResolveAssemblyReference.cache
-D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Entities\obj\Debug\Sise.Entities.dll
-D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Entities\obj\Debug\Sise.Entities.pdb
 C:\Users\ALUMNO\Documents\GitHub\Proyecto_WCF\EventosWCF\Sise.Entities\bin\Debug\Sise.Entities.dll
 C:\Users\ALUMNO\Documents\GitHub\Proyecto_WCF\EventosWCF\Sise.Entities\bin\Debug\Sise.Entities.pdb
 C:\Users\ALUMNO\Documents\GitHub\Proyecto_WCF\EventosWCF\Sise.Entities\obj\Debug\Sise.Entities.csprojResolveAssemblyReference.cache
 C:\Users\ALUMNO\Documents\GitHub\Proyecto_WCF\EventosWCF\Sise.Entities\obj\Debug\Sise.Entities.dll
 C:\Users\ALUMNO\Documents\GitHub\Proyecto_WCF\EventosWCF\Sise.Entities\obj\Debug\Sise.Entities.pdb
+D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Entities\bin\Debug\Sise.Entities.dll
+D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Entities\bin\Debug\Sise.Entities.pdb
+D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Entities\obj\Debug\Sise.Entities.dll
+D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Entities\obj\Debug\Sise.Entities.pdb

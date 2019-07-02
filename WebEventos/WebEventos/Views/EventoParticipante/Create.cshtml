@@ -1,4 +1,4 @@
-﻿@model WebEventos.Models.EventoParticipanteModel
+﻿@model WebEventos.SRefEvento.Evento
 
 @{
     ViewBag.Title = "Create";
@@ -19,6 +19,10 @@
                         <i class="fa fa-search" aria-hidden="true"></i>
                         Buscar
                     </button>
+                    <button class="btn btn-sm btn-primary" id="btnLimpiarEventos">
+                        <i class="fa fa-eraser" aria-hidden="true"></i>
+                        Limpiar
+                    </button>
                     <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
                 </div>
             </div>
@@ -27,14 +31,14 @@
                     <div class="form-group form-group-date col-sm-6 col-xl-4">
                         <label>Fecha Desde</label>
                         <div class="input-group date">
-                            <input type="text" class="form-control" readonly />
+                            <input type="text" class="form-control" readonly id="dtpFechaDesde" />
                             <span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
                         </div>
                     </div>
                     <div class="form-group form-group-date col-sm-6 col-xl-4">
                         <label>Fecha Hasta</label>
                         <div class="input-group date">
-                            <input type="text" class="form-control" readonly />
+                            <input type="text" class="form-control" readonly id="dtpFechaHasta" />
                             <span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
                         </div>
                     </div>
@@ -59,11 +63,8 @@
                             <th>
                                 Cod
                             </th>
-                            <th class="tbl-cell-sm">
-                                Fecha
-                            </th>
-                            <th class="tbl-cell-sm">
-                                Hora
+                            <th class="tbl-cell-md">
+                                Fecha y Hora
                             </th>
                             <th>
                                 Evento
@@ -206,16 +207,25 @@
     <script>
         $(document).ready(function () {
             let el_btnBuscarEvento = $('#btnBuscarEventos'),
+                el_btnLimpiarEventos = $('#btnLimpiarEventos'),
                 el_tblEventos = $('#tblEventos'),
-                el_ddlAreaTematica = $('#ddlAreaTematica');
-
+                el_ddlAreaTematica = $('#ddlAreaTematica'),
+                el_dtpFechaDesde = $('#dtpFechaDesde'),
+                el_dtpFechaHasta = $('#dtpFechaHasta');
 
 
             el_btnBuscarEvento.on('click', function () {
-                let rows = '';
+                let dataSearch = {},
+                    rows = '';
+
+                dataSearch.CodAreaTematica = el_ddlAreaTematica.val();
+
+                if (el_dtpFechaDesde.val() != '') dataSearch.fechaDesde = el_dtpFechaDesde.val();
+
+                if (el_dtpFechaHasta.val() != '') dataSearch.fechaHasta = el_dtpFechaHasta.val();
 
                 $.ajax({
-                    data: { CodAreaTematica : el_ddlAreaTematica.val() },
+                    data: dataSearch,
                     type: "POST",
                     dataType: "json",
                     url: "@Url.Action("searhList","Evento")",
@@ -226,8 +236,7 @@
 
                      rows += `<tr>
                                 <td>${value.CodEvento}</td>
-                                <td>${value.FechaEvento}</td>
-                                <td>${value.FechaEvento}</td>
+                                <td>${value.FechaEventoString}</td>
                                 <td>${value.NombreEvento}</td>
                                 <td>${value.AreaTematica.NombreAreaTematica}</td>
                                 <td>${value.DescripcionEvento}</td>
@@ -246,6 +255,13 @@
              });
             });
 
+            el_btnLimpiarEventos.on('click', function () {
+
+                el_dtpFechaDesde.val('');
+                el_dtpFechaHasta.val('');
+                el_ddlAreaTematica.val('0');
+                el_tblEventos.find('>tbody').html('');
+            });
 
         });
     </script>

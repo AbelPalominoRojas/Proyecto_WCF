@@ -10,6 +10,7 @@
       <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Expositor" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FechaEvento" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaEventoString" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="LimiteParticipantes" type="xs:int" />
       <xs:element minOccurs="0" name="LugarEvento" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="LugaresDisponibles" type="xs:int" />

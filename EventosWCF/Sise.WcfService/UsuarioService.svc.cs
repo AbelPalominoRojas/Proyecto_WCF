@@ -183,7 +183,7 @@ namespace Sise.WcfService
             {
                 usuario = new UsuarioBll().login(email,password);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 //throw;

@@ -26,13 +26,6 @@ D:\Desarrollo\Net\Proyecto_WCF\EventosWCF\Sise.Repository\bin\Debug\Sise.Entitie
 D:\Desarrollo\Net\Proyecto_WCF\EventosWCF\Sise.Repository\obj\Debug\Sise.Repository.csprojResolveAssemblyReference.cache
 D:\Desarrollo\Net\Proyecto_WCF\EventosWCF\Sise.Repository\obj\Debug\Sise.Repository.dll
 D:\Desarrollo\Net\Proyecto_WCF\EventosWCF\Sise.Repository\obj\Debug\Sise.Repository.pdb
-D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Repository\bin\Debug\Sise.Repository.dll
-D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Repository\bin\Debug\Sise.Repository.pdb
-D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Repository\bin\Debug\Sise.Entities.dll
-D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Repository\bin\Debug\Sise.Entities.pdb
-D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Repository\obj\Debug\Sise.Repository.csprojResolveAssemblyReference.cache
-D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Repository\obj\Debug\Sise.Repository.dll
-D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Repository\obj\Debug\Sise.Repository.pdb
 C:\Users\ALUMNO\Documents\GitHub\Proyecto_WCF\EventosWCF\Sise.Repository\bin\Debug\Sise.Repository.dll
 C:\Users\ALUMNO\Documents\GitHub\Proyecto_WCF\EventosWCF\Sise.Repository\bin\Debug\Sise.Repository.pdb
 C:\Users\ALUMNO\Documents\GitHub\Proyecto_WCF\EventosWCF\Sise.Repository\bin\Debug\Sise.Entities.dll
@@ -40,3 +33,10 @@ C:\Users\ALUMNO\Documents\GitHub\Proyecto_WCF\EventosWCF\Sise.Repository\bin\Deb
 C:\Users\ALUMNO\Documents\GitHub\Proyecto_WCF\EventosWCF\Sise.Repository\obj\Debug\Sise.Repository.csprojResolveAssemblyReference.cache
 C:\Users\ALUMNO\Documents\GitHub\Proyecto_WCF\EventosWCF\Sise.Repository\obj\Debug\Sise.Repository.dll
 C:\Users\ALUMNO\Documents\GitHub\Proyecto_WCF\EventosWCF\Sise.Repository\obj\Debug\Sise.Repository.pdb
+D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Repository\bin\Debug\Sise.Repository.dll
+D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Repository\bin\Debug\Sise.Repository.pdb
+D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Repository\bin\Debug\Sise.Entities.dll
+D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Repository\bin\Debug\Sise.Entities.pdb
+D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Repository\obj\Debug\Sise.Repository.csprojResolveAssemblyReference.cache
+D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Repository\obj\Debug\Sise.Repository.dll
+D:\Desarrollo\tallersise\Proyecto_WCF\EventosWCF\Sise.Repository\obj\Debug\Sise.Repository.pdb

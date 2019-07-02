@@ -37,8 +37,7 @@
 
                     <div class="form-group">
                         <label>Password</label>
-                        
-                        @Html.EditorFor(model => model.Password, new { HtmlAttributes = new { @class = "form-control" } })
+                        @Html.PasswordFor(model => model.Password, new { @class = "form-control" } )
                     </div>
 
                     <hr />
