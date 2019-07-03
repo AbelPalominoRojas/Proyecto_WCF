@@ -27,5 +27,8 @@ namespace Sise.WcfService
 
         [OperationContract]
         Participante buscar(Int32 CodParticipante);
+
+        [OperationContract]
+        List<Participante> buscarLista(Participante participante);
     }
 }

@@ -34,5 +34,10 @@ namespace Sise.Business
             return new ParticipanteRepository().buscar(participante);
         }
 
+        public List<Participante> buscarLista(Participante participante)
+        {
+            return new ParticipanteRepository().buscarLista(participante);
+        }
+
     }
 }
