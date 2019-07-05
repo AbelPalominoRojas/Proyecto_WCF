@@ -25,8 +25,8 @@ namespace Sise.Repository
 
                     sqlCommand.Parameters.AddWithValue("@codEvento", eventoParticipante.CodEvento);
                     sqlCommand.Parameters.AddWithValue("@codParticipante", eventoParticipante.CodParticipante);
-                    sqlCommand.Parameters.AddWithValue("@fechaRegistro", eventoParticipante.FechaRegistro);
-                    sqlCommand.Parameters.AddWithValue("@participanteAsistio", eventoParticipante.ParticipanteAsistio);
+                    sqlCommand.Parameters.AddWithValue("@fechaRegistro", DateTime.Now);
+                    sqlCommand.Parameters.AddWithValue("@participanteAsistio", false);
                     sqlCommand.Parameters.AddWithValue("@codUsuario", eventoParticipante.CodUsuario);
                     sqlCommand.Parameters.AddWithValue("@estado", "A");
 

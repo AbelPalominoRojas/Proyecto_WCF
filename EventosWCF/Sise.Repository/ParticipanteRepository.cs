@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using Sise.Entities;
 using System.Data;
+using System.Data.SqlTypes;
 
 namespace Sise.Repository
 {
@@ -163,9 +164,9 @@ namespace Sise.Repository
                     sqlConnection.Open();
                     sqlCommand.CommandType = CommandType.StoredProcedure;
 
-                    sqlCommand.Parameters.AddWithValue("@nombres", participante.Nombres);
-                    sqlCommand.Parameters.AddWithValue("@apellidos", participante.Apellidos);
-                    sqlCommand.Parameters.AddWithValue("@dni", participante.Dni);
+                    sqlCommand.Parameters.AddWithValue("@nombres", participante.Nombres ?? SqlString.Null);
+                    sqlCommand.Parameters.AddWithValue("@apellidos", participante.Apellidos ?? SqlString.Null);
+                    sqlCommand.Parameters.AddWithValue("@dni", participante.Dni ?? SqlString.Null);
 
                     using (sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.SingleResult))
                     {

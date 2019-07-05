@@ -162,4 +162,5 @@ WHERE
 	e.estado = 'A' 
 	and (CASE WHEN @codAreaTematica > 0 THEN  e.codAreaTematica ELSE @codAreaTematica END) = @codAreaTematica
 	and CONVERT(date, e.fechaEvento) BETWEEN ISNULL(@fechaDesde, e.fechaEvento) and ISNULL(@fechaHasta, e.fechaEvento)
+order by e.codEvento desc
 Go

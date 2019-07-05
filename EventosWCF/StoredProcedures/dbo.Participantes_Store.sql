@@ -157,7 +157,8 @@ FROM [dbo].[Participantes] AS p
 INNER JOIN [dbo].[TipoParticipantes] AS t
 ON p.codTipoParticipante = t.codTipoParticipante
 where p.estado = 'A'
-	and (CASE WHEN @nombres = '' THEN  p.nombres ELSE @nombres END) like '%'+ @nombres +'%'
-	and (CASE WHEN @apellidos = '' THEN  p.apellidos ELSE @apellidos END) like '%'+ @apellidos +'%'
-	and (CASE WHEN @dni = '' THEN  p.dni ELSE @dni END) like '%'+ @dni +'%'
+	and p.nombres like +'%'+ ISNULL(@nombres, p.nombres) +'%'
+	and p.apellidos like +'%'+ ISNULL(@apellidos,p.apellidos) +'%'
+	and p.dni like +'%'+ ISNULL(@dni,p.dni) +'%'
+order by p.codParticipante desc
 Go

@@ -1,4 +1,4 @@
-﻿@model WebEventos.SRefEvento.Evento
+﻿@model WebEventos.SRefEventoParticipante.EventoParticipante
 
 @{
     ViewBag.Title = "Create";
@@ -45,8 +45,7 @@
 
                     <div class="form-group col-sm-6 col-xl-4">
                         <label>Area Tematica </label>
-                        <select class="form-control" id="ddlAreaTematica" name="CodAreaTematica">
-                        </select>
+                        <select class="form-control" id="ddlAreaTematica" name="CodAreaTematica"></select>
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -108,51 +107,53 @@
                 <div class="form-row">
                     <div class="form-group col-sm-6 col-xl-4">
                         <label>Dni</label>
-                        <input class="form-control" />
+                        <input class="form-control" id="txtDni" />
                     </div>
                     <div class="form-group col-sm-6 col-xl-4">
                         <label>Nombres</label>
-                        <input class="form-control" />
+                        <input class="form-control" id="txtNombres" />
                     </div>
                     <div class="form-group col-sm-6 col-xl-4">
                         <label>Apellidos</label>
-                        <input class="form-control" />
+                        <input class="form-control" id="txtApellidos" />
                     </div>
                 </div>
 
                 <div class="table-responsive">
                     <table class="table" id="tblParticipantes">
-                        <tr>
-                            <th></th>
-                            <th>
-                                Cod
-                            </th>
-                            <th>
-                                Nombres
-                            </th>
-                            <th>
-                                Apellidos
-                            </th>
-                            <th>
-                                Dni
-                            </th>
-                            <th>
-                                Tipo
-                            </th>
-                            <th>
-                                Correo
-                            </th>
-                            <th class="tbl-cell-lg">
-                                Direccion
-                            </th>
-                            <th>
-                                Distrito
-                            </th>
-                            <th>
-                                Telefono
-                            </th>
-
-                        </tr>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>
+                                    Cod
+                                </th>
+                                <th class="tbl-cell-md">
+                                    Nombres
+                                </th>
+                                <th class="tbl-cell-md">
+                                    Apellidos
+                                </th>
+                                <th>
+                                    Dni
+                                </th>
+                                <th class="tbl-cell-md">
+                                    Tipo
+                                </th>
+                                <th>
+                                    Correo
+                                </th>
+                                <th class="tbl-cell-lg">
+                                    Direccion
+                                </th>
+                                <th>
+                                    Distrito
+                                </th>
+                                <th>
+                                    Telefono
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
                     </table>
 
                 </div>
@@ -169,30 +170,41 @@
                 </div>
             </div>
             <div class="ibox-body">
-                @using (Html.BeginForm())
-                {
-                    @Html.AntiForgeryToken()
-
-                    <div class="form-row">
-                        <div class="form-group col-sm-6 col-xl-4">
-                            <label>Participante <span class="text-danger">*</span></label>
-                            <span class="form-control"></span>
-                        </div>
-                        <div class="form-group col-sm-6 col-xl-4">
-                            <label>Dni <span class="text-danger">*</span></label>
-                            <span class="form-control"></span>
-                        </div>
+                <input type="hidden" id="hdnCodParticipante" />
+                <input type="hidden" id="hdnCodEvento" />
+                <div class="form-row">
+                    <div class="form-group col-sm-6 col-xl-4">
+                        <label>Dni <span class="text-danger">*</span></label>
+                        <span class="form-control form-control-span"></span>
                     </div>
-
-                    <hr />
-                    <div class="d-flex justify-content-between">
-                        @Html.ActionLink(" ", "Index", null, new { @class = "btn btn-info fa fa-reply" })
-                        <button type="button" class="btn btn-success">
-                            <i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar
-                        </button>
-
+                    <div class="form-group col-sm-6 col-xl-8">
+                        <label>Participante <span class="text-danger">*</span></label>
+                        <span class="form-control form-control-span"></span>
                     </div>
-                }
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-sm-6 col-xl-4">
+                        <label>Evento <span class="text-danger">*</span></label>
+                        <span class="form-control form-control-span"></span>
+                    </div>
+                    <div class="form-group col-sm-6 col-xl-4">
+                        <label>Fecha <span class="text-danger">*</span></label>
+                        <span class="form-control form-control-span"></span>
+                    </div>
+                    <div class="form-group col-sm-6 col-xl-4">
+                        <label>area Tematica <span class="text-danger">*</span></label>
+                        <span class="form-control form-control-span"></span>
+                    </div>
+                </div>
+
+                <hr />
+                <div class="d-flex justify-content-between">
+                    @Html.ActionLink(" ", "Index", null, new { @class = "btn btn-info fa fa-reply" })
+                    <button type="button" class="btn btn-success">
+                        <i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar
+                    </button>
+
+                </div>
             </div>
         </div>
     </div>
@@ -211,9 +223,12 @@
                 el_dtpFechaHasta = $('#dtpFechaHasta'),
                 el_btnBuscarParticipante = $('#btnBuscarParticipante'),
                 el_btnLimpiarParticipante = $('#btnLimpiarParticipante'),
-                el_tblParticipantes = $('#tblParticipantes');
+                el_tblParticipantes = $('#tblParticipantes'),
+                el_txtDni = $('#txtDni'),
+                el_txtNombres = $('#txtNombres'),
+                el_txtApellidos = $('#txtApellidos');
 
-
+            //===============================Cargar Area Tematica====================================
             $.ajax({
                 data: {},
                 type: "GET",
@@ -235,7 +250,7 @@
              });
 
 
-
+            //=======================================Buscar Eventos=============================================
             el_btnBuscarEvento.on('click', function () {
                 let dataSearch = {},
                     rows = '';
@@ -257,6 +272,7 @@
                  $.each(data, function (index, value) {
 
                      rows += `<tr>
+                                <td></td>
                                 <td>${value.CodEvento}</td>
                                 <td>${value.FechaEventoString}</td>
                                 <td>${value.NombreEvento}</td>
@@ -277,12 +293,63 @@
              });
             });
 
+            //==========================================Limpiar Eventos==========================================
             el_btnLimpiarEventos.on('click', function () {
 
                 el_dtpFechaDesde.val('');
                 el_dtpFechaHasta.val('');
                 el_ddlAreaTematica.val('0');
                 el_tblEventos.find('>tbody').html('');
+            });
+
+            //=========================================Buscar Participante===========================================
+            el_btnBuscarParticipante.on('click', function () {
+                let dataSearch = {},
+                    rows = '';
+
+                dataSearch.Dni = el_txtDni.val().trim();
+                dataSearch.Nombres = el_txtNombres.val().trim();
+                dataSearch.Apellidos = el_txtApellidos.val().trim();
+
+                $.ajax({
+                    data: dataSearch,
+                    type: "POST",
+                    dataType: "json",
+                    url: "@Url.Action("searhList", "Participante")",
+                })
+                 .done(function (data, textStatus, jqXHR) {
+
+                     $.each(data, function (index, value) {
+
+                         rows += `<tr>
+                                    <td></td>
+                                    <td>${value.CodParticipante}</td>
+                                    <td>${value.Nombres}</td>
+                                    <td>${value.Apellidos}</td>
+                                    <td>${value.Dni}</td>
+                                    <td>${value.TipoParticipante.NombreTipoParticipante}</td>
+                                    <td>${value.Correo}</td>
+                                    <td>${value.Direccion}</td>
+                                    <td>${value.Distrito}</td>
+                                    <td>${value.Telefono}</td>
+                                </tr>`;
+                     });
+                     //console.log(data);
+
+                     el_tblParticipantes.find('>tbody').html(rows);
+                 })
+                 .fail(function (jqXHR, textStatus, errorThrown) {
+                     console.log("La solicitud a fallado: " + textStatus);
+                 });
+            });
+
+            //==========================================Limpiar Eventos==========================================
+            el_btnLimpiarParticipante.on('click', function () {
+
+                el_txtNombres.val('');
+                el_txtApellidos.val('');
+                el_txtDni.val('');
+                el_tblParticipantes.find('>tbody').html('');
             });
 
         });

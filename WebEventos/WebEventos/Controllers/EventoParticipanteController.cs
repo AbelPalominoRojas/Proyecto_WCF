@@ -4,8 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebEventos.Models;
-using WebEventos.SRefEvento;
-using WebEventos.SRefParticipante;
 using WebEventos.SRefEventoParticipante;
 using WebEventos.Util;
 
@@ -13,8 +11,7 @@ namespace WebEventos.Controllers
 {
     public class EventoParticipanteController : Controller
     {
-        EventoServiceClient clientEv = new EventoServiceClient();
-        ParticipanteServiceClient clientP = new ParticipanteServiceClient();
+        EventoParticipanteServiceClient evpClient = new EventoParticipanteServiceClient();
 
         // GET: EventoParticipante
         public ActionResult Index()
@@ -42,7 +39,7 @@ namespace WebEventos.Controllers
                 //eParticipante.Participantes = clientP.listar().ToList();
                 //eParticipante.Eventos = clientEv.listar().ToList();
 
-                return View(new Evento());
+                return View(new EventoParticipante());
             }
             catch (Exception ex)
             {
@@ -55,20 +52,21 @@ namespace WebEventos.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(EventoParticipanteModel eParticipante)
+        public JsonResult Create(EventoParticipante eParticipante)
         {
+            SRefEventoParticipante.ServiceResponse response = new SRefEventoParticipante.ServiceResponse();
 
             try
             {
-
+                response = evpClient.registrar(eParticipante);
             }
             catch (Exception ex)
             {
-
+                response.Message = "Ha ocurrido un error inesperado, contacte al administrador del sistema.";
                 //throw;
             }
 
-            return View(eParticipante);
+            return Json(eParticipante,JsonRequestBehavior.AllowGet);
 
         }
     }

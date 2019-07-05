@@ -22,3 +22,7 @@
 .tbl-cell-lg {
     min-width: 12rem;
 }
+
+.form-control-span{
+    min-height: 30px;
+}
