@@ -105,3 +105,24 @@ codEvento = @codEvento and
 codParticipante = @codParticipante
 Go
 
+
+IF OBJECT_ID('dbo.UTRG_EventoParticipantes_Insert', 'TR') IS NOT NULL
+   DROP TRIGGER dbo.UTRG_EventoParticipantes_Insert
+Go
+
+CREATE TRIGGER UTRG_EventoParticipantes_Insert ON  [dbo].[EventoParticipantes]
+FOR INSERT
+AS  
+begin
+	declare @codEvento int 
+	declare @lugaresUcupados int 
+
+	set @codEvento =  (SELECT distinct codEvento from inserted)
+	set @lugaresUcupados = (SELECT COUNT(codParticipante) from [dbo].[EventoParticipantes] where codEvento = @codEvento)
+
+	 UPDATE [dbo].[Eventos] SET 
+		lugaresDisponibles = (limiteParticipantes - @lugaresUcupados)
+	where
+		codEvento = @codEvento		
+end
+go
