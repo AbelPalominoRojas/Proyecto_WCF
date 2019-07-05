@@ -30,5 +30,8 @@ namespace Sise.WcfService
 
         [OperationContract]
         List<Participante> buscarLista(Participante participante);
+
+        [OperationContract]
+        List<Participante> buscarListPorEvento(int codEvento);
     }
 }

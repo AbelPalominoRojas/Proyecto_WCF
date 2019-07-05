@@ -39,5 +39,10 @@ namespace Sise.Business
             return new ParticipanteRepository().buscarLista(participante);
         }
 
+        public List<Participante> buscarListPorEvento(int codEvento)
+        {
+            return new ParticipanteRepository().buscarListPorEvento(codEvento);
+        }
+
     }
 }

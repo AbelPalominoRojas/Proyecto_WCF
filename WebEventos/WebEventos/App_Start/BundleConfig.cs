@@ -26,6 +26,9 @@ namespace WebEventos.App_Start
             bundles.Add(new StyleBundle("~/assets/vendors/datetime/css").Include(
                 "~/assets/vendors/bootstrap4-datetimepicker/css/bootstrap-datetimepicker.min.css"));
 
+            bundles.Add(new StyleBundle("~/assets/vendors/toast/css").Include(
+                "~/assets/vendors/toast/css/jquery.toast.css"));
+
             bundles.Add(new StyleBundle("~/assets/sisce/css").Include(
                         "~/assets/css/sisce.css"));
 
@@ -47,6 +50,10 @@ namespace WebEventos.App_Start
                 "~/assets/vendors/bootstrap4-datetimepicker/js/moment.js",
                 "~/assets/vendors/bootstrap4-datetimepicker/js/bootstrap-datetimepicker.min.js",
                 "~/assets/js/siscedatetime.js"));
+
+            bundles.Add(new ScriptBundle("~/assets/vendors/toast/js").Include(
+                "~/assets/vendors/toast/js/jquery.toast.js",
+                "~/assets/vendors/toast/showtoast.js"));
         }
     }
 }

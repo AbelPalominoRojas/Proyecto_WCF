@@ -204,5 +204,21 @@ namespace Sise.WcfService
 
             return listParticipante;
         }
+
+        public List<Participante> buscarListPorEvento(int codEvento)
+        {
+            List<Participante> listParticipante = new List<Participante>();
+
+            try
+            {
+                listParticipante = new ParticipanteBll().buscarListPorEvento(codEvento);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return listParticipante;
+        }
     }
 }

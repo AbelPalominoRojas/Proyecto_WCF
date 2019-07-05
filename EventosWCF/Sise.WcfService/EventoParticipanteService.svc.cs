@@ -153,16 +153,7 @@ namespace Sise.WcfService
                 result.Message = "El campo CodParticipante es requerido.";
                 return result;
             }
-            if (eventoParticipante.FechaRegistro == null)
-            {
-                result.Message = "El campo FechaRegistro es requerido.";
-                return result;
-            }
-            if (eventoParticipante.ParticipanteAsistio == false)
-            {
-                result.Message = "El campo ParticipanteAsistio es requerido.";
-                return result;
-            }
+            
             if (eventoParticipante.CodUsuario== 0)
             {
                 result.Message = "El campo CodUsuario es requerido.";

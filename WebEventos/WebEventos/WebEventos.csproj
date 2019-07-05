@@ -2839,6 +2839,9 @@
     <Content Include="assets\vendors\bootstrap4-datetimepicker\css\bootstrap-datetimepicker.min.css" />
     <Content Include="assets\vendors\bootstrap4-datetimepicker\js\bootstrap-datetimepicker.min.js" />
     <Content Include="assets\vendors\bootstrap4-datetimepicker\js\moment.js" />
+    <Content Include="assets\vendors\toast\css\jquery.toast.css" />
+    <Content Include="assets\vendors\toast\js\jquery.toast.js" />
+    <Content Include="assets\vendors\toast\showtoast.js" />
     <Content Include="Global.asax" />
     <None Include="Service References\SRefAreaTematica\configuration91.svcinfo" />
     <None Include="Service References\SRefAreaTematica\configuration.svcinfo" />

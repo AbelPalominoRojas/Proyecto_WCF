@@ -182,6 +182,35 @@ namespace Sise.Repository
             return listParticipantes;
         }
 
+        public List<Participante> buscarListPorEvento(int codEvento)
+        {
+            List<Participante> listParticipantes = new List<Participante>();
+
+            sqlQuery = "dbo.USP_Participantes_SelectByIdEvento";
+
+            using (sqlConnection = new SqlConnection(nombreConexcion()))
+            {
+                using (sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
+                {
+                    sqlConnection.Open();
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                    sqlCommand.Parameters.AddWithValue("@codEvento", codEvento);
+
+                    using (sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.SingleResult))
+                    {
+
+                        while (sqlDataReader.Read())
+                        {
+                            listParticipantes.Add(setParticipante(sqlDataReader));
+                        }
+                    }
+                }
+            }
+
+            return listParticipantes;
+        }
+
 
         private Participante setParticipante(IDataReader sqlDataReader)
         {

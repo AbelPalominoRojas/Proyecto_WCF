@@ -427,6 +427,12 @@ namespace WebEventos.SRefParticipante {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IParticipanteService/buscarLista", ReplyAction="http://tempuri.org/IParticipanteService/buscarListaResponse")]
         System.Threading.Tasks.Task<WebEventos.SRefParticipante.Participante[]> buscarListaAsync(WebEventos.SRefParticipante.Participante participante);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IParticipanteService/buscarListPorEvento", ReplyAction="http://tempuri.org/IParticipanteService/buscarListPorEventoResponse")]
+        WebEventos.SRefParticipante.Participante[] buscarListPorEvento(int codEvento);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IParticipanteService/buscarListPorEvento", ReplyAction="http://tempuri.org/IParticipanteService/buscarListPorEventoResponse")]
+        System.Threading.Tasks.Task<WebEventos.SRefParticipante.Participante[]> buscarListPorEventoAsync(int codEvento);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -502,6 +508,14 @@ namespace WebEventos.SRefParticipante {
         
         public System.Threading.Tasks.Task<WebEventos.SRefParticipante.Participante[]> buscarListaAsync(WebEventos.SRefParticipante.Participante participante) {
             return base.Channel.buscarListaAsync(participante);
+        }
+        
+        public WebEventos.SRefParticipante.Participante[] buscarListPorEvento(int codEvento) {
+            return base.Channel.buscarListPorEvento(codEvento);
+        }
+        
+        public System.Threading.Tasks.Task<WebEventos.SRefParticipante.Participante[]> buscarListPorEventoAsync(int codEvento) {
+            return base.Channel.buscarListPorEventoAsync(codEvento);
         }
     }
 }

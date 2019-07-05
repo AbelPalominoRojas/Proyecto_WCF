@@ -4,7 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebEventos.Models;
+using WebEventos.SRefEvento;
 using WebEventos.SRefEventoParticipante;
+using WebEventos.SRefUsuario;
 using WebEventos.Util;
 
 namespace WebEventos.Controllers
@@ -12,6 +14,7 @@ namespace WebEventos.Controllers
     public class EventoParticipanteController : Controller
     {
         EventoParticipanteServiceClient evpClient = new EventoParticipanteServiceClient();
+        EventoServiceClient clientEv = new EventoServiceClient();
 
         // GET: EventoParticipante
         public ActionResult Index()
@@ -20,12 +23,13 @@ namespace WebEventos.Controllers
             {
                 return RedirectToAction("Auth", "Login");
             }
-            List<EventoParticipante> listEParticipante = new List<EventoParticipante>();
-            return View(listEParticipante);
+            //List<EventoParticipante> listEParticipante = new List<EventoParticipante>();
+            //return View(listEParticipante);
+            return View();
         }
 
 
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
             if (Session[Constantes.UsuarioSession] == null)
             {
@@ -33,13 +37,20 @@ namespace WebEventos.Controllers
             }
             try
             {
-                //EventoParticipanteModel eParticipante = new EventoParticipanteModel();
-                //eParticipante.Participante = new Participante();
-                //eParticipante.Evento = new Evento();
-                //eParticipante.Participantes = clientP.listar().ToList();
-                //eParticipante.Eventos = clientEv.listar().ToList();
 
-                return View(new EventoParticipante());
+                if (id == null)
+                {
+                    return RedirectToAction("Index");
+                }    
+
+                Evento evento = clientEv.buscar(id ?? 0);
+
+                if (evento == null)
+                {
+                    return RedirectToAction("Index");
+                }
+
+                return View(evento);
             }
             catch (Exception ex)
             {
@@ -58,6 +69,16 @@ namespace WebEventos.Controllers
 
             try
             {
+                EventoParticipante respuestaEventoParticipante = evpClient.buscar(eParticipante.CodEvento,eParticipante.CodParticipante); 
+
+                if(respuestaEventoParticipante != null)
+                {
+                    response.Message = "Participante ya se encuentra registrado en este Evento.";
+                    return Json(response, JsonRequestBehavior.AllowGet);
+                }
+
+                Usuario usLogeado = (Usuario)Session[Constantes.UsuarioSession];
+                eParticipante.CodUsuario = usLogeado.CodUsuario;
                 response = evpClient.registrar(eParticipante);
             }
             catch (Exception ex)
@@ -66,7 +87,7 @@ namespace WebEventos.Controllers
                 //throw;
             }
 
-            return Json(eParticipante,JsonRequestBehavior.AllowGet);
+            return Json(response, JsonRequestBehavior.AllowGet);
 
         }
     }

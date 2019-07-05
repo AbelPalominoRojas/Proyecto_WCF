@@ -44,6 +44,12 @@
   <wsdl:message name="IParticipanteService_buscarLista_OutputMessage">
     <wsdl:part name="parameters" element="tns:buscarListaResponse" />
   </wsdl:message>
+  <wsdl:message name="IParticipanteService_buscarListPorEvento_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarListPorEvento" />
+  </wsdl:message>
+  <wsdl:message name="IParticipanteService_buscarListPorEvento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarListPorEventoResponse" />
+  </wsdl:message>
   <wsdl:portType name="IParticipanteService">
     <wsdl:operation name="registrar">
       <wsdl:input wsaw:Action="http://tempuri.org/IParticipanteService/registrar" message="tns:IParticipanteService_registrar_InputMessage" />
@@ -68,6 +74,10 @@
     <wsdl:operation name="buscarLista">
       <wsdl:input wsaw:Action="http://tempuri.org/IParticipanteService/buscarLista" message="tns:IParticipanteService_buscarLista_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IParticipanteService/buscarListaResponse" message="tns:IParticipanteService_buscarLista_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarListPorEvento">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParticipanteService/buscarListPorEvento" message="tns:IParticipanteService_buscarListPorEvento_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParticipanteService/buscarListPorEventoResponse" message="tns:IParticipanteService_buscarListPorEvento_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IParticipanteService" type="tns:IParticipanteService">
@@ -119,6 +129,15 @@
     </wsdl:operation>
     <wsdl:operation name="buscarLista">
       <soap:operation soapAction="http://tempuri.org/IParticipanteService/buscarLista" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarListPorEvento">
+      <soap:operation soapAction="http://tempuri.org/IParticipanteService/buscarListPorEvento" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

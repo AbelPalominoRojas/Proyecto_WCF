@@ -177,8 +177,10 @@ namespace WebEventos.Controllers
             }
             try
             {
+                Usuario usLogeado = (Usuario)Session[Constantes.UsuarioSession];
+
                 evento.CodEvento = id;
-                evento.CodUsuario = 1;
+                evento.CodUsuario = usLogeado.CodUsuario;
                 SRefEvento.ServiceResponse response = clientEv.actualizar(evento);
 
                 if (response.IsSuccess)

@@ -162,3 +162,31 @@ where p.estado = 'A'
 	and p.dni like +'%'+ ISNULL(@dni,p.dni) +'%'
 order by p.codParticipante desc
 Go
+
+
+IF OBJECT_ID('dbo.USP_Participantes_SelectByIdEvento', 'P') IS NOT NULL
+   DROP PROCEDURE dbo.USP_Participantes_SelectByIdEvento
+Go
+CREATE PROCEDURE dbo.USP_Participantes_SelectByIdEvento
+@codEvento int
+as
+SELECT
+p.codParticipante,
+p.nombres,
+p.apellidos,
+p.dni,
+p.fechaNac,
+p.direccion,
+p.correo,
+p.telefono,
+p.distrito,
+p.codTipoParticipante,
+t.nombreTipoParticipante
+FROM [dbo].[Participantes] AS p
+INNER JOIN [dbo].[TipoParticipantes] AS t
+ON p.codTipoParticipante = t.codTipoParticipante
+INNER JOIN [dbo].[EventoParticipantes] AS ep
+ON p.codParticipante = ep.codParticipante
+where
+ep.codEvento = @codEvento
+Go

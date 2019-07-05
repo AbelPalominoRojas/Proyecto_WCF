@@ -220,5 +220,22 @@ namespace WebEventos.Controllers
 
             return Json(listParticipantes, JsonRequestBehavior.AllowGet);
         }
+
+        public JsonResult searhListPorEvento(int codEvento)
+        {
+            List<Participante> listParticipantes = new List<Participante>();
+
+            try
+            {
+                listParticipantes = clientP.buscarListPorEvento(codEvento).ToList();
+            }
+            catch (Exception ex)
+            {
+
+                // throw;
+            }
+
+            return Json(listParticipantes, JsonRequestBehavior.AllowGet);
+        }
     }
 }
