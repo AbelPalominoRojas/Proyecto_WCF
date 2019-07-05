@@ -133,4 +133,31 @@ where
 codParticipante = @codParticipante
 Go
 
- 
+IF OBJECT_ID('dbo.USP_Participantes_Search', 'P') IS NOT NULL
+	DROP PROCEDURE dbo.USP_Participantes_Search
+Go
+CREATE PROCEDURE dbo.USP_Participantes_Search
+@nombres nvarchar(60),
+@apellidos nvarchar(60),
+@dni varchar(8)
+as
+SELECT
+p.codParticipante,
+p.nombres,
+p.apellidos,
+p.dni,
+p.fechaNac,
+p.direccion,
+p.correo,
+p.telefono,
+p.distrito,
+p.codTipoParticipante,
+t.nombreTipoParticipante
+FROM [dbo].[Participantes] AS p
+INNER JOIN [dbo].[TipoParticipantes] AS t
+ON p.codTipoParticipante = t.codTipoParticipante
+where p.estado = 'A'
+	and (CASE WHEN @nombres = '' THEN  p.nombres ELSE @nombres END) like '%'+ @nombres +'%'
+	and (CASE WHEN @apellidos = '' THEN  p.apellidos ELSE @apellidos END) like '%'+ @apellidos +'%'
+	and (CASE WHEN @dni = '' THEN  p.dni ELSE @dni END) like '%'+ @dni +'%'
+Go

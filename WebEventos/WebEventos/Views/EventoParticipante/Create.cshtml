@@ -46,13 +46,6 @@
                     <div class="form-group col-sm-6 col-xl-4">
                         <label>Area Tematica </label>
                         <select class="form-control" id="ddlAreaTematica" name="CodAreaTematica">
-                            <option value="0">Seleccione</option>
-                            <option value="6">General</option>
-                            <option value="5">Negocios Internacionales</option>
-                            <option value="4">Ciencias Empresariales</option>
-                            <option value="3">Diseño Web</option>
-                            <option value="2">Redes y Seguridad Informatica</option>
-                            <option value="1">Software y Sistema</option>
                         </select>
                     </div>
                 </div>
@@ -100,9 +93,13 @@
             <div class="ibox-head">
                 <div class="ibox-title">Buscar Participante</div>
                 <div class="ibox-tools">
-                    <button class="btn btn-sm btn-primary">
+                    <button class="btn btn-sm btn-primary" id="btnBuscarParticipante">
                         <i class="fa fa-search" aria-hidden="true"></i>
                         Buscar
+                    </button>
+                    <button class="btn btn-sm btn-primary" id="btnLimpiarParticipante">
+                        <i class="fa fa-eraser" aria-hidden="true"></i>
+                        Limpiar
                     </button>
                     <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
                 </div>
@@ -124,7 +121,7 @@
                 </div>
 
                 <div class="table-responsive">
-                    <table class="table">
+                    <table class="table" id="tblParticipantes">
                         <tr>
                             <th></th>
                             <th>
@@ -211,7 +208,32 @@
                 el_tblEventos = $('#tblEventos'),
                 el_ddlAreaTematica = $('#ddlAreaTematica'),
                 el_dtpFechaDesde = $('#dtpFechaDesde'),
-                el_dtpFechaHasta = $('#dtpFechaHasta');
+                el_dtpFechaHasta = $('#dtpFechaHasta'),
+                el_btnBuscarParticipante = $('#btnBuscarParticipante'),
+                el_btnLimpiarParticipante = $('#btnLimpiarParticipante'),
+                el_tblParticipantes = $('#tblParticipantes');
+
+
+            $.ajax({
+                data: {},
+                type: "GET",
+                dataType: "json",
+                url: "@Url.Action("lista", "AreaTematica")",
+            })
+             .done(function (data, textStatus, jqXHR) {
+                 let itemsAreas = ``;
+
+                 itemsAreas += `<option value="0">Seleccione</option>`;
+                 $.each(data, function (index, value) {
+                     itemsAreas += `<option value="${value.CodAreaTematica}">${value.NombreAreaTematica}</option>`;
+                 });
+                 el_ddlAreaTematica.html(itemsAreas);
+                 //console.log(data);
+             })
+             .fail(function (jqXHR, textStatus, errorThrown) {
+                 console.log("La solicitud a fallado: " + textStatus);
+             });
+
 
 
             el_btnBuscarEvento.on('click', function () {
@@ -246,7 +268,7 @@
                                 <td>${value.LugarEvento}</td>
                             </tr>`;
                  });
-                 console.log(data);
+                 //console.log(data);
 
                  el_tblEventos.find('>tbody').html(rows);
              })

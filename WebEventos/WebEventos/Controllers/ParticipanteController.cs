@@ -203,5 +203,22 @@ namespace WebEventos.Controllers
                     select
                   new SelectListItem() { Value = tp.CodTipoParticipante.ToString(), Text = tp.NombreTipoParticipante });
         }
+
+        public JsonResult searhList(Participante participante)
+        {
+            List<Participante> listParticipantes = new List<Participante>();
+
+            try
+            {
+                listParticipantes = clientP.buscarLista(participante).ToList();
+            }
+            catch (Exception ex)
+            {
+
+                // throw;
+            }
+
+            return Json(listParticipantes, JsonRequestBehavior.AllowGet);
+        }
     }
 }
